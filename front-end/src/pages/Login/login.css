@@ -27,6 +27,17 @@
     font-size: 1.8rem;
 }
 
+.msg {
+    margin: 10px 0;
+    width: 100%;
+    background-color: #ef5858;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
 .login_form {
     width: 28rem;
     margin: 0 auto;

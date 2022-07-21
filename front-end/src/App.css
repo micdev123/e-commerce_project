@@ -129,17 +129,17 @@
 
 .navigation .menu_lists {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
-.menu_lists li a p:nth-child(1) {
+.menu_lists li p:nth-child(1) {
   font-size: 1.05rem;
   margin: 0;
   padding: 0;
   line-height: 1.2;
 }
 
-.menu_lists li a p:nth-child(2) {
+.menu_lists li p:nth-child(2) {
   font-size: 1.25rem;
   margin: 0;
   padding: 0;
@@ -155,6 +155,45 @@
 
 .navigation li:nth-child(2) {
   margin-left: 1rem;
+}
+
+.dropdown {
+  position: relative;
+}
+
+
+.dropdown_email {
+  display: flex;
+  align-items: flex-end;
+}
+
+.dropdown_email .icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 4rem;
+  background-color: white;
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: all .3s ease;
+  z-index: 100;
+}
+
+
+.dropdown_menu .link {
+  color: black;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown_menu .link .icon {
+  margin-right: 10px;
 }
 
 .cart {

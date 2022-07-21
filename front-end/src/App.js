@@ -2,6 +2,8 @@ import { BsShop } from 'react-icons/bs'
 import { FiShoppingCart, FiMenu } from 'react-icons/fi'
 import { MdClose } from 'react-icons/md'
 import { BiSearchAlt } from 'react-icons/bi'
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from 'react-router-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
@@ -10,13 +12,29 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Product from './pages/Product/Product';
 import Register from './pages/Register/Register';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Store } from './Store';
 
+import { MdArrowDropDown } from 'react-icons/md'
+import { MdSpaceDashboard } from 'react-icons/md'
+import { RiLogoutCircleLine } from 'react-icons/ri'
+
+
+
 function App() {
-    const { state } = useContext(Store);
-    const { cart } = state;
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { cart, userInfo } = state;
+
+    const [dropdown, setDropdown] = useState(false);
+
     // const user = false;
+    const signoutHandler = () => {
+        ctxDispatch({ type: 'USER_SIGNOUT' });
+        localStorage.removeItem('userInfo');
+        // localStorage.removeItem('shippingAddress');
+        // localStorage.removeItem('paymentMethod');
+        window.location.href = '/login';
+    };
     return (
         <div className="App">
         <Router>
@@ -34,11 +52,37 @@ function App() {
                     </div>
                     <nav className='navigation'>
                         <div className='menu_lists'>
-                            <li>
-                                <Link to='/'>
-                                    <p>Hello, Guest</p>
-                                    <p>Login</p>
-                                </Link>
+                                <li>
+                                    {userInfo ? (
+                                        <div className='dropdown'>
+                                            <p>Hello,</p>
+                                            <p className='dropdown_email'>
+                                                {userInfo.email}
+                                                <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
+                                            </p>
+                                            {dropdown && (
+                                                <div className='dropdown_menu'>
+                                                    <Link to='/' className='link'>
+                                                        <MdSpaceDashboard className='icon' />
+                                                        Dashboard
+                                                    </Link>
+                                                    <Link to='/' className='link' onClick={signoutHandler}>
+                                                        <RiLogoutCircleLine className='icon'/>
+                                                        Logout
+                                                    </Link>
+                                                </div>
+                                            )
+                                            }
+                                        </div>
+                                        ):
+                                        (
+                                            <Link to='/login'>
+                                                <p>Hello, Guest</p>
+                                                <p>Login</p>
+                                            </Link>
+                                        )
+                                    }
+                                   
                             </li>
                             <li>
                                 <Link to='/'>

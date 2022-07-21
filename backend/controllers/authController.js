@@ -33,7 +33,7 @@ const registerUser = asynHandler(async (req, res) => {
 const loginUser = asynHandler(async (req, res) => {
     try {
         // finding user in database
-        const user = await User.findOne({ username: req.body.username })
+        const user = await User.findOne({ email: req.body.email })
 
         // If user not found
         !user && res.status(401).json({message: "Wrong credentials"})

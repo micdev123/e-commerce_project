@@ -16,7 +16,7 @@ router.get('/', getProducts)
 
 
 // Create products
-router.post('/', createProduct)
+router.post('/', authorizedAdminToken, createProduct)
 
 // Update products :: takes in the id of the product to update
 router.put('/:id', authorizedAdminToken, updateProduct)

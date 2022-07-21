@@ -2,7 +2,7 @@ const User = require('../models/User')
 const asynHandler = require('express-async-handler');
 
 
-// getusers fnx :: GET method  :: Access
+// getuser fnx :: GET method  :: Access
 const getUser = asynHandler(async (req, res) => {
     try {
         // find user by id

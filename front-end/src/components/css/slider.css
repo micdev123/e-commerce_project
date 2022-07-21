@@ -19,7 +19,7 @@
 
 .arrow {
     position: absolute;
-    top: 0;
+    top: -6rem;
     bottom: 0;
     margin: auto;
     background-color: #e9e9e9;

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BsShop } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../Register/register.css';
 
 const Register = () => {
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
   return (
     <div>
       <div className='signup_container'>
@@ -25,7 +28,7 @@ const Register = () => {
           <button type='submit' id='signup'>Sign-Up</button>
           <p className='caution'>By creating an account you agree to E-commerce conditions of use and sale. </p>
           <button className='info'>
-            <Link to='/login' className='link'>
+            <Link to={`/login?redirect=${redirect}`} className='link'>
               Already have an account | <span>Login</span>
             </Link>
           </button>
