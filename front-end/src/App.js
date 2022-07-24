@@ -2,8 +2,6 @@ import { BsShop } from 'react-icons/bs'
 import { FiShoppingCart, FiMenu } from 'react-icons/fi'
 import { MdClose } from 'react-icons/md'
 import { BiSearchAlt } from 'react-icons/bi'
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { LinkContainer } from 'react-router-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
@@ -12,12 +10,19 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Product from './pages/Product/Product';
 import Register from './pages/Register/Register';
+import Shipping from './pages/Shipping/Shipping';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import Order from './pages/Order/Order';
+
 import { useContext, useState } from 'react';
 import { Store } from './Store';
 
 import { MdArrowDropDown } from 'react-icons/md'
 import { MdSpaceDashboard } from 'react-icons/md'
 import { RiLogoutCircleLine } from 'react-icons/ri'
+import OrderHistory from './pages/OrderHistory/OrderHistory';
+
+
 
 
 
@@ -31,14 +36,15 @@ function App() {
     const signoutHandler = () => {
         ctxDispatch({ type: 'USER_SIGNOUT' });
         localStorage.removeItem('userInfo');
-        // localStorage.removeItem('shippingAddress');
+        localStorage.removeItem('shippingAddress');
+        localStorage.removeItem('cartItems');
         // localStorage.removeItem('paymentMethod');
         window.location.href = '/login';
     };
     return (
         <div className="App">
         <Router>
-                <div className='container'>
+            <div className='container'>
                     <div className='wrapper'>
                     <div className='logo'>
                         <Link to='/'>
@@ -85,7 +91,7 @@ function App() {
                                    
                             </li>
                             <li>
-                                <Link to='/'>
+                                <Link to='/orderHistory'>
                                     <p>Return</p>
                                     <p>& Orders</p>
                                 </Link>
@@ -156,6 +162,10 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/shipping" element={<Shipping />} />
+                <Route path="/placeOrder" element={<PlaceOrder />} />
+                <Route path="/order/:id" element={<Order />} />
+                <Route path="/orderHistory" element={<OrderHistory />} />
             </Routes>
             </main>
         </Router>

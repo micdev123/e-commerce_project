@@ -1,0 +1,11 @@
+.orderHistory_container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.order_navigation {
+    background-color: aquamarine;
+    padding: 1rem;
+}

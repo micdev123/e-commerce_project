@@ -16,9 +16,9 @@ import { publicRequest } from '../../requestController';
 const CartContainer = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     align-items: flex-start;
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
 
     /* Tablet Devices :: Media Queries */
     @media screen and (min-width : 768px) and (max-width : 1024px) {
@@ -76,18 +76,15 @@ const Cart = () => {
                     </div>
                     )
                     : (
-                        <div>
-                            <div className='cart_head'>
-                                <h2>
-                                    <FiShoppingCart className='icon' />
-                                    Your Shopping Cart
-                                </h2>
-                                <button className='continue_shop'>
-                                    <Link to='/' className='link'>Continue Shopping</Link>
-                                </button>
-                            </div>
+                        <div className='_cart_main_container'>
                             <CartContainer>
                                 <div className='cart_container'>
+                                    <div className='cart_head'>
+                                        <h2>
+                                            <FiShoppingCart className='icon' />
+                                            Your Shopping Cart
+                                        </h2>
+                                    </div>
                                     <div className='cart_header'>
                                         <h2></h2>
                                         <h2>Product</h2>

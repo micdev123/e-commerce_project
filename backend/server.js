@@ -21,6 +21,10 @@ app.use(cors());
 app.use(express.json())  // bodyparse for raw json
 app.use(express.urlencoded({extended: false}))
 
+// Payment Routes
+app.get('/api/keys/paypal', (req, res) => {
+    res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+});
 
 // Auth Routes
 app.use('/api/auth', require('./routes/authRoutes'))
@@ -36,6 +40,7 @@ app.use('/api/carts', require('./routes/cartRoutes'))
 
 // Order Routes
 app.use('/api/orders', require('./routes/orderRoutes'))
+
 
 app.use(errorHandler)
 
