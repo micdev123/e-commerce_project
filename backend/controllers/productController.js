@@ -1,9 +1,8 @@
-const asynHandler = require('express-async-handler')
-const data = require('../data.js')
+const asyncHandler = require('express-async-handler')
 const Product = require('../models/Product')
 
 // Create product :: POST request : endpoint /api/products :: access public
-const createProduct = asynHandler(async (req, res) => {
+const createProduct = asyncHandler(async (req, res) => {
     // Get all properties
     const newProduct = new Product(req.body)
 
@@ -18,8 +17,21 @@ const createProduct = asynHandler(async (req, res) => {
 })
 
 
+// Search product
+const searchProduct = asyncHandler(async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.status(200).json(products)
+    } 
+    catch (error) {
+        res.status(500).json(error)
+    }
+    
+})
+
+
 // Get a single product :: GET request : endpoint /api/products :: access public
-const getProduct = asynHandler(async (req, res) => {
+const getProduct = asyncHandler(async (req, res) => {
     try {
         // find user by id
         const product = await Product.findById(req.params.id)
@@ -32,21 +44,11 @@ const getProduct = asynHandler(async (req, res) => {
 })
 
 // Get all products :: GET request : endpoint /api/products :: access public
-const getProducts = asynHandler(async (req, res) => {
+const getProducts = asyncHandler(async (req, res) => {
     // const queryByNew = req.query.new;
-    // const queryByCategory = req.query.category;
+    const queryByCategory = req.query.search;
 
     try {
-        // let products;
-        // if(queryByNew) {
-        //     products = await Product.find().sort({ createdAt: -1 }).limit(5);
-        // }
-        // else if(queryByCategory) {
-        //     products = await Product.find({ categories : { $in: [queryByCategory] } })
-        // }
-        // else {
-        //     products = await Product.find();
-        // }
         const products = await Product.find();
         
         res.status(200).json(products)
@@ -58,7 +60,7 @@ const getProducts = asynHandler(async (req, res) => {
 })
 
 // Update product :: PUT request : endpoint /api/products/:id :: access private :: Admin
-const updateProduct = asynHandler(async (req, res) => {
+const updateProduct = asyncHandler(async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(req.params.id, {
             $set: req.body,
@@ -75,7 +77,7 @@ const updateProduct = asynHandler(async (req, res) => {
 })
 
 // delete product :: DELETE request : endpoint /api/products/:id :: access private :: Admin
-const deleteProduct = asynHandler(async (req, res) => {
+const deleteProduct = asyncHandler(async (req, res) => {
     try {
         // find the user by id and delete it
         await Product.findByIdAndDelete(req.params.id);
@@ -90,6 +92,7 @@ const deleteProduct = asynHandler(async (req, res) => {
 // export product controllers
 module.exports = {
     getProduct,
+    searchProduct,
     getProducts,
     createProduct,
     updateProduct,

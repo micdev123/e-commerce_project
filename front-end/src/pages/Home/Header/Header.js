@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
       <Slider />
-      </div>
+    </div>
   )
 }
 

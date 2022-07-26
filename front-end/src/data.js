@@ -16,8 +16,8 @@ export const sliderContents = [
     },
     {
       id: 3,
-      img: "/assets/jbl_wireless_headphones.png",
-      title2: "The New JBL Wireless In-Ear-Headphones",
+      img: "/assets/p3.png",
+      title2: "The New Wireless In-Ear-Headphones",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus facere velit porro consequatur libero a. Placeat blanditiis magnam tempora veniam deleniti, neque aliquid architecto expedita.",
       price: 70.00
     },

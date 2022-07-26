@@ -72,7 +72,6 @@ const Order = () => {
     const navigate = useNavigate();
 
     const [msg, setmsg] = useState('');
-    const [convert, setConvert] = useState(0);
 
 
     const [{ loading, error, order, successPay, loadingPay, loadingDeliver, successDeliver }, dispatch] = useReducer(reducer, {
@@ -127,7 +126,7 @@ const Order = () => {
         const fetchOrder = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await userRequest.get(`/orders/find/${orderId}`, {
+                const { data } = await userRequest.get(`/orders/${orderId}`, {
                     headers: { token: `Bearer ${userInfo.accessToken}`},
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -282,8 +281,8 @@ const Order = () => {
                                     )}
                                     {loadingPay && <div>Loading..</div>}
                                 </div>
-                                )}
-                                {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                            )}
+                            {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                                 <div>
                                     {loadingDeliver && <div>Loading..</div>}
                                     <div className="d-grid">

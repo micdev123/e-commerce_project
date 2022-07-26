@@ -1,6 +1,6 @@
 const express = require('express')
 // Accessing controllers from controllers productController
-const { getProducts, createProduct, updateProduct, deleteProduct, getProduct, uploadProducts } = require('../controllers/productController')
+const { getProducts, createProduct, updateProduct, deleteProduct, getProduct, uploadProducts, searchProduct } = require('../controllers/productController')
 const { authorizedAdminToken, authorizedToken } = require('../middleware/authMiddleware')
 
 // Accessing express router fnx
@@ -8,12 +8,14 @@ const router = express.Router()
 
 // Creating a route
 
-// Get product
-router.get('/find/:id', getProduct);
-
 // Get all products
 router.get('/', getProducts)
 
+router.get('/search', searchProduct);
+
+
+// Get product
+router.get('/find/:id', getProduct);
 
 // Create products
 router.post('/', authorizedAdminToken, createProduct)

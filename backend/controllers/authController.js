@@ -1,4 +1,4 @@
-const asynHandler = require('express-async-handler')
+const asyncHandler = require('express-async-handler')
 const CryptoJS = require('crypto-js')
 const jwt = require('jsonwebtoken')
 
@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User');
 
 // Create User
-const registerUser = asynHandler(async (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -30,7 +30,7 @@ const registerUser = asynHandler(async (req, res) => {
 
 
 // Login User
-const loginUser = asynHandler(async (req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
     try {
         // finding user in database
         const user = await User.findOne({ email: req.body.email })

@@ -18,6 +18,53 @@ const createOrder = asyncHandler(async (req, res) => {
 })
 
 
+
+// Get all orders :: GET request : endpoint /api/orders :: access admin
+const getOrders = asyncHandler(async (req, res) => {
+    try {
+        const orders = await Order.find();
+        res.status(200).json(orders)
+    } 
+    catch (error) {
+        res.status(500).json(error)
+    }
+    
+})
+
+
+
+// Get a user orders :: GET request : endpoint /api/orders/find/userId :: access public
+const getMyOrders = asyncHandler(async (req, res) => {
+    try {
+        // find user by id
+        const orders = await Order.find({ userId: req.params.userId })
+
+        res.status(200).json(orders);
+    } 
+    catch (error) {
+        res.status(500).json(error)
+    }
+})
+
+
+
+const getOrder = asyncHandler(async (req, res) => {
+    try {
+        const order = await Order.findById(req.params.id);
+        if (order) {
+            res.send(order);
+        }
+        else {
+            res.status(404).json({ message: 'Order Not Found' });
+        }
+    } 
+    catch (error) {
+        res.status(500).json(error)
+    }
+})
+
+
+
 // Update order :: PUT request : endpoint /api/orders/:id :: access private :: Admin
 const updateOrder = asyncHandler(async (req, res) => {
     try {
@@ -47,49 +94,6 @@ const deleteOrder = asyncHandler(async (req, res) => {
     }
 })
 
-
-const getOrder = asyncHandler(async (req, res) => {
-    try {
-        const order = await Order.findById(req.params.id);
-        if (order) {
-            res.send(order);
-        }
-        else {
-            res.status(404).json({ message: 'Order Not Found' });
-        }
-    } 
-    catch (error) {
-        res.status(500).json(error)
-    }
-})
-
-
-// Get a user orders :: GET request : endpoint /api/orders/find/userId :: access public
-const getMyOrders = asyncHandler(async (req, res) => {
-    try {
-        // find user by id
-        const UserOrders = await Order.find({ userId: req.params.userId })
-
-        res.status(200).json(UserOrders);
-    } 
-    catch (error) {
-        res.status(500).json(error)
-    }
-})
-
-
-
-// Get all orders :: GET request : endpoint /api/orders :: access admin
-const getOrders = asyncHandler(async (req, res) => {
-    try {
-        const orders = await Order.find();
-        res.status(200).json(orders)
-    } 
-    catch (error) {
-        res.status(500).json(error)
-    }
-    
-})
 
 
 const payment = asyncHandler(async (req, res) => {
@@ -151,9 +155,9 @@ const getOrderStats = asyncHandler(async (req, res) => {
 
 // export order controllers
 module.exports = {
-    getOrder,
-    getMyOrders,
     getOrders,
+    getMyOrders,
+    getOrder,
     createOrder,
     updateOrder,
     deleteOrder,

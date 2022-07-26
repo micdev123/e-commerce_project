@@ -1,9 +1,10 @@
 const User = require('../models/User')
-const asynHandler = require('express-async-handler');
+const asyncHandler = require('express-async-handler');
+const CryptoJS = require('crypto-js')
 
 
-// getuser fnx :: GET method  :: Access
-const getUser = asynHandler(async (req, res) => {
+// getUser fnx :: GET method  :: Access
+const getUser = asyncHandler(async (req, res) => {
     try {
         // find user by id
         const user = await User.findById(req.params.id)
@@ -19,8 +20,8 @@ const getUser = asynHandler(async (req, res) => {
     }
 })
 
-// getusers fnx :: GET method  :: Access private :: Admin
-const getUsers = asynHandler(async (req, res) => {
+// getUsers fnx :: GET method  :: Access private :: Admin
+const getUsers = asyncHandler(async (req, res) => {
     const query = req.query.new;
     try {
         // get all user from database using the find
@@ -33,34 +34,45 @@ const getUsers = asynHandler(async (req, res) => {
 
 })
 
-// updateusers fnx :: PUT method  :: Access
-const updateUser = asynHandler(async (req, res) => {
-    // if password encrypt it
-    if (req.body.password) {
-        req.body.password = CryptoJS.AES.encrypt(
-            req.body.password,
-            process.env.PASS_SECRET
-        ).toString();
-    }
-
+// updateUsers fnx :: PUT method  :: Access
+const updateUser = asyncHandler(async (req, res) => {
     // If everything is correct go ahead and update user
     try {
-        const updatedUser = await User.findByIdAndUpdate(req.params.id, {
-            $set: req.body,
-        }, 
-        { new: true }
-        )
+        const user = await User.findById(req.params.id);
+        if (user) {
+            user.username = req.body.username || user.username;
+            user.email = req.body.email || user.email;
+            
+            if (req.body.password) {
+                req.body.password = CryptoJS.AES.encrypt(
+                    req.body.password,
+                    process.env.PASS_SECRET
+                ).toString();
+            }
 
+            const updatedUser = await user.save();
+
+            res.send({
+                _id: updatedUser._id,
+                username: updatedUser.username,
+                email: updatedUser.email,
+                isAdmin: updatedUser.isAdmin,
+                token: generateToken(updatedUser),
+            });
+        }
+        else {
+            res.status(404).send({ message: 'User not found' });
+        }
         // send updated user
-        res.status(200).json(updatedUser);
+        // res.status(200).json(updatedUser);
     } 
     catch (error) {
         res.status(500).json(error)
     }
 })
 
-// deleteusers fnx :: DELETE method  :: Access
-const deleteUser = asynHandler(async (req, res) => {
+// deleteUsers fnx :: DELETE method  :: Access
+const deleteUser = asyncHandler(async (req, res) => {
     try {
         // find the user by id and delete it
         await User.findByIdAndDelete(req.params.id);
@@ -72,7 +84,7 @@ const deleteUser = asynHandler(async (req, res) => {
 })
 
 // Get user stats
-const getUserStats = asynHandler(async (req, res) => {
+const getUserStats = asyncHandler(async (req, res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
 
