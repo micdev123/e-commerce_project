@@ -18,7 +18,7 @@ body {
 .main {
   position: relative;
   width: 100%;
-  margin: -20rem 0 2rem 0;
+  margin: -10rem 0 2rem 0;
   z-index: 100%;
 }
 
@@ -29,6 +29,20 @@ body {
   overflow: hidden;
   transition: all .3s ease;
 }
+
+
+.admin_container {
+  background-color: white;
+  margin-top: -2rem;
+}
+
+.admin_container .container_contents{
+  flex: 4;
+  height: 100%;
+}
+
+
+
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {

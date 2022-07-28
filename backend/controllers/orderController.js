@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const Order = require('../models/Order')
+const User = require('../models/User')
 
 
 // Create order :: POST request : endpoint /api/orders :: access public
@@ -121,20 +122,39 @@ const payment = asyncHandler(async (req, res) => {
 })
 
 
-// Get user stats
-const getOrderStats = asyncHandler(async (req, res) => {
+// Get summary stats
+const getSummary = asyncHandler(async (req, res) => {
     const date = new Date();
     const lastMonth = new Date(date.setMonth(date.getMonth() - 1));
     const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1));
 
     try {
         // Grouping data
+        const orders = await Order.aggregate([
+            {
+                $group: {
+                    _id: null,
+                    numOrders: { $sum: 1 },
+                    totalSales: { $sum: '$totalPrice' },
+                },
+            },
+        ]);
+        
+        const users = await User.aggregate([
+        {
+            $group: {
+            _id: null,
+            numUsers: { $sum: 1 },
+            },
+        },
+        ]);
+        
         const income = await Order.aggregate([
-            { $match: { createdAt: { $gte: previousMonth } } },
+            // { $match: { createdAt: { $gte: previousMonth } } },
             {$project: 
                 { 
                     month: { $month: "$createdAt" }, 
-                    sales: "$amount" 
+                    sales: "$totalPrice" 
                 }
             },
             { $group: 
@@ -142,15 +162,20 @@ const getOrderStats = asyncHandler(async (req, res) => {
                     _id: "$month", 
                     total: { $sum: "$sales" } 
                 } 
-            }
+            },
+            { $sort: { _id: 1 } },
         ])
 
-        res.status(200).json(income)
+        res.status(200).json({ users, orders, income })
     } 
     catch (error) {
         res.status(500).json(error)
     }
 })
+
+
+
+
 
 
 // export order controllers
@@ -162,5 +187,5 @@ module.exports = {
     updateOrder,
     deleteOrder,
     payment,
-    getOrderStats
+    getSummary
 }

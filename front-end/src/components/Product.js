@@ -28,10 +28,12 @@ const Product = ({ item }) => {
   return (
     <div className='product'>
       <Link to={`/product/${item._id}`} className='link'>
-        <img src={item.img} alt={item.title} />
+        <div className='_product-img'>
+          <img src={item.img} alt={item.title} />
+        </div>
         <div className='content_'>
             <h2 className='title'>
-              {item.title.length >= 19 ? `${item.title.substring(0, 17)}...` : item.title}
+              {item.title.length >= 20 ? `${item.title.substring(0, 20)}...` : item.title}
             </h2>
             <Rating name="half-rating-read" defaultValue={item.rating} precision={0.5} readOnly className='rating'/>
             <p className='price'>Le <span>{item.price}</span></p>

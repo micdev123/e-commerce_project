@@ -1,10 +1,10 @@
-.signin_container {
+.auth_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* width: 45vw; */
-    margin-top: 5.5rem;
+    margin: 2rem 0;
 }
 
 
@@ -19,12 +19,12 @@
 
 .logo__ h2 {
     margin-left: 5px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 550;
 }
 
 .logo__ .shop_icon {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .msg {
@@ -32,13 +32,13 @@
     width: 100%;
     background-color: #ef5858;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
     padding: 5px 0;
     border-radius: 5px;
 }
 
-.login_form {
+.auth_form {
     width: 28rem;
     margin: 0 auto;
     background-color: white;
@@ -49,54 +49,57 @@
     margin-top: 2rem;
 }
 
-.login_form h2 {
+.auth_form h2 {
     font-weight: 550;
     text-align: center;
-    font-size: 1.7rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
     color: #2a2a2a;
 }
 
-.login_form input {
+.auth_form input {
     width: 100%;
     margin-bottom: 1.5rem;
     padding: 10px 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: none;
     border-bottom: 1px solid #545353;
     outline: none;
 }
 
-.login_form #signin {
+.auth_form .auth_btn {
     background-color: #18273a;
-    padding: 9px 0;
+    padding: 8px 0;
     border: none;
     border-radius: 10px;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s ease-in;
     outline: none;
     margin: 0.5rem 0 0 0;
 }
 
-.login_form #signin:hover {
+.auth_form .auth_btn:hover {
     background-color: #030e21;
 }
 
 .caution {
     font-size: 1.05rem;
     color: #545353;
+    margin: 1rem 0;
 }
 
 .info {
     width: 100%;
     padding: 7px;
     font-size: 1rem;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     outline: none;
     cursor: pointer;
     border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 2.5px #b5b4b4;
 }
 
 .info .link {
@@ -111,7 +114,7 @@
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
-    .signin_container {
+    .auth_container {
         width: 85vw;
         margin: 3rem auto;
     }
@@ -128,12 +131,12 @@
         font-size: 1.6rem;
     }
 
-    #signin {
+    .auth_btn {
         padding: 13px 0;
         font-size: 1.7rem;
     }
 
-    .form .info {
+    .info {
         font-size: 1.7rem;
     }
 
@@ -142,7 +145,7 @@
 
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
-    .signin_container {
+    .auth_container {
         width: 80vw;
         margin: 3rem auto;
     }
@@ -159,12 +162,12 @@
         font-size: 1.4rem;
     }
 
-    #signin {
+    .auth_btn {
         padding: 10px 0;
         font-size: 1.4rem;
     }
 
-    .form .info {
+    .info {
         font-size: 1.4rem;
     }
     

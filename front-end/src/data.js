@@ -4,21 +4,21 @@ export const sliderContents = [
       id: 1,
       img: "/assets/beat_headset.png",
       title2: "The New Wireless Beats",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus facere velit porro consequatur libero a. Placeat blanditiis magnam tempora veniam deleniti, neque aliquid architecto expedita.",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, saepe? Rerum doloribus repellendus maiores, dolores minima sint ipsam illo, dolore mollitia vero quas est doloremque maxime reiciendis sit deserunt. Corrupti est a autem quia dolorem, quis tempora amet quidem voluptate veniam dicta. Distinctio, delectus harum.",
       price: 50.00
     },
     {
       id: 2,
       img: "/assets/oppA5s.png",
       title2: "The Experience Of A5s",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus facere velit porro consequatur libero a. Placeat blanditiis magnam tempora veniam deleniti, neque aliquid architecto expedita.",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, saepe? Rerum doloribus repellendus maiores, dolores minima sint ipsam illo, dolore mollitia vero quas est doloremque maxime reiciendis sit deserunt. Corrupti est a autem quia dolorem, quis tempora amet quidem voluptate veniam dicta. Distinctio, delectus harum.",
       price: 350.00
     },
     {
       id: 3,
       img: "/assets/p3.png",
       title2: "The New Wireless In-Ear-Headphones",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus facere velit porro consequatur libero a. Placeat blanditiis magnam tempora veniam deleniti, neque aliquid architecto expedita.",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, saepe? Rerum doloribus repellendus maiores, dolores minima sint ipsam illo, dolore mollitia vero quas est doloremque maxime reiciendis sit deserunt. Corrupti est a autem quia dolorem, quis tempora amet quidem voluptate veniam dicta. Distinctio, delectus harum.",
       price: 70.00
     },
 ];

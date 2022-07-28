@@ -1,5 +1,5 @@
 const express = require('express')
-const { getOrders, getOrder, createOrder, updateOrder, deleteOrder, getOrderStats, getMyOrders, payment } = require('../controllers/orderController')
+const { getOrders, getOrder, createOrder, updateOrder, deleteOrder, getMyOrders, payment, getSummary } = require('../controllers/orderController')
 
 const { authorizedToken, verifyToken, authorizedAdminToken } = require('../middleware/authMiddleware')
 
@@ -16,6 +16,9 @@ router.get('/', authorizedAdminToken, getOrders)
 // Create order
 router.post('/', authorizedToken, createOrder)
 
+
+router.get('/summary', authorizedAdminToken, getSummary)
+
 // Get all user orders
 router.get('/find/:userId', authorizedToken, getMyOrders)
 
@@ -31,8 +34,7 @@ router.delete('/:id', authorizedAdminToken, deleteOrder)
 
 router.put('/:id/pay', verifyToken, payment)
 
-// Get User Stats
-router.get('/income', authorizedAdminToken, getOrderStats)
+
 
 // export
 module.exports = router

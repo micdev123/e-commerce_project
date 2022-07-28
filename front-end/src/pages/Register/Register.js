@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { publicRequest } from '../../requestController';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
-import '../Register/register.css';
+import '../Login/auth.css';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ const Register = () => {
   }, [navigate, redirect, userInfo]);
   return (
     <div>
-      <div className='signup_container'>
+      <div className='auth_container'>
         <Helmet>
           <title>Register</title>     
         </Helmet>
@@ -61,7 +61,7 @@ const Register = () => {
           <h2>E-Commerce</h2>
         </Link>
         
-        <form className='signUp_form' onSubmit={submitHandler}>
+        <form className='auth_form' onSubmit={submitHandler}>
           {msg && (<p className='msg'>{msg}</p>)}
           <h2>Create An Account</h2>
           <input type='text' name='name' placeholder='Enter name' required onChange={(e) => setUsername(e.target.value)} />
@@ -71,7 +71,7 @@ const Register = () => {
             required onChange={(e) => setPassword(e.target.value)} />
           <input type='password' name='confirm_password' placeholder='confirm password'
             required onChange={(e) => setConfirmPassword(e.target.value)} />
-          <button type='submit' id='signup'>Sign-Up</button>
+          <button type='submit' id='signup' className='auth_btn'>Sign-Up</button>
           <p className='caution'>By creating an account you agree to E-commerce conditions of use and sale. </p>
           <button className='info'>
             <Link to={`/login?redirect=${redirect}`} className='link'>

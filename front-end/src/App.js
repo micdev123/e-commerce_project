@@ -26,7 +26,7 @@ import Profile from './pages/Profile/Profile';
 import SearchBox from './components/SearchBox';
 import Search from './pages/Search/Search';
 import ProtectedRoute from './components/ProtectedRoute';
-import Dashboard from './pages/Admin/Dashboard/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 import AdminRoute from './components/AdminRoute';
 
 

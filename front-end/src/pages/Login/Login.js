@@ -4,7 +4,7 @@ import { BsShop } from 'react-icons/bs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
-import '../Login/login.css';
+import '../Login/auth.css';
 import { getError } from '../../utils'
 
 const Login = () => {
@@ -44,7 +44,7 @@ const Login = () => {
     }, [navigate, redirect, userInfo])
     return (
         <div>
-            <div className='signin_container'>
+            <div className='auth_container'>
                 <Helmet>
                     <title>Login</title>     
                 </Helmet>
@@ -53,12 +53,12 @@ const Login = () => {
                     <h2>E-Commerce</h2>
                 </Link>
                
-                <form onSubmit={submitHandler} className='login_form'>
+                <form onSubmit={submitHandler} className='auth_form'>
                     {msg && (<p className='msg'>{msg}</p>)}
                     <h2 className='head'>Login To Your Account</h2>
                     <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} />
                     <input type='password' name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} />
-                    <button type='submit' id='signin'>Login</button>
+                    <button type='submit' id='signin' className='auth_btn'>Login</button>
                     <p className='caution'>By signing-in you agree to E-commerce conditions of use and sale. </p>
                     <button className='info'>
                         <Link to={`/register?redirect=${redirect}`} className='link'>
