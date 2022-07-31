@@ -33,7 +33,7 @@ const Profile = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const [msg, setmsg] = useState('');
+    const [msg, setMsg] = useState('');
 
     const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
         loadingUpdate: false,
@@ -42,7 +42,7 @@ const Profile = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await userRequest.put( `/users/${userInfo._id}`,
+            const { data } = await userRequest.put( `users/profile`,
                 {
                     username,
                     email,
@@ -59,7 +59,7 @@ const Profile = () => {
         }
         catch (err) {
             dispatch({ type: 'FETCH_FAIL',});
-            setmsg(getError(err));
+            setMsg(getError(err));
         }
     };
 
@@ -82,8 +82,7 @@ const Profile = () => {
                             required onChange={(e) => setEmail(e.target.value)} />
                         <input type='password' name='password' placeholder='Enter password'
                             required onChange={(e) => setPassword(e.target.value)} />
-                        <input type='password' name='confirm_password' placeholder='confirm password'
-                            required onChange={(e) => setConfirmPassword(e.target.value)} />
+                        <input type='password' name='confirm_password' placeholder='confirm password' required onChange={(e) => setConfirmPassword(e.target.value)} />
                         <button type='submit' id='update'>Update Profile</button>
                     </form>
                 </div>

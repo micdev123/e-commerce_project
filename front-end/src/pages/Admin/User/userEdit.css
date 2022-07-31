@@ -1,27 +1,25 @@
-.update_container {
+.UsersContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* width: 45vw; */
-    margin: 3rem 0;
+    /* margin: 3rem 0; */
 }
 
 
-.update_form {
-    width: 38rem;
+.edit_form {
+    width: 40rem;
     margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 0 2.5px #e4e4e4;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
 }
 
-.update_form h2 {
+.edit_form h2 {
     font-weight: 550;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
     color: #2a2a2a;
     display: flex;
@@ -29,11 +27,11 @@
     justify-content: center;
 }
 
-.update_form h2 .icon {
-    margin-right: 5px;
+.edit_form h2 .icon {
+    margin-right: 10px;
 }
 
-.update_form input {
+.edit_form input {
     margin-bottom: 1.5rem;
     padding: 10px 0;
     font-size: 1.1rem;
@@ -42,7 +40,15 @@
     outline: none;
 }
 
-.update_form #update {
+.isAdmin_ {
+    font-size: 1.1rem;
+}
+
+.isAdmin_ span {
+    margin-left: 10px;
+}
+
+.update {
     background-color: #18273a;
     padding: 7px 0;
     border: none;
@@ -54,14 +60,14 @@
     outline: none;
 }
 
-.update_form #update:hover {
+.update:hover {
     background-color: #030e21;
 }
 
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
-    .signup_container {
+    .edit_form {
         width: 85vw;
         margin: 3rem auto;
     }

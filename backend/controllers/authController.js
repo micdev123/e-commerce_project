@@ -19,8 +19,19 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Saving user in database
     try {
-        const savedUser =  await newUser.save()
-        res.status(200).json(savedUser)
+        const savedUser = await newUser.save();
+        const accessToken = jwt.sign(
+            {
+                id: savedUser._id,
+                isAdmin: savedUser.isAdmin,
+            },
+            process.env.JWT_SECRET,
+            {expiresIn: '3d'}
+        )
+
+        const { ...others } = savedUser._doc;
+
+        res.status(200).json({ ...others, accessToken })
     } 
     catch (error) {
         res.status(500).json(error)

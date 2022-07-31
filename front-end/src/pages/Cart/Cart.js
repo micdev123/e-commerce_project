@@ -16,7 +16,7 @@ import { publicRequest } from '../../requestController';
 const CartContainer = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 1rem;
+    gap: 5px;
     align-items: flex-start;
     margin-bottom: 0rem;
 
@@ -61,7 +61,7 @@ const Cart = () => {
     }
     return (
         <div>
-            <div className='main_container'>
+            <div className='main_container_'>
                 <Helmet>
                     <title>Cart</title>     
                 </Helmet>

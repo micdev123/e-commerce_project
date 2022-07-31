@@ -1,10 +1,12 @@
 import { Helmet } from 'react-helmet-async'
-import SideNav from '../../components/SideNav'
+import FeaturedInfo from '../../../components/FeaturedInfo';
+import SideNav from '../../../components/SideNav';
+import WidgetLg from '../../../components/WidgetLg';
+import WidgetSm from '../../../components/WidgetSm';
+
 
 import "../Dashboard/dashboard.css";
-import FeaturedInfo from '../../components/FeaturedInfo';
-import WidgetSm from '../../components/WidgetSm';
-import WidgetLg from '../../components/WidgetLg';
+
 
 
 

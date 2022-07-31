@@ -52,7 +52,7 @@ const Shipping = () => {
     }
     return (
         <div>
-            <div className='shipping_container'>
+            <div className='main_container_'>
                 <Helmet>
                     <title>Shipping & Payment Method</title>     
                 </Helmet>

@@ -36,9 +36,48 @@ const getUsers = asyncHandler(async (req, res) => {
 
 // updateUsers fnx :: PUT method  :: Access
 const updateUser = asyncHandler(async (req, res) => {
-    // If everything is correct go ahead and update user
     try {
         const user = await User.findById(req.params.id);
+        if (user) {
+            user.username = req.body.username || user.username;
+            user.email = req.body.email || user.email;
+            user.isAdmin = Boolean(req.body.isAdmin);
+
+            const updatedUser = await user.save();
+            res.send({ message: 'User Updated', user: updatedUser });
+        }
+        else {
+            res.status(404).send({ message: 'User Not Found' });
+        }
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
+})
+
+// deleteUsers fnx :: DELETE method  :: Access
+const deleteUser = asyncHandler(async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (user) {
+            if (user.isAdmin === true) {
+                res.status(400).send({ message: "Can't delete Admin User" });
+                return;
+            }
+            await user.remove();
+            res.send({ message: 'User Deleted' });
+        } else {
+            res.status(404).send({ message: 'User Not Found' });
+        }
+    } 
+    catch (error) {
+        res.status(500).json(error)
+    }
+})
+
+const updateProfile = asyncHandler(async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
         if (user) {
             user.username = req.body.username || user.username;
             user.email = req.body.email || user.email;
@@ -52,13 +91,18 @@ const updateUser = asyncHandler(async (req, res) => {
 
             const updatedUser = await user.save();
 
-            res.send({
-                _id: updatedUser._id,
-                username: updatedUser.username,
-                email: updatedUser.email,
-                isAdmin: updatedUser.isAdmin,
-                token: generateToken(updatedUser),
-            });
+            const accessToken = jwt.sign(
+                {
+                    id: savedUser._id,
+                    isAdmin: savedUser.isAdmin,
+                },
+                process.env.JWT_SECRET,
+                {expiresIn: '3d'}
+            )
+
+            const { ...others } = updatedUser._doc;
+
+            res.send({...others, token: accessToken,});
         }
         else {
             res.status(404).send({ message: 'User not found' });
@@ -70,43 +114,11 @@ const updateUser = asyncHandler(async (req, res) => {
         res.status(500).json(error)
     }
 })
-
-// deleteUsers fnx :: DELETE method  :: Access
-const deleteUser = asyncHandler(async (req, res) => {
-    try {
-        // find the user by id and delete it
-        await User.findByIdAndDelete(req.params.id);
-        res.status(200).json({message: `User: ${req.params.id} deleted`})
-    } 
-    catch (error) {
-        res.status(500).json(error)
-    }
-})
-
-// Get user stats
-// const getUserStats = asyncHandler(async (req, res) => {
-//     const date = new Date();
-//     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
-
-//     try {
-//         // Grouping data
-//         const data = await User.aggregate([
-//             { $match: { createdAt: { $gte: lastYear } } },
-//             {$project: { month: { $month: "$createdAt" } }},
-//             { $group: { _id: "$month", total: { $sum: 1 } } }
-//         ])
-
-//         res.status(200).json(data)
-//     } 
-//     catch (error) {
-//         res.status(500).json(error)
-//     }
-// })
-
 module.exports = {
     getUser,
     getUsers,
     updateUser,
+    updateProfile,
     deleteUser,
     // getUserStats
 }

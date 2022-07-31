@@ -1,0 +1,58 @@
+.Orders_container {
+    width: 100%;
+    padding: 2rem 3.5rem 3rem 3.5rem;
+    background-color: white;
+    min-height: 98vh;
+}
+
+
+.orderHistory {
+    width: 100%;
+    height: 100%;
+}
+
+.Orders_container h2 {
+    font-weight: 550;
+    font-size: 1.3rem;
+    /* margin-bottom: 1rem; */
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.Orders_container h2 .icon {
+    margin-right: 5px;
+}
+
+.orderHead, .history .order_ {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    font-weight: 550;
+    gap: 2rem;
+}
+
+.history .order_ {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-top: 5px;
+}
+
+.history .order_:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.history .order_ p {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.view {
+    margin-left: 20px;
+    cursor: pointer;
+}

@@ -1,7 +1,7 @@
-import { PermIdentity, Timeline } from "@material-ui/icons";
+import { Timeline, AttachMoney } from "@material-ui/icons";
 import { useContext, useEffect, useMemo, useReducer, useState } from "react";
 import { SiEventstore } from 'react-icons/si';
-import { GiMoneyStack } from 'react-icons/gi';
+import { AiOutlineDropbox } from 'react-icons/ai';
 
 
 import { Store } from "../Store";
@@ -10,6 +10,7 @@ import { getError } from "../utils";
 import './css/featuredInfo.css';
 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, YAxis, } from "recharts";
+import { HiUsers } from "react-icons/hi";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -64,43 +65,57 @@ export default function FeaturedInfo() {
         };
         getSummary();
     }, [userInfo, MONTHS]);
-    // console.log(summary);
+
+    console.log(summary);
+    
     return (
         loading ? (<p>Loading</p>) : error ? (<p className="danger">{error}</p>) : (
             <>
                 <div className="featured">
                     <div className="featuredItem">
                         <span className="featuredTitle">
-                            <GiMoneyStack />
+                            <AttachMoney className="icon" />
                             Revenue
                         </span>
                         <div className="featuredMoneyContainer">
                             <span className="featuredMoney">
-                                Le {summary.orders && summary.users[0] ? summary.orders[0].totalSales.toFixed(2) : 0}
+                                Le {summary.orders.length === 0 ? 0 : summary.orders[0].totalSales.toFixed(2)}
                             </span>
                         </div>
                         <span className="featuredSub">Compared to last month</span>
                     </div>
                     <div className="featuredItem">
                         <span className="featuredTitle">
-                            <SiEventstore />
+                            <SiEventstore className="icon_" />
                             Orders
                         </span>
                         <div className="featuredMoneyContainer">
                             <span className="featuredMoney">
-                            {summary.orders && summary.users[0] ? summary.orders[0].numOrders : 0}
+                            {summary.orders.length === 0 ? 0 : summary.orders[0].numOrders}
                             </span>
                         </div>
                         <span className="featuredSub">Compared to last month</span>
                     </div>
                     <div className="featuredItem">
                         <span className="featuredTitle">
-                            <PermIdentity />
+                            <HiUsers className="icon" />
                             User
                         </span>
                         <div className="featuredMoneyContainer">
                             <span className="featuredMoney">
-                            {summary.users && summary.users[0] ? summary.users[0].numUsers : 0}
+                            {summary.users.length === 0 ? 0 : summary.users[0].numUsers}
+                            </span>
+                        </div>
+                        <span className="featuredSub">Compared to last month</span>
+                    </div>
+                    <div className="featuredItem">
+                        <span className="featuredTitle">
+                            <AiOutlineDropbox className="icon" />
+                            Products
+                        </span>
+                        <div className="featuredMoneyContainer">
+                            <span className="featuredMoney">
+                            {summary.products.length === 0 ? 0 : summary.products[0].numProducts}
                             </span>
                         </div>
                         <span className="featuredSub">Compared to last month</span>
@@ -109,7 +124,7 @@ export default function FeaturedInfo() {
                 
                 <div className="chart">
                     <h3 className="chartTitle">
-                        <Timeline />
+                        <Timeline className="icon" />
                         Order Analytics
                     </h3>
                     <ResponsiveContainer width="100%" aspect={4 / 1}>

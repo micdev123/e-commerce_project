@@ -138,7 +138,7 @@
 .dropdown_menu {
   position: absolute;
   top: 3rem;
-  background-color: white;
+  background-color: #fbfbfb;
   width: 10rem;
   display: flex;
   flex-direction: column;
@@ -179,9 +179,9 @@
   font-size: 0.9rem;
   position: absolute;
   top: -15px;
-  right: 3px;
+  right: 4px;
   font-weight: 550;
-  color: #9a930d;
+  color: #a0e36eed;
  
 }
 
@@ -193,7 +193,7 @@
 }
 
 .cart .cart_price {
-  color: #c1e9a3ed;
+  color: #a0e36eed;
   font-weight: 550;
   font-size: 1.1rem;
 }

@@ -36,7 +36,7 @@ export default function WidgetLg() {
     useEffect(() => {
         const getOrders = async () => {
             try {
-                const { data } = await userRequest.get('orders', {
+                const { data } = await userRequest.get('orders/limit5/?new=true', {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -57,26 +57,40 @@ export default function WidgetLg() {
         loading ? ( <p>Loading</p> ) : error ? ( <p className="danger">{error}</p>) : (
             <div className="widgetLg">
                 <h3 className="widgetLgTitle">Latest transactions</h3>
-                <table className="widgetLgTable">
-                    <tr className="widgetLgTr">
-                    <th className="widgetLgTh">Customer</th>
-                    <th className="widgetLgTh">Date</th>
-                    <th className="widgetLgTh">Amount</th>
-                    <th className="widgetLgTh">Status</th>
-                    </tr>
+                <div className="widgetLgTable">
+                    <div className="widgetLgTr head">
+                        <p className="widgetLgTh">Customer</p>
+                        <p className="widgetLgTh">Date</p>
+                        <p className="widgetLgTh">Amount</p>
+                        <p className="widgetLgTh">Paid</p>
+                        <p className="widgetLgTh">Delivered</p>
+                    </div>
                     {orders.map((order) => (
-                    <tr className="widgetLgTr" key={order._id}>
-                        <td className="widgetLgUser">
-                            <span className="widgetLgName">{order.userId}</span>
-                        </td>
-                        <td className="widgetLgDate">{format(order.createdAt)}</td>
-                        <td className="widgetLgAmount">${order.totalPrice}</td>
-                        <td className="widgetLgStatus">
-                        
-                        </td>
-                    </tr>
+                    <div className="widgetLgTr t_row" key={order._id}>
+                        <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 7)}...` : order.userId}</p>
+                        <p className="widgetLgDate td">{format(order.createdAt).length >= 5 ? `${format(order.createdAt).substring(0, 10)}... `: format(order.createdAt)}</p>
+                        <p className="widgetLgAmount td">Le {order.totalPrice}</p>
+                        {order.isPaid ? (
+                            <p className="success_ td">
+                                Paid at {order.paidAt.substring(0, 10)}
+                            </p>
+                            ) : (
+                                <p className="danger_ td">Not Paid</p>
+                            )
+                        }
+                        {order.isDelivered ? (
+                                <p className="success_ td">
+                                    Delivered at {order.deliveredAt.substring(0, 10)}
+                                </p>
+                            ) : order.isPaid ? (
+                                <p className="_pending_ td">Pending</p>
+                            ) : (
+                                <p className="danger_ td">Not Yet</p>
+                            )
+                        }
+                    </div>
                     ))}
-                </table>
+                </div>
                 {/* <Button type={order.status} /> */}
             </div>
         )

@@ -82,7 +82,7 @@ const Product = () => {
     
     return (
         <div>
-            <div className='main_container'>
+            <div className='main_container_'>
                 {isLoading ? (<div>Loading..</div>) : error ? (<div>{error}</div>) : (
                     <div className='product_container'>
                         <Helmet>

@@ -45,7 +45,7 @@ const Product = ({ item }) => {
         (
           <button className='buy' onClick={addToCartHandler} >Add To Cart</button>
         )
-    }
+      }
       
         
     </div>

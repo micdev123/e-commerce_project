@@ -1,43 +1,46 @@
 .widgetSm {
-    flex: 1;
-    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 2px 14px 9px rgba(247, 247, 247, 0.61);
+    -moz-box-shadow: 1px 2px 14px 9px rgba(247, 247, 247, 0.61);
+    box-shadow: 1px 2px 14px 9px rgba(247, 247, 247, 0.61);
     padding: 20px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .widgetSmTitle {
-    font-size: 22px;
-    font-weight: 600;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 550;
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 10px;
 }
 
 .widgetSmImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 20px;
+    height: 20px;
+    font-weight: normal;
 }
 
 .widgetSmList {
-    margin: 0;
+    margin: 10px 0 0 0;
     padding: 0;
     list-style: none;
 }
 
 .widgetSmListItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: 2rem 2fr 1rem;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: normal;
 }
 
-.widgetSmUser {
-    display: flex;
-    flex-direction: column;
-}
+/* .widgetSmUser {
+    background-color: red;
+} */
 
 .widgetSmUsername {
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .widgetSmUserTitle {
@@ -45,13 +48,7 @@
 }
 
 .widgetSmButton {
-    display: flex;
-    align-items: center;
-    border: none;
-    border-radius: 10px;
-    padding: 7px 10px;
-    background-color: #eeeef7;
-    color: #555;
+    color: #262626;
     cursor: pointer;
 }
 

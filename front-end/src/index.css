@@ -7,7 +7,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* background-color: #fffffff6; */
-  background-color: #f3f3f3f6;
+  background-color: #fdfdfd;
   position: relative;
 }
 
@@ -18,8 +18,10 @@ body {
 .main {
   position: relative;
   width: 100%;
-  margin: -10rem 0 2rem 0;
+  margin: -15rem 0 2rem 0;
   z-index: 100%;
+  border: none;
+  outline: none;
 }
 
 .main_container {
@@ -30,15 +32,22 @@ body {
   transition: all .3s ease;
 }
 
+.main_container_ {
+  width: 98vw;
+  margin: 5px auto;
+  background-color: #fefefe;
+}
+
 
 .admin_container {
   background-color: white;
-  margin-top: -2rem;
+  margin-top: 5px;
 }
 
 .admin_container .container_contents{
-  flex: 4;
+  flex: 3.8;
   height: 100%;
+  padding: 1rem 2rem 1rem 0;
 }
 
 

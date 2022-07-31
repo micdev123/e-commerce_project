@@ -1,0 +1,6 @@
+.homeWidgets {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 5px;
+    padding: 0 1rem 0 0.9rem;
+}

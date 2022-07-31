@@ -1,0 +1,25 @@
+
+.product_create_form {
+    width: 40rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.product_create_form h2 {
+    font-weight: 550;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.product_create_form input {
+    margin-bottom: 1.5rem;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-bottom: 1px solid #545353;
+    outline: none;
+    /* padding-left: 10px; */
+}
+

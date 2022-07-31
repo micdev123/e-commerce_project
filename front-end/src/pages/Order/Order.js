@@ -27,41 +27,22 @@ function reducer(state, action) {
           return { ...state, loadingPay: false };
         case 'PAY_RESET':
           return { ...state, loadingPay: false, successPay: false };
-        // case 'DELIVER_REQUEST':
-        //   return { ...state, loadingDeliver: true };
-        // case 'DELIVER_SUCCESS':
-        //   return { ...state, loadingDeliver: false, successDeliver: true };
-        // case 'DELIVER_FAIL':
-        //   return { ...state, loadingDeliver: false };
-        // case 'DELIVER_RESET':
-        //   return {
-        //     ...state,
-        //     loadingDeliver: false,
-        //     successDeliver: false,
-        //   };
+        case 'DELIVER_REQUEST':
+          return { ...state, loadingDeliver: true };
+        case 'DELIVER_SUCCESS':
+          return { ...state, loadingDeliver: false, successDeliver: true };
+        case 'DELIVER_FAIL':
+          return { ...state, loadingDeliver: false };
+        case 'DELIVER_RESET':
+          return {
+            ...state,
+            loadingDeliver: false,
+            successDeliver: false,
+          };
         default:
         return state;
     }
 }
-
-
-const ReviewOrderContainer = styled.div`
-    display: grid;
-    grid-template-columns: 2fr 1.2fr;
-    gap: 1rem;
-    align-items: flex-start;
-    margin: 2rem 0;
-
-    /* Tablet Devices :: Media Queries */
-    @media screen and (min-width : 768px) and (max-width : 1024px) {
-        grid-template-columns: 1fr;
-    }
-
-    /* Mobile Devices :: Media Queries */
-    @media screen and (min-width : 320px) and (max-width : 480px) {
-        grid-template-columns: 1fr;
-    }
-`
 
 const Order = () => {
     const { state } = useContext(Store);
@@ -71,7 +52,7 @@ const Order = () => {
     const { id: orderId } = params;
     const navigate = useNavigate();
 
-    const [msg, setmsg] = useState('');
+    const [msg, setMsg] = useState('');
 
 
     const [{ loading, error, order, successPay, loadingPay, loadingDeliver, successDeliver }, dispatch] = useReducer(reducer, {
@@ -112,13 +93,13 @@ const Order = () => {
             }
             catch (err) {
                 dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-                setmsg(getError(err));
+                setMsg(getError(err));
             }
         });
     }
 
     function onError(err) {
-        setmsg(getError(err));
+        setMsg(getError(err));
     }
 
 
@@ -170,7 +151,7 @@ const Order = () => {
     async function deliverOrderHandler() {
         try {
             dispatch({ type: 'DELIVER_REQUEST' });
-            const { data } = await userRequest.put(`/orders/${order._id}/deliver`,
+            const { data } = await userRequest.put(`orders/${order._id}/deliver`,
                 {},
                 {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
@@ -180,25 +161,25 @@ const Order = () => {
             toast.success('Order is delivered');
         }
         catch (err) {
-            setmsg(getError(err));
+            setMsg(getError(err));
             dispatch({ type: 'DELIVER_FAIL' });
         }
     }
     
     return (
-        loading ? (<div>Loading..</div>) :
+        loading ? (<div>Loading..</div>) : error ? (<div className="danger">{error}</div>) :
         (
             <div>
-                <div className='main_container'>
+                <div className='main_container_'>
                     <Helmet>
                         <title>Order {orderId}</title>     
                     </Helmet>
                     {msg && (<p className='msg'>{msg}</p>)}
-                    <ReviewOrderContainer>
+                    <div className='order_container'>
                         <div className='order_info'>
                             <div className='shipping_details'>
-                                <h2 className='orderId'>OrderId: {orderId}</h2>
-                                <div className='head_'>
+                                <p className='order__Id'>OrderId: {orderId}</p>
+                                <div className='head'>
                                     <h2>Shipping Address</h2>
                                 </div>
                                 <p><span>Name:</span>{order.shippingAddress.fullname}</p>
@@ -206,7 +187,7 @@ const Order = () => {
                                 <p><span>Tell:</span>{order.shippingAddress.phone_number}</p>
                                 <p><span>Address:</span>{order.shippingAddress.address}</p>
                                 {order.isDelivered ? (
-                                    <p className="success">
+                                    <p className="success_">
                                         Delivered at {order.deliveredAt}
                                     </p>
                                 ) : (
@@ -244,21 +225,21 @@ const Order = () => {
                             </div>
                         </div>
 
-                        <div className='placeOrder_action'>
+                        <div className='Order_action orderAction_container'>
                             <h2>Order Summary</h2>
-                            <div className='info'>
+                            <div className='info_'>
                                 <p>Products In Cart</p>
                                 <p>{order.orderItems.length} Items</p>
                             </div>
-                            <div className='info'>
+                            <div className='info_'>
                                 <p>Cart Subtotal</p>
                                 <p>Le {order.itemsPrice.toFixed(2)}</p>
                             </div>
-                            <div className='info'>
+                            <div className='info_'>
                                 <p>Shipping</p>
                                 <p>Le {order.shippingPrice.toFixed(2)}</p>
                             </div>
-                            <div className='info'>
+                            <div className='info_'>
                                 <p>Tax</p>
                                 <p>Le {order.taxPrice.toFixed(2)}</p>
                             </div>
@@ -286,7 +267,7 @@ const Order = () => {
                                 <div>
                                     {loadingDeliver && <div>Loading..</div>}
                                     <div className="d-grid">
-                                    <button type="button" onClick={deliverOrderHandler}>
+                                    <button type="button" className='Order_action_btn' onClick={deliverOrderHandler}>
                                         Deliver Order
                                     </button>
                                     </div>
@@ -294,7 +275,7 @@ const Order = () => {
                             )}
                             
                         </div>
-                    </ReviewOrderContainer>
+                    </div>
                     
                 </div>
                 <Footer />

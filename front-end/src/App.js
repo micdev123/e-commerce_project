@@ -21,14 +21,19 @@ import { MdArrowDropDown } from 'react-icons/md'
 import { ImProfile } from 'react-icons/im'
 import { MdSpaceDashboard } from 'react-icons/md'
 import { RiLogoutCircleLine } from 'react-icons/ri'
-import OrderHistory from './pages/OrderHistory/OrderHistory';
 import Profile from './pages/Profile/Profile';
 import SearchBox from './components/SearchBox';
 import Search from './pages/Search/Search';
 import ProtectedRoute from './components/ProtectedRoute';
-import Dashboard from './pages/Dashboard/Dashboard';
 import AdminRoute from './components/AdminRoute';
-
+import Orders from './pages/OrderHistories/Orders';
+import Dashboard from './pages/Admin/Dashboard/Dashboard';
+import UserList from './pages/Admin/Users/UserList';
+import UserEdit from './pages/Admin/User/UserEdit';
+import OrderList from './pages/Admin/Orders/OrderList';
+import ProductList from './pages/Admin/Products/ProductList';
+import ProductEdit from './pages/Admin/Product/ProductEdit';
+import NewProduct from './pages/Admin/NewProduct/NewProduct';
 
 
 
@@ -61,58 +66,62 @@ function App() {
                         <SearchBox />
                         <nav className='navigation'>
                             <div className='menu_lists'>
-                                    <li>
-                                        {userInfo && !userInfo.isAdmin ? (
-                                            <div className='dropdown'>
-                                                <p>Hello,</p>
-                                                <p className='dropdown_email'>
-                                                    {userInfo.email}
-                                                    <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
-                                                </p>
-                                                {dropdown && (
-                                                    <div className='dropdown_menu'>
-                                                        <Link to='/profile' className='link'>
-                                                            <ImProfile className='icon' />
-                                                            Profile
-                                                        </Link>
-                                                        <Link to='/' className='link' onClick={signoutHandler}>
-                                                            <RiLogoutCircleLine className='icon'/>
-                                                            Logout
-                                                        </Link>
-                                                    </div>
-                                                )
-                                                }
-                                            </div>
-                                        )
-                                        : userInfo && userInfo.isAdmin ? (
-                                            <div className='dropdown'>
-                                                <p>Hello,</p>
-                                                <p className='dropdown_email'>
-                                                    {userInfo.email}
-                                                    <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
-                                                </p>
-                                                {dropdown && (
-                                                    <div className='dropdown_menu'>
-                                                        <Link to='/admin/dashboard' className='link'>
-                                                            <MdSpaceDashboard className='icon' />
-                                                            Dashboard
-                                                        </Link>
-                                                        <Link to='/' className='link' onClick={signoutHandler}>
-                                                            <RiLogoutCircleLine className='icon'/>
-                                                            Logout
-                                                        </Link>
-                                                    </div>
-                                                )
-                                                }
-                                            </div>
-                                        ):
-                                        (
-                                            <Link to='/login'>
-                                                <p>Hello, Guest</p>
-                                                <p>Login</p>
-                                            </Link>
-                                        )
-                                        }
+                                <li>
+                                    {userInfo && !userInfo.isAdmin ? (
+                                        <div className='dropdown'>
+                                            <p>Hello,</p>
+                                            <p className='dropdown_email'>
+                                                {userInfo.email}
+                                                <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
+                                            </p>
+                                            {dropdown && (
+                                                <div className='dropdown_menu'>
+                                                    <Link to='/profile' className='link'>
+                                                        <ImProfile className='icon' />
+                                                        Profile
+                                                    </Link>
+                                                    <Link to='/' className='link' onClick={signoutHandler}>
+                                                        <RiLogoutCircleLine className='icon'/>
+                                                        Logout
+                                                    </Link>
+                                                </div>
+                                            )
+                                            }
+                                        </div>
+                                    )
+                                    : userInfo && userInfo.isAdmin ? (
+                                        <div className='dropdown'>
+                                            <p>Hello,</p>
+                                            <p className='dropdown_email'>
+                                                {userInfo.email}
+                                                <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
+                                            </p>
+                                            {dropdown && (
+                                                <div className='dropdown_menu'>
+                                                    <Link to='/profile' className='link'>
+                                                        <ImProfile className='icon' />
+                                                        Profile
+                                                    </Link>
+                                                    <Link to='/admin/dashboard' className='link'>
+                                                        <MdSpaceDashboard className='icon' />
+                                                        Dashboard
+                                                    </Link>
+                                                    <Link to='/' className='link' onClick={signoutHandler}>
+                                                        <RiLogoutCircleLine className='icon'/>
+                                                        Logout
+                                                    </Link>
+                                                </div>
+                                            )
+                                            }
+                                        </div>
+                                    ):
+                                    (
+                                        <Link to='/login'>
+                                            <p>Hello, Guest</p>
+                                            <p>Login</p>
+                                        </Link>
+                                    )
+                                    }
                                     
                                 </li>
                                 <li>
@@ -200,7 +209,7 @@ function App() {
                         <Route path="/orderHistory"
                             element={
                                 <ProtectedRoute>
-                                    <OrderHistory />
+                                    <Orders />
                                 </ProtectedRoute>
                             }
                         />
@@ -215,6 +224,48 @@ function App() {
                             element={ 
                                 <AdminRoute>
                                     <Dashboard />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route path="/admin/users"
+                            element={ 
+                                <AdminRoute>
+                                    <UserList />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route path="/admin/user/:id"
+                            element={
+                                <AdminRoute>
+                                    <UserEdit />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route path="/admin/products"
+                            element={ 
+                                <AdminRoute>
+                                    <ProductList />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route path="/admin/product/:id"
+                            element={ 
+                                <AdminRoute>
+                                    <ProductEdit />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route path="/admin/newProduct/"
+                            element={ 
+                                <AdminRoute>
+                                    <NewProduct />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route path="/admin/orders"
+                            element={ 
+                                <AdminRoute>
+                                    <OrderList />
                                 </AdminRoute>
                             }
                         />

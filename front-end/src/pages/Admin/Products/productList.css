@@ -1,0 +1,108 @@
+.ProductContainer {
+    padding: 2rem 2rem 2rem 3rem;
+    position: relative;
+}
+
+.ProductContainer .Head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+
+.Head h2 {
+    display: flex;
+    align-items: center;
+    font-weight: 550;
+    font-size: 1.5rem;
+}
+
+.Head h2 .icon {
+    margin-right: 5px;
+}
+
+.Head .create_product {
+    background-color: #18273a;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 1px;
+    font-size: 1rem;
+    outline: none;
+    text-decoration: none;
+}
+
+._table ._head_ {
+    display: grid;
+    grid-template-columns: 14rem 19rem 6rem 8rem 4rem;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 10px;
+}
+
+._table ._head_ p {
+    font-weight: 550;
+}
+
+._tbody_ ._tb_content_ {
+    display: grid;
+    grid-template-columns: 13rem 20rem 6rem 8rem 4rem;
+    gap: 20px;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #f4f4f4;
+    margin-bottom: 5px;
+}
+
+._tbody_ ._tb_content_ p {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.item_block {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    align-items: center;
+}
+
+.item_block .itemImg {
+    width: 5rem;
+    height: 3rem;
+}
+
+.itemImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.pagination {
+    position: absolute;
+    right: 10px;
+    margin-top: 1rem;
+    background-color: #ccd4ee;
+    /* min-width: 5rem;
+    max-width: 5rem; */
+    padding: 5px 0;
+    border-radius: 2px;
+}
+
+.pagination .link {
+    font-size: 1rem;
+    color: #626364;
+    padding: 0 10px;
+    border-right: 1px solid #f3f3f3;
+    text-decoration: none;
+}
+
+.pagination .link:last-child {
+    border-right: 0;
+}
+
+.pagination .active_link {
+    color: #111931;
+    font-weight: 550;
+}

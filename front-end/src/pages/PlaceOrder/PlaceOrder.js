@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import Footer from '../../components/Footer';
 import { AiFillEdit } from 'react-icons/ai';
 import { AiFillDelete } from 'react-icons/ai';
@@ -9,26 +8,9 @@ import { AiFillDelete } from 'react-icons/ai';
 
 import "../PlaceOrder/placeOrder.css";
 import { Store } from '../../Store';
-import { publicRequest, userRequest } from '../../requestController';
+import { userRequest } from '../../requestController';
 import { getError } from '../../utils';
 
-const ReviewOrderContainer = styled.div`
-    display: grid;
-    grid-template-columns: 2fr 1.2fr;
-    gap: 1rem;
-    align-items: flex-start;
-    margin: 2rem 0;
-
-    /* Tablet Devices :: Media Queries */
-    @media screen and (min-width : 768px) and (max-width : 1024px) {
-        grid-template-columns: 1fr;
-    }
-
-    /* Mobile Devices :: Media Queries */
-    @media screen and (min-width : 320px) and (max-width : 480px) {
-        grid-template-columns: 1fr;
-    }
-`
 
 // reducer is independent of the component
 const reducer = (state, action) => {
@@ -63,7 +45,7 @@ const PlaceOrder = () => {
     cart.taxPrice = round2(0.15 * cart.itemsPrice);
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
-    const [msg, setmsg] = useState('');
+    const [msg, setMsg] = useState('');
 
     const placeOrderHandler = async () => { 
         try {
@@ -73,6 +55,7 @@ const PlaceOrder = () => {
                 '/orders',
                 {
                     userId: userInfo._id,
+                    username: userInfo.username,
                     orderItems: cart.cartItems.map((item) => ({
                         productId: item._id,
                         name: item.title,
@@ -100,7 +83,7 @@ const PlaceOrder = () => {
         }
         catch (err) {
             dispatch({ type: 'CREATE_FAIL' });
-            setmsg(getError(err));
+            setMsg(getError(err));
         }
 
     }
@@ -113,19 +96,18 @@ const PlaceOrder = () => {
 
     return (
         <div>
-            <div className='main_container'>
+            <div className='main_container_'>
                 <Helmet>
                     <title>PlaceOrder</title>     
                 </Helmet>
                 {msg && (<p className='msg'>{msg}</p>)}
-                <ReviewOrderContainer>
-                    <div className='placeOrder_info'>
+                <div className='order_container'>
+                    <div className='order_info'>
                         <div className='shipping_details'>
                             <div className='head'>
                                 <h2>Shipping Address</h2>
                                 <Link to='/shipping' className='link'>
                                     <AiFillEdit className='icon' />
-                                    Edit
                                 </Link>
                             </div>
                             
@@ -148,14 +130,12 @@ const PlaceOrder = () => {
                                                 <p>Le {item.price}</p>
                                             </div>
                                         </div>
-                                        <div className='order_actions'>
+                                        <div className='itemActions'>
                                             <Link to='/cart' className='link'>
                                                 <AiFillEdit className='icon' />
-                                                Edit
                                             </Link>
                                             <div className='delete_btn'>
                                                 <AiFillDelete className='icon delete' />
-                                                Delete
                                             </div>
                                         </div>
                                     
@@ -165,21 +145,21 @@ const PlaceOrder = () => {
                         </div>
                     </div>
 
-                    <div className='placeOrder_action'>
+                    <div className='Order_action'>
                         <h2>Order Summary</h2>
-                        <div className='info'>
+                        <div className='info_'>
                             <p>Products In Cart</p>
                             <p>{cart.cartItems.length} Items</p>
                         </div>
-                        <div className='info'>
+                        <div className='info_'>
                             <p>Cart Subtotal</p>
                             <p>Le {cart.itemsPrice.toFixed(2)}</p>
                         </div>
-                        <div className='info'>
+                        <div className='info_'>
                             <p>Shipping</p>
                             <p>Le {cart.shippingPrice.toFixed(2)}</p>
                         </div>
-                        <div className='info'>
+                        <div className='info_'>
                             <p>Tax</p>
                             <p>Le {cart.taxPrice.toFixed(2)}</p>
                         </div>
@@ -188,14 +168,14 @@ const PlaceOrder = () => {
                             <p>Le {cart.totalPrice.toFixed(2)}</p>
                         </div>
                         {loading ? (
-                            <button className='placeOrder_btn' onClick={placeOrderHandler}>Processing..</button>
+                            <button className='Order_action_btn' onClick={placeOrderHandler}>Processing..</button>
                         ) : (
-                            <button className='placeOrder_btn' onClick={placeOrderHandler}>Place Order</button>
+                            <button className='Order_action_btn' onClick={placeOrderHandler}>Place Order</button>
                         )
                     }
                         
                     </div>
-                </ReviewOrderContainer>
+                </div>
                 
             </div>
             <Footer />

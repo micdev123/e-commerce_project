@@ -1,10 +1,11 @@
 import { useContext, useEffect, useReducer} from "react";
-import { Visibility } from "@material-ui/icons";
+import { PermIdentity, Visibility } from "@material-ui/icons";
 import { userRequest } from "../requestController";
 
 import './css/widgetSm.css'
 import { getError } from "../utils";
 import { Store } from "../Store";
+import { Link } from "react-router-dom";
 
 
 const reducer = (state, action) => {
@@ -54,25 +55,17 @@ export default function WidgetSm() {
     return (
         loading ? ( <p>Loading</p> ) : error ? ( <p className="danger">{error}</p>) : (
             <div className="widgetSm">
-                <span className="widgetSmTitle">New Join Members</span>
+                <h3 className="widgetSmTitle">New join members</h3>
                 <ul className="widgetSmList">
                     {users.map((user) => (
                     <li className="widgetSmListItem" key={user._id}>
-                        <img
-                            src={
-                                user.img ||
-                                "https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"
-                            }
-                            alt=""
-                            className="widgetSmImg"
-                        />
+                        <PermIdentity className="widgetSmImg" />
                         <div className="widgetSmUser">
                             <span className="widgetSmUsername">{user.username}</span>
                         </div>
-                        <button className="widgetSmButton">
+                        <Link to='/' className="widgetSmButton">
                             <Visibility className="widgetSmIcon" />
-                            Display
-                        </button>
+                        </Link>
                     </li>
                     ))}
                 </ul>
