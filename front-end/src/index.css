@@ -7,7 +7,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* background-color: #fffffff6; */
-  background-color: #fdfdfd;
+  background-color: #f7f7f7;
   position: relative;
 }
 
@@ -55,8 +55,19 @@ body {
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
-  .main_container {
-    width: 90vw;
+  .main {
+    position: relative;
+    width: 100%;
+    margin: -15rem 0 2rem 0;
+    z-index: 100%;
+    border: none;
+    outline: none;
+  }
+
+  .admin_container .container_contents {
+    flex: 4;
+    min-height: 100%;
+    padding: 1rem 5px 1rem 0;
   }
 
 }
@@ -69,5 +80,11 @@ body {
 
   .main_container {
     width: 90vw;
+  }
+
+  .main_container_ {
+    width: 98vw;
+    margin: 5px auto;
+    background-color: #fefefe;
   }
 }

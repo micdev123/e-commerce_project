@@ -61,60 +61,55 @@
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
-    .signup_container {
-        width: 85vw;
-        margin: 3rem auto;
+    .update_form {
+        width: 38rem;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 2.5px #e4e4e4;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
     }
 
-    h2 {
-        font-size: 2.2rem;
+    .update_form h2 {
+        font-size: 2rem;
     }
 
-    .head {
-        margin-bottom: 10px;
+    .update_form input {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #545353;
     }
 
-    input {
-        font-size: 1.6rem;
-    }
-
-    #update {
-        padding: 13px 0;
+    .update_form #update {
+        padding: 8px 0;
         font-size: 1.7rem;
     }
-
-    .form .info {
-        font-size: 1.7rem;
-    }
-
 
 }
 
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
-    .signup_container {
-        width: 80vw;
-        margin: 3rem auto;
+    .update_container {
+        width: 100%;
     }
 
-    h2 {
-        font-size: 2rem;
+    .update_form {
+        width: 100%;
+    }
+    
+
+    .update_form h2 {
+        font-size: 1.8rem;
     }
 
-    .head {
-        margin-bottom: 10px;
-    }
-
-    input {
+    .update_form input {
         font-size: 1.4rem;
+        border-bottom: 2px solid #545353;
     }
 
-    #update {
-        padding: 10px 0;
-        font-size: 1.4rem;
-    }
-
-    .form .info {
+    .update_form #update {
+        padding: 8px 0;
         font-size: 1.4rem;
     }
 

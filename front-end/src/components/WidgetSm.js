@@ -59,7 +59,7 @@ export default function WidgetSm() {
                 <ul className="widgetSmList">
                     {users.map((user) => (
                     <li className="widgetSmListItem" key={user._id}>
-                        <PermIdentity className="widgetSmImg" />
+                        <PermIdentity className="widgetSmIcon" />
                         <div className="widgetSmUser">
                             <span className="widgetSmUsername">{user.username}</span>
                         </div>

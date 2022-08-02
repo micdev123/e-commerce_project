@@ -1,7 +1,6 @@
 import { BsShop } from 'react-icons/bs'
 import { FiShoppingCart, FiMenu } from 'react-icons/fi'
 import { MdClose } from 'react-icons/md'
-import { BiSearchAlt } from 'react-icons/bi'
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
@@ -16,7 +15,6 @@ import Order from './pages/Order/Order';
 
 import { useContext, useState } from 'react';
 import { Store } from './Store';
-
 import { MdArrowDropDown } from 'react-icons/md'
 import { ImProfile } from 'react-icons/im'
 import { MdSpaceDashboard } from 'react-icons/md'
@@ -34,6 +32,7 @@ import OrderList from './pages/Admin/Orders/OrderList';
 import ProductList from './pages/Admin/Products/ProductList';
 import ProductEdit from './pages/Admin/Product/ProductEdit';
 import NewProduct from './pages/Admin/NewProduct/NewProduct';
+import { AiOutlineDropbox } from 'react-icons/ai';
 
 
 
@@ -43,6 +42,13 @@ function App() {
     const { cart, userInfo } = state;
     
     const [dropdown, setDropdown] = useState(false);
+    const [menu, setMenu] = useState(false);
+    const [close, setCloseMenu] = useState(false);
+
+    const closeMenu = () => {
+        setCloseMenu(true);
+        setMenu(false);
+    }
 
     // const user = false;
     const signoutHandler = () => {
@@ -161,32 +167,154 @@ function App() {
                             <nav className='navigation'>
                                 <div className='menu_lists'>
                                     <li>
-                                        <Link to='/'>
-                                            <p>Hello, Guest</p>
-                                            <p>SignIn</p>
-                                        </Link>
+                                        {userInfo && !userInfo.isAdmin ? (
+                                            <div className='dropdown'>
+                                                <p>Hello,</p>
+                                                <p className='dropdown_email'>
+                                                    {userInfo.email}
+                                                    <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
+                                                </p>
+                                                {dropdown && (
+                                                    <div className='dropdown_menu'>
+                                                        <Link to='/profile' className='link'>
+                                                            <ImProfile className='icon' />
+                                                            Profile
+                                                        </Link>
+                                                        <Link to='/' className='link' onClick={signoutHandler}>
+                                                            <RiLogoutCircleLine className='icon'/>
+                                                            Logout
+                                                        </Link>
+                                                    </div>
+                                                )
+                                                }
+                                            </div>
+                                        )
+                                        : userInfo && userInfo.isAdmin ? (
+                                            <div className='dropdown'>
+                                                <p>Hello,</p>
+                                                <p className='dropdown_email'>
+                                                    {userInfo.email}
+                                                    <MdArrowDropDown className='icon' onClick={(e) => setDropdown(!dropdown)} />
+                                                </p>
+                                                {dropdown && (
+                                                    <div className='dropdown_menu'>
+                                                        <Link to='/profile' className='link'>
+                                                            <ImProfile className='icon' />
+                                                            Profile
+                                                        </Link>
+                                                        <Link to='/admin/dashboard' className='link'>
+                                                            <MdSpaceDashboard className='icon' />
+                                                            Dashboard
+                                                        </Link>
+                                                        <Link to='/' className='link' onClick={signoutHandler}>
+                                                            <RiLogoutCircleLine className='icon'/>
+                                                            Logout
+                                                        </Link>
+                                                    </div>
+                                                )
+                                                }
+                                            </div>
+                                        ):
+                                        (
+                                            <Link to='/login'>
+                                                <p>Hello, Guest</p>
+                                                <p>Login</p>
+                                            </Link>
+                                        )
+                                        }
+                                        
                                     </li>
                                     <li>
-                                        <Link to='/'>
+                                        <Link to='/orderHistory'>
                                             <p>Return</p>
                                             <p>& Orders</p>
                                         </Link>
                                     </li>
                                 </div>
                                 <li className='cart'>
-                                    <Link to='/'>
+                                    <Link to='/cart' className='cart_incart'>
                                         <FiShoppingCart className='cart_icon' />
-                                        
+                                        {cart.cartItems.length > 0 ?
+                                            (
+                                                <sup className='incart'>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</sup>
+                                            )
+                                            :
+                                            (
+                                                <sup className='incart'>0</sup>
+                                            )
+                                        }
+                                        {/* <sup className='incart'>0</sup> */}
                                     </Link>
                                 </li>
-                                <FiMenu className='menu_bar'/>
-                                <MdClose className='close_btn'/>
+                                <div className='Menu_Bar'>
+                                    <FiMenu onClick={(e) => setMenu(!dropdown)} className='menu_bar'/>
+                                </div>
+                                {menu && (
+                                    <div className='menu_mobile'>
+                                        <li>
+                                            <MdClose onClick={closeMenu} className='close_btn' />
+                                            {userInfo && !userInfo.isAdmin ? (
+                                                <div className='mobile_nav'>
+                                                    <div className='greeting'>
+                                                        <p>Hello,</p>
+                                                        <p className='nav_email'>{userInfo.email}</p>
+                                                    </div>
+                                                    <div className='_menu'>
+                                                        <Link to='/orderHistory' className='link'>
+                                                            <AiOutlineDropbox className='icon' />
+                                                            Orders
+                                                        </Link> 
+                                                        <Link to='/profile' className='link'>
+                                                            <ImProfile className='icon' />
+                                                            Profile
+                                                        </Link>
+                                                        <Link to='/' className='link' onClick={signoutHandler}>
+                                                            <RiLogoutCircleLine className='icon'/>
+                                                            Logout
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            )
+                                            : userInfo && userInfo.isAdmin ? (
+                                                <div className='mobile_nav'>
+                                                    <div className='greeting'>
+                                                        <p>Hello,</p>
+                                                        <p className='nav_email'>{userInfo.email}</p>
+                                                    </div>
+                                                    <div className='_menu'>
+                                                        <Link to='/orderHistory' className='link'>
+                                                            <AiOutlineDropbox className='icon'/>
+                                                            Orders
+                                                        </Link>    
+                                                        <Link to='/profile' className='link'>
+                                                            <ImProfile className='icon' />
+                                                            Profile
+                                                        </Link>
+                                                        <Link to='/admin/dashboard' className='link'>
+                                                            <MdSpaceDashboard className='icon' />
+                                                            Dashboard
+                                                        </Link>
+                                                        <Link to='/' className='link' onClick={signoutHandler}>
+                                                            <RiLogoutCircleLine className='icon'/>
+                                                            Logout
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            ):
+                                            (
+                                                <Link to='/login'>
+                                                    <p>Hello, Guest</p>
+                                                    <p>Login</p>
+                                                </Link>
+                                            )
+                                            }
+                                            
+                                        </li>
+                                    </div>
+                                )}
                             </nav>
                         </div>
-                        <div className="search">
-                            <input type="text" placeholder="Search..." />
-                            <BiSearchAlt className="search_btn" />
-                        </div>
+                        <SearchBox />
                     </div>
                 </div>
                 <main>

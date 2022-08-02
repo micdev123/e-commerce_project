@@ -102,6 +102,7 @@ const Cart = () => {
                                                 </div>
                                                 <div>
                                                     <p className='_name'> {item.title}</p>
+                                                    <p className='tablet_name'> {item.title.length >=10 ? `${item.title.substring(0, 20)}...` : item.title}</p>
                                                     <p className='_price'>Price: Le {item.price}</p>
                                                     <p className='qty'>Quantity:
                                                         <AiFillMinusCircle className='icon minus'
@@ -118,31 +119,37 @@ const Cart = () => {
                                             </div>
 
                                             <div className='subtotal'>
-                                                <p>$<span className='sub_total'>20.00</span></p>
+                                                <p>Le <span className='sub_total'>20.00</span></p>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
 
-                                {/* <div className='cart_container_mobile'>
+                                <div className='cart_container_mobile'>
+                                    <div className='cart_head'>
+                                        <h2>
+                                            <FiShoppingCart className='icon' />
+                                            Your Shopping Cart
+                                        </h2>
+                                    </div>
                                     <div className='cart_header'>
                                         <h2>Product</h2>
                                     </div>
                                     {cartItems.map((item) => (
-                                        <div className='cart_contents' key={item._id}>
-                                            <div className='cart_product_'>
-                                                <div className='cart__head'>
+                                        <div className='cart___contents' key={item._id}>
+                                            <div className='cart__product_'>
+                                                <div className='cart__item_head'>
                                                     <div className='_img'>
                                                         <img src={item.img} alt={item.title} />
                                                     </div>
-                                                    <div>
+                                                    <div className='_itemContent_'>
                                                         <p className='_name_'>
-                                                            {item.title.length >= 15 ? `${item.title.substring(0, 19)}...` : item.title}
+                                                            {item.title.length >= 15 ? `${item.title.substring(0, 25)}...` : item.title}
                                                         </p>
-                                                        <p className='_price'>Price: {item.price} * 2</p>
+                                                        <p className='item_price'>Price: {item.price} * 2</p>
                                                     </div>
                                                 </div>
-                                                <div className='cart_footer'>
+                                                <div className='cart_item_footer'>
                                                     <p className='qty'>Quantity:
                                                         <AiFillMinusCircle className='icon minus'
                                                             onClick={() => updateCartHandler(item, item.quantity - 1)}    
@@ -161,7 +168,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                     ))}
-                                </div> */}
+                                </div>
 
                                 <div className='cart_action'>
                                     <h2>Cart Total</h2>

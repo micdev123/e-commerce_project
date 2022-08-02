@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import { AiFillEdit } from 'react-icons/ai';
-import { AiFillDelete } from 'react-icons/ai';
 
 
 import "../PlaceOrder/placeOrder.css";
@@ -116,6 +115,10 @@ const PlaceOrder = () => {
                             <p><span>Tell:</span>{cart.shippingAddress.phone_number}</p>
                             <p><span>Address:</span>{cart.shippingAddress.address}</p>
                         </div>
+                        <div className='payment_'>
+                            <h2>Payment</h2>
+                            <p><span>Method:</span> {cart.shippingAddress.paymentMethodName}</p>
+                        </div>
                         <div className='yourOrder'>
                             <h2>Your Order</h2>
                             <div className='order_contents'>
@@ -134,9 +137,6 @@ const PlaceOrder = () => {
                                             <Link to='/cart' className='link'>
                                                 <AiFillEdit className='icon' />
                                             </Link>
-                                            <div className='delete_btn'>
-                                                <AiFillDelete className='icon delete' />
-                                            </div>
                                         </div>
                                     
                                     </div>

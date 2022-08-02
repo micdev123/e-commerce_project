@@ -1,3 +1,7 @@
+.small_screen_sidebar {
+    display: none;
+}
+
 .sidebar {
     flex: 1;
     min-height: 100vh;
@@ -21,6 +25,10 @@
     /* height: 8rem; */
     border-radius: 50%;
     border: 1px solid #b6b6b6;
+}
+
+.sidebarMenuBar {
+    display: none;
 }
 
 .sidebarWrapper {
@@ -69,4 +77,99 @@
 .sidebarIcon {
     margin-right: 5px;
     font-size: 1.2rem !important;
+}
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .small_screen_sidebar {
+        display: none;
+    }
+
+    .sidebar { 
+        flex: 0.1;
+        padding: 0 0 1rem 5px;
+    }
+
+    .adminImg {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .adminImg .admin_icon {
+        font-size: 2rem;
+        /* height: 8rem; */
+        border-radius: 50%;
+        border: 1px solid #b6b6b6;
+    }
+
+    .sidebarMenuBar {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .sidebarTitle {
+        display: none;
+    }
+
+    .sidebarListItem span {
+        display: none;
+    }
+
+    .sidebarIcon {
+        margin-right: 5px;
+        font-size: 1.8rem !important;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .small_screen_sidebar {
+        display: none;
+    }
+
+    .sidebar {
+        flex: 0.1;
+        padding: 0 0 1rem 5px;
+    }
+
+    .adminImg {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .adminImg .admin_icon {
+        font-size: 2rem;
+        /* height: 8rem; */
+        border-radius: 50%;
+        border: 1px solid #b6b6b6;
+    }
+
+    .sidebarMenuBar {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .sidebarTitle {
+        display: none;
+    }
+
+    .sidebarListItem span {
+        display: none;
+    }
+
+    .sidebarIcon {
+        margin-right: 5px;
+        font-size: 1.8rem !important;
+    }
 }

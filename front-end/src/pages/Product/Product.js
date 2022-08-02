@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useReducer, useState  } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Footer from '../../components/Footer'
-import { MdAddCircle } from 'react-icons/md'
-import { AiFillMinusCircle } from 'react-icons/ai'
 
 import '../Product/product.css';
 import '../../components/css/product.css';
@@ -52,14 +50,6 @@ const Product = () => {
         fetchProduct();
     }, [id])
 
-    const handleQuantity = (type) => {
-        if (type === "minus") {
-            quantity > 1 && setQuantity(quantity - 1);
-        } else {
-            setQuantity(quantity + 1);
-        }
-    };
-
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart } = state;
     const addToCartHandler = async () => {
@@ -97,16 +87,10 @@ const Product = () => {
                         <p className='price'>Price: Le <span>{product.price}</span></p>
                         
                         <p>Status: {product.countInStock > 0 && quantity <= product.countInStock ? 
-                            <span className='success'>Instock</span> : 
+                            <span className='success'>InStock</span> : 
                             <span className='danger'>OutOfStock</span>}
                         </p>
                         <p>Category: <span>{product.category}</span></p>
-                        <p className='qty'>Quantity:
-                            <AiFillMinusCircle className='minus icon' onClick={() => handleQuantity("minus")} />
-                            <span>{quantity}</span>
-                            <MdAddCircle className='icon' onClick={() => handleQuantity("add")} />
-                            {/* <span className='danger msg'>{message && message}</span> */}
-                        </p>
                         {product.countInStock === 0 ? (
                             <button className='outOfStock'>Out Of Stock</button>
                             ) :

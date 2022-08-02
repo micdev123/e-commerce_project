@@ -70,7 +70,7 @@ const Profile = () => {
                     <title>User Profile</title>     
                 </Helmet>
                 <div className='update_container'>
-                    <form className='update_form' onSubmit={submitHandler}>
+                    <form className='update_form mobile_update' onSubmit={submitHandler}>
                         <h2>
                             <ImProfile className='icon' />
                             User Profile
@@ -83,7 +83,7 @@ const Profile = () => {
                         <input type='password' name='password' placeholder='Enter password'
                             required onChange={(e) => setPassword(e.target.value)} />
                         <input type='password' name='confirm_password' placeholder='confirm password' required onChange={(e) => setConfirmPassword(e.target.value)} />
-                        <button type='submit' id='update'>Update Profile</button>
+                        <button type='submit' id='update'>Update</button>
                     </form>
                 </div>
             </div>

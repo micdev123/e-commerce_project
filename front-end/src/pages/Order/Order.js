@@ -252,7 +252,7 @@ const Order = () => {
                                     {isPending ? (
                                     <div>Loading..</div>
                                     ) : (
-                                    <div>
+                                    <div className='paypal_btn'>
                                         <PayPalButtons
                                             createOrder={createOrder}
                                             onApprove={onApprove}

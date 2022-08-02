@@ -1,3 +1,7 @@
+.featured_container_ {
+    width: 100%;
+}
+
 .featured {
     width: 100%;
     display: grid;
@@ -42,11 +46,6 @@
     color: #2b2b2b;
 }
 
-.featuredIcon {
-    font-size: 14px;
-    margin-left: 5px;
-    color: green;
-}
 
 
 .chart {
@@ -68,4 +67,39 @@
 
 .chartTitle .icon {
     margin-right: 10px;
+}
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) { 
+    .featured {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1rem 0 10px;
+        gap: 20px;
+    }
+
+    .featuredTitle {
+        font-size: 1.9rem;
+        font-weight: 500;
+        border-bottom: 1.7px solid #e6e6e6;
+    }
+
+    .featuredTitle .icon {
+        font-size: 2rem;
+    }
+
+    .featuredMoney {
+        font-size: 1.9rem;
+        font-weight: 550;
+    }
+
+    .chartTitle {
+        font-size: 1.9rem;
+        font-weight: 500;
+    }
+
+    .chartTitle .icon {
+        font-size: 1.9rem;
+    }
 }

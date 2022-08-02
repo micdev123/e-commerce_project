@@ -91,7 +91,33 @@ export default function WidgetLg() {
                     </div>
                     ))}
                 </div>
-                {/* <Button type={order.status} /> */}
+
+                <div className="tablet_view">
+                    <div className="widgetLgTr head">
+                        <p className="widgetLgTh">Customer</p>
+                        <p className="widgetLgTh">Date</p>
+                        <p className="widgetLgTh">Amount</p>
+                        <p className="widgetLgTh">Paid</p>
+                    </div>
+                    {orders.map((order) => (
+                    <div className="widgetLgTr t_row" key={order._id}>
+                        <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 10)}...` : order.userId}</p>
+                        <p className="widgetLgDate td">{format(order.createdAt).length >= 5 ? `${format(order.createdAt).substring(0, 8)}... `: format(order.createdAt)}</p>
+                        <p className="widgetLgAmount td">Le {order.totalPrice}</p>
+                        {order.isPaid ? (
+                            <p className="success_ td">
+                                Paid at {order.paidAt.substring(0, 10)}
+                            </p>
+                            ) : (
+                                <p className="danger_ td">Not Paid</p>
+                            )
+                        }
+                        
+                    </div>
+                    ))}
+                </div>
+                
+                
             </div>
         )
     );

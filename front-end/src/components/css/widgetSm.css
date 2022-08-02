@@ -14,12 +14,6 @@
     padding-bottom: 10px;
 }
 
-.widgetSmImg {
-    width: 20px;
-    height: 20px;
-    font-weight: normal;
-}
-
 .widgetSmList {
     margin: 10px 0 0 0;
     padding: 0;
@@ -29,7 +23,7 @@
 .widgetSmListItem {
     display: grid;
     grid-template-columns: 2rem 2fr 1rem;
-    align-items: flex-end;
+    align-items: center;
     gap: 10px;
     margin-bottom: 10px;
     font-weight: normal;
@@ -55,4 +49,51 @@
 .widgetSmIcon {
     font-size: 16px !important;
     margin-right: 5px;
+}
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .widgetSmTitle {
+        font-size: 1.9rem;
+        font-weight: 500;
+        border-bottom: 1.7px solid #cecece;
+    }
+
+    .widgetSmList {
+        margin: 10px 0 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .widgetSmListItem {
+        display: grid;
+        grid-template-columns: 3rem 2fr 1rem;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+
+    /* .widgetSmUser {
+    background-color: red;
+} */
+
+    .widgetSmUsername {
+        font-weight: normal;
+        font-size: 1.6rem;
+    }
+
+    .widgetSmUserTitle {
+        font-weight: 300;
+    }
+
+    .widgetSmButton {
+        color: #262626;
+        cursor: pointer;
+    }
+
+    .widgetSmIcon {
+        font-size: 1.9rem !important;
+    }
 }

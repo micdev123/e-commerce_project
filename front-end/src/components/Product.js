@@ -32,11 +32,15 @@ const Product = ({ item }) => {
           <img src={item.img} alt={item.title} />
         </div>
         <div className='content_'>
-            <h2 className='title'>
+            <h2 className='title_large'>
               {item.title.length >= 20 ? `${item.title.substring(0, 20)}...` : item.title}
             </h2>
-            <Rating name="half-rating-read" defaultValue={item.rating} precision={0.5} readOnly className='rating'/>
-            <p className='price'>Le <span>{item.price}</span></p>
+            <h2 className='title_small'>
+              {item.title.length >= 20 ? `${item.title.substring(0, 17)}...` : item.title}
+          </h2>
+           
+          <Rating name="half-rating-read" defaultValue={item.rating} precision={0.5} readOnly className='rating'/>
+          <p className='price'>Le <span>{item.price}</span></p>
         </div>
       </Link>
       {item.countInStock === 0 ? (

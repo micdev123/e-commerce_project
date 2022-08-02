@@ -61,7 +61,6 @@ const Home = () => {
             <div className='main'>
                 <div className='main_container'>
                 <Product>
-                    <H1>Products</H1>
                     <Products />
                 </Product>
                 </div>

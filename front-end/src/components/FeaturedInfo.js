@@ -70,7 +70,7 @@ export default function FeaturedInfo() {
     
     return (
         loading ? (<p>Loading</p>) : error ? (<p className="danger">{error}</p>) : (
-            <>
+            <div className="featured_container_">
                 <div className="featured">
                     <div className="featuredItem">
                         <span className="featuredTitle">
@@ -137,7 +137,7 @@ export default function FeaturedInfo() {
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-            </>
+            </div>
         )
     );
 }

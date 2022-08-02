@@ -25,10 +25,18 @@
     margin-right: 5px;
 }
 
+.tablet_screen {
+    display: none;
+}
+
+.mobile_screen {
+    display: none;
+}
+
 .orderHead, .history .order_ {
     width: 100%;
     display: grid;
-    grid-template-columns: 1.5fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-columns: 1.5fr 7rem 1fr 1.2fr 1.5fr 4rem;
     border-bottom: 1px solid #eeeeee;
     padding-bottom: 10px;
     font-weight: 550;
@@ -55,4 +63,87 @@
 .view {
     margin-left: 20px;
     cursor: pointer;
+}
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Orders_container {
+        width: 100%;
+        padding: 2rem 3rem 3rem 2.5rem;
+        background-color: white;
+        min-height: 98vh;
+    }
+
+    .Orders_container h2 {
+        font-size: 2rem;
+        /* margin-bottom: 1rem; */
+        border-bottom: 2px solid #eeeeee;
+    }
+
+    .big_screen {
+        display: none;
+    }
+
+    .mobile_screen {
+        display: none;
+    }
+
+    .tablet_screen {
+        display: block;
+    }
+
+    .orderHead,
+    .history .order_ {
+        grid-template-columns: 13rem 10rem 9rem 4rem;
+        border-bottom: 2px solid #eeeeee;
+    }
+
+    .history .order_ p {
+        font-size: 1.4rem;
+        font-weight: normal;
+    }
+
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .Orders_container {
+        width: 100%;
+        padding: 2rem 5px 3rem 1rem;
+        background-color: white;
+        min-height: 98vh;
+    }
+
+    .Orders_container h2 {
+        font-size: 1.8rem;
+        /* margin-bottom: 1rem; */
+        border-bottom: 2px solid #eeeeee;
+    }
+
+    .big_screen {
+        display: none;
+    }
+
+    .tablet_screen {
+        display: none;
+    }
+
+    .mobile_screen {
+        display: block;
+    }
+
+
+    .orderHead,
+    .history .order_ {
+        grid-template-columns: 7.5rem 7rem 4rem;
+        border-bottom: 2px solid #eeeeee;
+        gap: 10px;
+    }
+
+    .history .order_ p {
+        font-size: 1.28rem;
+        font-weight: normal;
+    }
 }

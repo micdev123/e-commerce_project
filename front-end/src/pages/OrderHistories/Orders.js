@@ -69,7 +69,7 @@ const Orders = () => {
                                 <AiOutlineDropbox className='icon' />
                                 Your Orders History
                             </h2>
-                            <div>   
+                            <div className='big_screen'>   
                                 <div className='orderHead'>
                                     <p>Order ID</p>
                                     <p>Date</p>
@@ -102,6 +102,48 @@ const Orders = () => {
                                                     <p className="_danger_ _Info_">Not Yet</p>
                                                 )
                                             }
+                                            <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
+                                                <BsFillEyeFill className='eye'/>
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>   
+                            </div>  
+                                
+                            <div className='tablet_screen'>   
+                                <div className='orderHead'>
+                                    <p>Order ID</p>
+                                    <p>Date</p>
+                                    <p>Total</p>
+                                    <p>Action</p>
+                                </div>
+                                <div className='history'>
+                                    {orders.map((order) => (
+                                        <div className='order_' key={order._id}>
+                                            <p>{order._id.length >= 10 ? `${order._id.substring(0, 15)}...` : order._id}</p>
+                                            <p>{order.createdAt.substring(0, 10)}</p>
+                                            <p>Le {order.totalPrice.toFixed(2)}</p>
+                                            
+                                            <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
+                                                <BsFillEyeFill className='eye'/>
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>   
+                            </div>
+
+                            <div className='mobile_screen'>   
+                                <div className='orderHead'>
+                                    <p>Order ID</p>
+                                    <p>Date</p>
+                                    <p>Action</p>
+                                </div>
+                                <div className='history'>
+                                    {orders.map((order) => (
+                                        <div className='order_' key={order._id}>
+                                            <p>{order._id.length >= 10 ? `${order._id.substring(0, 8)}...` : order._id}</p>
+                                            <p>{order.createdAt.substring(0, 10)}</p>
+                                            
                                             <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
                                                 <BsFillEyeFill className='eye'/>
                                             </p>
