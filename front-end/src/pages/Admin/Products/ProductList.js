@@ -142,7 +142,7 @@ const ProductList = () => {
                                             <div className='itemImg'>    
                                                 <img src={item.img} alt={item.title} />  
                                             </div>    
-                                            <p>{item.title.length >= 15 ? `${item.title.substring(0, 22)}...` : item.title}</p>
+                                            <p>{item.title.length >= 15 ? `${item.title.substring(0, 27)}...` : item.title}</p>
                                         </div>
                                         {item.countInStock === 0 ? (
                                             <p>false</p>
@@ -161,6 +161,62 @@ const ProductList = () => {
                                     ))}
                                 </div>
                             </div>
+
+                            <table className='Table_tablet'>
+                                <thead className='thead'>
+                                    <tr>
+                                        <th className='th th1'>Product Id</th>
+                                        <th className='th'>Product</th>
+                                        <th className='th'>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {products.map((item) => (
+                                    <tr className='tr' key={item._id}>
+                                        <td className='td titleID_'>{item._id.length >= 15 ? `${item._id.substring(0, 10)}...` : item._id}</td>
+                                        <td className='item_block td'>
+                                            <div className='itemImg'>    
+                                                <img src={item.img} alt={item.title} />  
+                                            </div>    
+                                            <p>{item.title.length >= 15 ? `${item.title.substring(0, 18)}...` : item.title}</p>
+                                        </td>
+                                        
+                                        
+                                        <td className='itemActions td'>
+                                            <AiFillEdit onClick={() => navigate(`/admin/product/${item._id}`)} className='icon' />
+                                            <MdDelete onClick={() => deleteHandler(item)} className=' icon trash' />
+                                        </td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+
+                            <table className="Table_mobile">
+                                <thead className='thead'>
+                                    <tr>
+                                        <th className='th th1'>Product</th>
+                                        <th className='th'>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody className='_tbody_'>
+                                    {products.map((item) => (
+                                    <tr className='tr' key={item._id}>
+                                        <td className='item_block td'>
+                                            <div className='itemImg'>    
+                                                <img src={item.img} alt={item.title} />  
+                                            </div>    
+                                            <p>{item.title.length >= 15 ? `${item.title.substring(0, 10)}...` : item.title}</p>
+                                        </td>
+                                        
+                                        
+                                        <td className='td_action td'>
+                                            <AiFillEdit onClick={() => navigate(`/admin/product/${item._id}`)} className='icon' />
+                                            <MdDelete onClick={() => deleteHandler(item)} className=' icon trash' />
+                                        </td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                             <div className='pagination'>
                                 {[...Array(pages).keys()].map((x) => (
                                     <Link

@@ -65,6 +65,24 @@
     cursor: pointer;
 }
 
+.pagination_orderHistory {
+    position: absolute;
+    margin-top: 2rem;
+    background-color: #ccd4ee;
+    /* min-width: 5rem;
+    max-width: 5rem; */
+    padding: 5px 0;
+    border-radius: 2px;
+}
+
+.pagination_orderHistory .link {
+    font-size: 1rem;
+    color: #626364;
+    padding: 0 10px;
+    border-right: 1px solid #f3f3f3;
+    text-decoration: none;
+}
+
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {

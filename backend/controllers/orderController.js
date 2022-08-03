@@ -130,14 +130,25 @@ const getSummary = asyncHandler(async (req, res) => {
     }
 })
 
-
+const PAGE__SIZE = 7;
 // Get a user orders :: GET request : endpoint /api/orders/find/userId :: access public
 const getMyOrders = asyncHandler(async (req, res) => {
     try {
-        // find user by id
-        const orders = await Order.find({ userId: req.params.userId })
+        const { query } = req;
+        const page = query.page || 1;
+        const pageSize = query.pageSize || PAGE__SIZE;
 
-        res.status(200).json(orders);
+        // find user by id
+        const orders = await Order.find({ userId: req.params.userId }).skip(pageSize * (page - 1)).limit(pageSize)
+        const countOrders = await Order.countDocuments();
+        res.send({
+            orders,
+            countOrders,
+            page,
+            pages: Math.ceil(countOrders / pageSize),
+        });
+
+        // res.status(200).json(orders);
     } 
     catch (error) {
         res.status(500).json(error)

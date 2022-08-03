@@ -144,9 +144,13 @@ const ProductEdit = () => {
                     <SideNav />
                     <div className='container_contents'>
                         <div className='Product_Container'>
-                            <h2>
+                            <h2 className='big_'>
                                 <Storefront className='icon' />
                                 Product :_: {productId}
+                            </h2>
+                            <h2 className='small_'>
+                                <Storefront className='icon' />
+                                Product :_: {productId.length >= 10 ? `${productId.substring(0, 8)}...` :  productId}
                             </h2>
                             <form className='product_edit_form' onSubmit={submitHandler}>
                                 {/* {msg && (<p className='msg'>{msg}</p>)} */}

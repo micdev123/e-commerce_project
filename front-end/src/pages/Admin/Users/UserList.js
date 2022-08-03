@@ -128,6 +128,46 @@ const UserList = () => {
                                     ))}
                                 </div>
                             </div>
+
+                            <div className="tablet_view_">
+                                <div className='head'>
+                                    <p>ID</p>
+                                    <p>User</p>
+                                    <p>Status</p>
+                                    <p>Action</p>
+                                </div>
+                                <div className='tbody'>
+                                    {users.map((user) => (
+                                    <div className='tb_content' key={user._id}>
+                                        <p>{user._id.length >= 15 ? `${user._id.substring(0, 17)}...` : user._id}</p>
+                                        <p>{user.username}</p>
+                                        <p>{user.isAdmin ? 'admin' : 'customer'}</p>
+                                        <div className='userAction'>
+                                            <AiFillEdit onClick={() => navigate(`/admin/user/${user._id}`)} className='icon' />
+                                            <MdDelete onClick={() => deleteHandler(user)} className='icon trash' />
+                                        </div>
+                                    </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="mobile_view_">
+                                <div className='head'>
+                                    <p>ID</p>
+                                    <p>Action</p>
+                                </div>
+                                <div className='tbody'>
+                                    {users.map((user) => (
+                                    <div className='tb_content' key={user._id}>
+                                        <p>{user._id.length >= 15 ? `${user._id.substring(0, 13)}...` : user._id}</p>
+                                        <div className='userAction'>
+                                            <AiFillEdit onClick={() => navigate(`/admin/user/${user._id}`)} className='icon' />
+                                            <MdDelete onClick={() => deleteHandler(user)} className='icon trash' />
+                                        </div>
+                                    </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

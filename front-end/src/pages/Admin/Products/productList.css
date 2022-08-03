@@ -1,5 +1,6 @@
 .ProductContainer {
-    padding: 2rem 2rem 2rem 3rem;
+    width: 100%;
+    padding: 2rem 1.2rem 2rem 1rem;
     position: relative;
 }
 
@@ -34,9 +35,17 @@
     text-decoration: none;
 }
 
+.Table_tablet {
+    display: none;
+}
+
+.Table_mobile {
+    display: none;
+}
+
 ._table ._head_ {
     display: grid;
-    grid-template-columns: 14rem 19rem 6rem 8rem 4rem;
+    grid-template-columns: 14rem 21rem 6rem 8rem 4rem;
     gap: 20px;
     align-items: center;
     border-bottom: 1px solid #ececec;
@@ -49,7 +58,7 @@
 
 ._tbody_ ._tb_content_ {
     display: grid;
-    grid-template-columns: 13rem 20rem 6rem 8rem 4rem;
+    grid-template-columns: 13rem 22rem 6rem 8rem 4rem;
     gap: 20px;
     align-items: center;
     padding: 5px 0;
@@ -81,8 +90,8 @@
 
 .pagination {
     position: absolute;
-    right: 10px;
-    margin-top: 1rem;
+    left: 1rem;
+    margin-top: 2rem;
     background-color: #ccd4ee;
     /* min-width: 5rem;
     max-width: 5rem; */
@@ -105,4 +114,204 @@
 .pagination .active_link {
     color: #111931;
     font-weight: 550;
+}
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .ProductContainer {
+        width: 100%;
+        padding: 2rem 2rem 2rem 2rem;
+    }
+
+    .ProductContainer .Head {
+        margin-bottom: 2rem;
+    }
+
+    .Head h2 {
+        font-size: 2.2rem;
+    }
+
+    .Head h2 .icon {
+        font-size: 2.1rem;
+    }
+
+    .Head .create_product {
+        padding: 7px 10px;
+        font-size: 1.5rem;
+    }
+
+    ._table {
+        display: none;
+    }
+
+    .Table_mobile {
+        display: none;
+    }
+
+    .Table_tablet {
+        display: block;
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+
+    .thead {
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+    .th {
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .th1 {
+        text-align: left;
+    }
+
+    .td {
+        font-size: 1.65rem;
+        font-weight: normal;
+        margin-top: 10px;
+        /* width: 100%; */
+    }
+
+    .titleID_ {
+        margin-right: 10px;
+    }
+
+    .item_block {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 6rem 1fr;
+        align-items: center;
+        margin: 0 20px;
+    } 
+
+    .item_block .itemImg {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .item_block p {
+        font-size: 1.65rem;
+    }
+
+    .itemActions {
+        text-align: center;
+    }
+
+    .pagination .link {
+        font-size: 1.6rem;
+    }
+
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .ProductContainer {
+        width: 100%;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+
+    .ProductContainer .Head {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .Head h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+    }
+
+    .Head h2 .icon {
+        font-size: 1.8rem;
+    }
+
+    .Head .create_product {
+        padding: 7px 10px;
+        font-size: 1.2rem;
+    }
+
+    ._table {
+        display: none;
+    }
+
+    .Table_tablet {
+        display: none;
+    }
+
+    .Table_mobile {
+        display: block;
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+
+    .thead {
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+    .th {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .th1 {
+        text-align: left;
+    }
+
+    .td {
+        font-size: 1.7rem;
+        font-weight: normal;
+        margin-top: 10px;
+        /* width: 100%; */
+    }
+
+    .tbody {
+        width: 100%;
+    }
+
+    .item_block {
+        /* width: 100%; */
+        display: grid;
+        grid-template-columns: 5rem 10.2rem;
+        align-items: center;
+        margin: 0;
+        /* background-color: red; */
+    }
+
+    .item_block .itemImg {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .item_block p {
+        font-size: 1.5rem;
+    }
+
+    .td_action {
+        text-align: center;
+    }
+
+    .td_action .trash {
+        color: #c21010;
+        margin-left: 15px;
+    }
+
+    .pagination .link {
+        font-size: 1.6rem;
+    }
 }

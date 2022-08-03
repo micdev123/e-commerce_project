@@ -103,3 +103,38 @@
         font-size: 1.9rem;
     }
 }
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .featured_container_ {
+        width: 100%;
+    }
+
+    .featured {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 1rem 0 10px;
+        gap: 10px;
+    }
+
+    .featuredTitle {
+        width: 100%;
+        font-size: 1.6rem;
+        font-weight: 500;
+        border-bottom: 1.7px solid #e6e6e6;
+    }
+
+    .featuredTitle .icon {
+        font-size: 1.6rem;
+    }
+
+    .featuredMoney {
+        font-size: 1.7rem;
+        font-weight: 550;
+    }
+
+    .chart {
+        display: none;
+    }
+}

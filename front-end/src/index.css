@@ -87,4 +87,12 @@ body {
     margin: 5px auto;
     background-color: #fefefe;
   }
+
+  .admin_container .container_contents {
+    flex: 4;
+    min-height: 90vh;
+    padding: 2rem 5px 1rem 0;
+    /* background-color: red; */
+    overflow: hidden;
+  }
 }

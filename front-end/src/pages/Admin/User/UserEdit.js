@@ -106,9 +106,13 @@ const UserEdit = () => {
                 <div className="user">
                     {loading ? (<div>Loading</div> ) : error ? ( <p className="danger">{error}</p>) : (
                         <form className='edit_form' onSubmit={submitHandler}>
-                            <h2>
+                            <h2 className='big_'>
                                 <AiFillEdit className='icon' />
                                 User :_: {userId}
+                            </h2>
+                            <h2 className='small_'>
+                                <AiFillEdit className='icon' />
+                                User :_: {userId.length >= 10 ? `${userId.substring(0, 15)}...` :  userId}
                             </h2>
                             {msg && (<p className='msg'>{msg}</p>)}
                             <input type='text' name='name' placeholder='Enter username' value={username} required onChange={(e) => setUsername(e.target.value)} />

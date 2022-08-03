@@ -48,3 +48,42 @@
     height: 100%;
     object-fit: contain;
 }
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Product_Container h2 {
+        font-size: 2rem;
+    }
+
+    .product_edit_form {
+        width: 98%;
+    }
+
+    .product_edit_form input {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #545353;
+    }
+
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .Product_Container {
+        padding: 2rem 1rem 1rem 1rem;
+    }
+
+    .Product_Container h2 {
+        font-size: 1.8rem;
+    }
+
+    .product_edit_form {
+        width: 98%;
+    }
+
+    .product_edit_form input {
+        font-size: 1.2rem;
+        border-bottom: 2px solid #545353;
+    }
+}

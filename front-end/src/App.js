@@ -247,7 +247,7 @@ function App() {
                                     </Link>
                                 </li>
                                 <div className='Menu_Bar'>
-                                    <FiMenu onClick={(e) => setMenu(!dropdown)} className='menu_bar'/>
+                                    <FiMenu onClick={(e) => setMenu(!menu)} className='menu_bar'/>
                                 </div>
                                 {menu && (
                                     <div className='menu_mobile'>

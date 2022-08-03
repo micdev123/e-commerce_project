@@ -27,7 +27,7 @@
     border: 1px solid #b6b6b6;
 }
 
-.sidebarMenuBar {
+.sidebarMenuBar, .sidebarMenuBar_mobile {
     display: none;
 }
 
@@ -80,11 +80,13 @@
 }
 
 
+
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .small_screen_sidebar {
         display: none;
     }
+
 
     .sidebar { 
         flex: 0.1;
@@ -113,6 +115,10 @@
         margin-bottom: 20px;
     }
 
+    .sidebarMenuBar_mobile {
+        display: none;
+    }
+
     .sidebarTitle {
         display: none;
     }
@@ -129,16 +135,30 @@
 
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
+    .sidebarMenuBar_mobile {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 50px;
+        position: absolute;
+        left: 10px;
+        cursor: pointer;
+    }
+
     .small_screen_sidebar {
-        display: none;
+        position: absolute;
+        display: block;
+        background-color: #dddddd;
+        width: 17rem;
+        height: 30rem;
+        padding: 2rem 1rem;
+        z-index: 100;
     }
 
     .sidebar {
-        flex: 0.1;
-        padding: 0 0 1rem 5px;
+        display: none;
     }
 
-    .adminImg {
+    .small_screen_sidebar .adminImg {
         margin-top: 20px;
         width: 100%;
         display: flex;
@@ -147,29 +167,29 @@
         margin-bottom: 20px;
     }
 
-    .adminImg .admin_icon {
-        font-size: 2rem;
+    .small_screen_sidebar .adminImg .admin_icon {
+        font-size: 2.2rem;
         /* height: 8rem; */
         border-radius: 50%;
         border: 1px solid #b6b6b6;
     }
 
-    .sidebarMenuBar {
+
+    .small_screen_sidebar .sidebarTitle {
         display: block;
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 1.5rem;
     }
 
-    .sidebarTitle {
+    .small_screen_sidebar .sidebarListItem span {
         display: none;
     }
 
-    .sidebarListItem span {
-        display: none;
+    .small_screen_sidebar .sidebarListItem {
+        font-size: 1.4rem;
     }
 
-    .sidebarIcon {
+    .small_screen_sidebar .sidebarIcon {
         margin-right: 5px;
-        font-size: 1.8rem !important;
+        font-size: 1.35rem !important;
     }
 }

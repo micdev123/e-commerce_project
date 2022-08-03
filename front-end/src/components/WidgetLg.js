@@ -1,3 +1,4 @@
+import { Visibility } from "@material-ui/icons";
 import { useContext, useEffect, useReducer } from "react";
 import { format } from "timeago.js"
 import { userRequest } from "../requestController";
@@ -117,6 +118,19 @@ export default function WidgetLg() {
                     ))}
                 </div>
                 
+
+                <div className="mobile_view">
+                    <div className="widgetLgTr head">
+                        <p className="widgetLgTh">Order Id</p>
+                        <p className="widgetLgTh">Action</p>
+                    </div>
+                    {orders.map((order) => (
+                    <div className="widgetLgTr t_row" key={order._id}>
+                        <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 12)}...` : order.userId}</p>
+                        <Visibility />
+                    </div>
+                    ))}
+                </div>
                 
             </div>
         )

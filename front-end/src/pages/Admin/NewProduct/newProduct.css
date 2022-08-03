@@ -23,3 +23,33 @@
     /* padding-left: 10px; */
 }
 
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+
+    .product_create_form h2 {
+        font-size: 2rem;
+    }
+
+    .product_create_form input {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #545353;
+        /* padding-left: 10px; */
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .product_create_form {
+        width: 95%;
+    }
+
+    .product_create_form h2 {
+        font-size: 1.7rem;
+    }
+
+    .product_create_form input {
+        font-size: 1.2rem;;
+        border-bottom: 2px solid #545353;
+    }
+}

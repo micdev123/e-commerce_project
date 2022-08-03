@@ -17,7 +17,7 @@
     margin-top: 2rem;
 }
 
-.edit_form h2 {
+.big_, .small_ {
     font-weight: 550;
     font-size: 1.4rem;
     margin-bottom: 2rem;
@@ -25,6 +25,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.small_ {
+    display: none;
 }
 
 .edit_form h2 .icon {
@@ -67,29 +71,38 @@
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
+    .UsersContainer {
+        width: 100%;
+    }
+
     .edit_form {
-        width: 85vw;
-        margin: 3rem auto;
+        width: 98%;
     }
 
-    h2 {
-        font-size: 2.2rem;
+    .big_ {
+        font-size: 2rem;
     }
 
-    .head {
-        margin-bottom: 10px;
+    .small_ {
+        display: none;
     }
 
-    input {
-        font-size: 1.6rem;
+    .edit_form input {
+        width: 100%;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #545353;
     }
 
-    #update {
-        padding: 13px 0;
-        font-size: 1.7rem;
+    .isAdmin_ {
+        font-size: 1.5rem;
     }
 
-    .form .info {
+    .isAdmin_ span {
+        margin-left: 10px;
+    }
+
+    .update {
+        padding: 8px 0;
         font-size: 1.7rem;
     }
 
@@ -98,30 +111,46 @@
 
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
-    .signup_container {
-        width: 80vw;
-        margin: 3rem auto;
+
+    .UsersContainer {
+        width: 100%;
     }
 
-    h2 {
-        font-size: 2rem;
+    .edit_form {
+        width: 98%;
     }
 
-    .head {
-        margin-bottom: 10px;
+    .big_ {
+        display: none;
     }
 
-    input {
-        font-size: 1.4rem;
+    .small_ {
+        display: block;
+        width: 100%;
+        font-size: 1.5rem;
     }
 
-    #update {
-        padding: 10px 0;
-        font-size: 1.4rem;
+    ._display__mobile {
+        display: none;
     }
 
-    .form .info {
-        font-size: 1.4rem;
+    .edit_form input {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #545353;
+    }
+
+    .isAdmin_ {
+        font-size: 1.5rem;
+    }
+
+    .isAdmin_ span {
+        margin-left: 10px;
+    }
+
+    .update {
+        width: 100%;
+        padding: 8px 0;
+        font-size: 1.5rem;
     }
 
 }

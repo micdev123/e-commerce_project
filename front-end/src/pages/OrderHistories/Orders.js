@@ -7,7 +7,7 @@ import { AiOutlineDropbox } from 'react-icons/ai';
 import '../OrderHistories/order_history.css'
 
 import { Store } from '../../Store'
-import { useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { userRequest } from '../../requestController'
 import { getError } from '../../utils'
 
@@ -19,7 +19,13 @@ const reducer = (state, action) => {
     case 'FETCH_REQUEST':
       return { ...state, loading: true };
     case 'FETCH_SUCCESS':
-      return { ...state, orders: action.payload, loading: false };
+        return {
+            ...state,
+            orders: action.payload.orders,
+            page: action.payload.page,
+            pages: action.payload.pages,
+            loading: false
+          };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
@@ -29,20 +35,24 @@ const reducer = (state, action) => {
 
 
 const Orders = () => {
-    const { state } = useContext(Store);
-    const { userInfo } = state;
-    const navigate = useNavigate();
-
-    const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
+    const [{ loading, error, orders, pages }, dispatch] = useReducer(reducer, {
         loading: true,
         error: '',
     });
+
+    const navigate = useNavigate();
+    const { search } = useLocation();
+    const sp = new URLSearchParams(search);
+    const page = sp.get('page') || 1;
+
+    const { state } = useContext(Store);
+    const { userInfo } = state;
 
     useEffect(() => {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const { data } = await userRequest.get(`/orders/find/${userInfo._id}`, {
+                const { data } = await userRequest.get(`/orders/find/${userInfo._id}?page=${page}`, {
                     headers: { token: `Bearer ${userInfo.accessToken}` }
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -52,7 +62,7 @@ const Orders = () => {
             }
         };
         fetchData();
-    }, [userInfo]);
+    }, [userInfo, page]);
 
     console.log(orders);
     return (
@@ -150,6 +160,17 @@ const Orders = () => {
                                         </div>
                                     ))}
                                 </div>   
+                            </div> 
+
+                            <div className='pagination_orderHistory'>
+                                {[...Array(pages).keys()].map((x) => (
+                                    <Link
+                                        className={x + 1 === Number(page) ? 'link active_link' : 'link'}
+                                        key={x + 1} to={`/admin/products?page=${x + 1}`}
+                                    >
+                                        {x + 1}
+                                    </Link>
+                                ))}
                             </div>    
                         </div>
                     </div>
