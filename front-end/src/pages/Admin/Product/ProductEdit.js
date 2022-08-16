@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SideNav from '../../../components/SideNav';
+import Skeleton from '../../../components/Skeleton';
 import app from '../../../firebase';
 import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
@@ -139,7 +140,7 @@ const ProductEdit = () => {
             <Helmet>
                 <title>Dashboard | Products</title>
             </Helmet>
-            {loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
+            {loading ? (<Skeleton type="circle"/>) : error ? (<p className="danger">{error}</p>) : (
                 <div className='admin_container'>
                     <SideNav />
                     <div className='container_contents'>

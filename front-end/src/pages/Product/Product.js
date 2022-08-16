@@ -7,6 +7,7 @@ import '../Product/product.css';
 import '../../components/css/product.css';
 import { publicRequest } from '../../requestController';
 import { Store } from '../../Store';
+import Skeleton from '../../components/Skeleton';
 
 const initialState = {
     product: [],
@@ -73,7 +74,7 @@ const Product = () => {
     return (
         <div>
             <div className='main_container_'>
-                {isLoading ? (<div>Loading..</div>) : error ? (<div>{error}</div>) : (
+                {isLoading ? (<Skeleton type='circle' />) : error ? (<div>{error}</div>) : (
                     <div className='product_container'>
                         <Helmet>
                             <title>{product.title}</title>     

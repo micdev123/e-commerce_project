@@ -10,6 +10,7 @@ import { getError } from '../../utils';
 import { toast } from 'react-toastify';
 
 import '../Order/order.css'
+import Skeleton from '../../components/Skeleton';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -167,7 +168,7 @@ const Order = () => {
     }
     
     return (
-        loading ? (<div>Loading..</div>) : error ? (<div className="danger">{error}</div>) :
+        loading ? (<Skeleton type='circle' />) : error ? (<div className="danger">{error}</div>) :
         (
             <div>
                 <div className='main_container_'>

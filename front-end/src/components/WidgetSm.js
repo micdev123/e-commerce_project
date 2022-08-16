@@ -6,6 +6,7 @@ import './css/widgetSm.css'
 import { getError } from "../utils";
 import { Store } from "../Store";
 import { Link } from "react-router-dom";
+import Skeleton from "./Skeleton";
 
 
 const reducer = (state, action) => {
@@ -53,7 +54,7 @@ export default function WidgetSm() {
   
   
     return (
-        loading ? ( <p>Loading</p> ) : error ? ( <p className="danger">{error}</p>) : (
+        loading ? ( <Skeleton type='circle'/> ) : error ? ( <p className="danger">{error}</p>) : (
             <div className="widgetSm">
                 <h3 className="widgetSmTitle">New join members</h3>
                 <ul className="widgetSmList">

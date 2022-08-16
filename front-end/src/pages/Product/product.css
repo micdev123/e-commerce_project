@@ -4,12 +4,14 @@
     grid-template-columns: 1fr 1fr;
     align-items: flex-start;
     /* background-color: red; */
+    transition: all .3s ease;
 }
 
 
 .image_container {
     width: 100%;
     height: 30rem;
+    transition: all .3s ease;
 }
 
 .product-img {
@@ -20,6 +22,7 @@
 
 .product-contents {
     margin-top: 1rem;
+    transition: all .3s ease;
 }
 
 .name {

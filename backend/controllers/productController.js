@@ -7,8 +7,10 @@ const Product = require('../models/Product')
 const getProducts = asyncHandler(async (req, res) => {
     try {
         const products = await Product.find();
+        setTimeout(() => {
+            res.status(200).json(products)
+        }, 1000);
         
-        res.status(200).json(products)
     } 
     catch (error) {
         res.status(500).json(error)

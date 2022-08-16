@@ -10,6 +10,7 @@ import { Store } from '../../Store'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { userRequest } from '../../requestController'
 import { getError } from '../../utils'
+import Skeleton from '../../components/Skeleton';
 
 
 
@@ -64,9 +65,9 @@ const Orders = () => {
         fetchData();
     }, [userInfo, page]);
 
-    console.log(orders);
+    // console.log(orders);
     return (
-        loading ? (<div>Loading..</div>) : error ? (<p className='msg'>{error} please login</p>) :
+        loading ? <Skeleton type='circle'/> : error ? (<p className='msg'>{error} please login</p>) :
         (
             <div>
                 <div className='main_container_'>
@@ -166,7 +167,7 @@ const Orders = () => {
                                 {[...Array(pages).keys()].map((x) => (
                                     <Link
                                         className={x + 1 === Number(page) ? 'link active_link' : 'link'}
-                                        key={x + 1} to={`/admin/products?page=${x + 1}`}
+                                        key={x + 1} to={`/orderHistory?page=${x + 1}`}
                                     >
                                         {x + 1}
                                     </Link>

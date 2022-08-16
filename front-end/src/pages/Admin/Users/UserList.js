@@ -12,6 +12,7 @@ import { AiFillEdit } from 'react-icons/ai';
 
 import './userList.css'
 import { HiUsers } from 'react-icons/hi';
+import Skeleton from '../../../components/Skeleton';
 
 
 const reducer = (state, action) => {
@@ -98,8 +99,8 @@ const UserList = () => {
             <Helmet>
                 <title>Dashboard | Users</title>
             </Helmet>
-            {loadingDelete && <div>Loading..</div>}
-            {loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
+            {loadingDelete && <Skeleton type="circle"/>}
+            {loading ? (<Skeleton type="circle"/>) : error ? (<p className="danger">{error}</p>) : (
                 <div className='admin_container'>
                     <SideNav />
                     <div className='container_contents'>

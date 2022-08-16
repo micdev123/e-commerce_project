@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
 import logger from 'use-reducer-logger';
-import styled from 'styled-components';
 import Product from './Product';
 import { publicRequest } from '../requestController';
+import Skeleton from './Skeleton';
+
+import './css/products.css';
 // import axios from 'axios';
 
 // import data from '../data'; // front-end data.js :: initial before getting product from backend
@@ -28,24 +30,6 @@ const reducer = (state, action) => {
 }
 
 
-const ProductWrapper = styled.div`
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    /* margin-top: 2rem; */
-
-    
-    /* Tablet Devices :: Media Queries */
-    @media screen and (min-width : 768px) and (max-width : 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Mobile Devices :: Media Queries */
-    @media screen and (min-width : 320px) and (max-width : 480px) {
-        grid-template-columns: 1fr;
-    }
-`
 const Products = () => {
     // React Hook State
     // const [products, setProducts] = useState([]);
@@ -70,9 +54,15 @@ const Products = () => {
     
 
     return (
-        <ProductWrapper>
-            {products.map((product) => (<Product item={product} key={product._id} />))}
-        </ProductWrapper>
+        <div className='ProductWrapper'>
+            {isLoading ? <Skeleton type="products" /> :
+                (
+                    products && products.map((product) => (
+                        <Product item={product} key={product._id} />
+                    ))
+                )
+            }
+        </div>
     )
 }
 

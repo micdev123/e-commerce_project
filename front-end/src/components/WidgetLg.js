@@ -6,6 +6,7 @@ import { Store } from "../Store";
 import { getError } from "../utils";
 
 import "./css/widgetLg.css";
+import Skeleton from "./Skeleton";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -55,7 +56,7 @@ export default function WidgetLg() {
     //     return <button className={"widgetLgButton " + type}>{type}</button>;
     // };
     return (
-        loading ? ( <p>Loading</p> ) : error ? ( <p className="danger">{error}</p>) : (
+        loading ? ( <Skeleton type='circle'/> ) : error ? ( <p className="danger">{error}</p>) : (
             <div className="widgetLg">
                 <h3 className="widgetLgTitle">Latest transactions</h3>
                 <div className="widgetLgTable">

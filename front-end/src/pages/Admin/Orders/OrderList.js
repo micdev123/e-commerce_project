@@ -12,6 +12,7 @@ import { Visibility } from "@material-ui/icons";
 import { SiEventstore } from 'react-icons/si';
 
 import './orderList.css'
+import Skeleton from '../../../components/Skeleton';
 
 
 
@@ -111,8 +112,8 @@ const OrderList = () => {
             <Helmet>
                 <title>Dashboard | Orders</title>
             </Helmet>
-            {loadingDelete && <div>Loading..</div>}
-            {loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
+            {loadingDelete && <Skeleton type="circle"/>}
+            {loading ? (<Skeleton type="circle"/>) : error ? (<p className="danger">{error}</p>) : (
                 <div className='admin_container'>
                     <SideNav />
                     <div className='container_contents'>

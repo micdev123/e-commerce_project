@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Product from '../../components/Product';
+import Skeleton from '../../components/Skeleton';
 import { publicRequest } from '../../requestController';
 import { getError } from '../../utils';
 import Header from '../Home/Header/Header';
@@ -66,7 +67,7 @@ const Search = () => {
             <Helmet>
                 <title>Search Product</title>
             </Helmet>
-            {loading ? (<div>Loading</div>) : (
+            {loading ? (<Skeleton type='circle'/>) : (
                 <div className='main_container'>
                     {products.length === 0 && (
                         <div>No Product Found</div>

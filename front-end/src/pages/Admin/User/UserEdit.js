@@ -8,6 +8,7 @@ import { getError } from '../../../utils';
 import { toast } from 'react-toastify';
 import { AiFillEdit } from 'react-icons/ai';
 import { Helmet } from 'react-helmet-async';
+import Skeleton from '../../../components/Skeleton';
 
 
 
@@ -104,7 +105,7 @@ const UserEdit = () => {
             <SideNav />
             <div className='container_contents'>
                 <div className="user">
-                    {loading ? (<div>Loading</div> ) : error ? ( <p className="danger">{error}</p>) : (
+                    {loading ? (<Skeleton type="circle"/> ) : error ? ( <p className="danger">{error}</p>) : (
                         <form className='edit_form' onSubmit={submitHandler}>
                             <h2 className='big_'>
                                 <AiFillEdit className='icon' />

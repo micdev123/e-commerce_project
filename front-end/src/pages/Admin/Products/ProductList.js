@@ -11,6 +11,7 @@ import { getError } from '../../../utils';
 import { AiFillEdit } from 'react-icons/ai';
 
 import './productList.css'
+import Skeleton from '../../../components/Skeleton';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -108,8 +109,8 @@ const ProductList = () => {
             <Helmet>
                 <title>Dashboard | Products</title>
             </Helmet>
-            {loadingDelete && <div>Loading..</div>}
-            {loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
+            {loadingDelete && <Skeleton type="circle"/>}
+            {loading ? (<Skeleton type="circle"/>) : error ? (<p className="danger">{error}</p>) : (
                 <div className='admin_container'>
                     <SideNav />
                     <div className='container_contents'>

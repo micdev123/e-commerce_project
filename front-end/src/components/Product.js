@@ -29,7 +29,7 @@ const Product = ({ item }) => {
     <div className='product'>
       <Link to={`/product/${item._id}`} className='link'>
         <div className='_product-img'>
-          <img src={item.img} alt={item.title} />
+          <img src={item.img} alt='' />
         </div>
         <div className='content_'>
             <h2 className='title_large'>

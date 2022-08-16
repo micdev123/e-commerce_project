@@ -11,6 +11,7 @@ import './css/featuredInfo.css';
 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, YAxis, } from "recharts";
 import { HiUsers } from "react-icons/hi";
+import Skeleton from "./Skeleton";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -69,7 +70,7 @@ export default function FeaturedInfo() {
     console.log(summary);
     
     return (
-        loading ? (<p>Loading</p>) : error ? (<p className="danger">{error}</p>) : (
+        loading ? (<Skeleton type='circle'/>) : error ? (<p className="danger">{error}</p>) : (
             <div className="featured_container_">
                 <div className="featured">
                     <div className="featuredItem">
