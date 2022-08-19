@@ -146,7 +146,7 @@ function App() {
                                     {/* <sup className='incart'>0</sup> */}
                                 </Link>
                                 <div></div>
-                                <span className='cart_price'>Le {cart.cartItems ? cart.cartItems.reduce((a, c) => a + c.price * c.quantity, 0) : 0}</span>
+                                <span className='cart_price'>${cart.cartItems ? cart.cartItems.reduce((a, c) => a + c.price * c.quantity, 0) : 0}</span>
                             </li>
                         </nav>
                     </div>

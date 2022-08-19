@@ -80,7 +80,7 @@ export default function FeaturedInfo() {
                         </span>
                         <div className="featuredMoneyContainer">
                             <span className="featuredMoney">
-                                Le {summary.orders.length === 0 ? 0 : summary.orders[0].totalSales.toFixed(2)}
+                                ${summary.orders.length === 0 ? 0 : summary.orders[0].totalSales.toFixed(2)}
                             </span>
                         </div>
                         <span className="featuredSub">Compared to last month</span>

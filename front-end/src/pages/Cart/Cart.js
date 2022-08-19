@@ -103,7 +103,7 @@ const Cart = () => {
                                                 <div>
                                                     <p className='_name'> {item.title}</p>
                                                     <p className='tablet_name'> {item.title.length >=10 ? `${item.title.substring(0, 20)}...` : item.title}</p>
-                                                    <p className='_price'>Price: Le {item.price}</p>
+                                                    <p className='_price'>Price: ${item.price}</p>
                                                     <p className='qty'>Quantity:
                                                         <AiFillMinusCircle className='icon minus'
                                                             onClick={() => updateCartHandler(item,
@@ -119,7 +119,7 @@ const Cart = () => {
                                             </div>
 
                                             <div className='subtotal'>
-                                                <p>Le <span className='sub_total'>20.00</span></p>
+                                                <p>$<span className='sub_total'>20.00</span></p>
                                             </div>
                                         </div>
                                     ))}
@@ -178,15 +178,7 @@ const Cart = () => {
                                     </div>
                                     <div>
                                         <p>Cart Subtotal</p>
-                                        <p>Le {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</p>
-                                    </div>
-                                    <div>
-                                        <p>Shipping</p>
-                                        <p>$0.00</p>
-                                    </div>
-                                    <div className='total'>
-                                        <h2>Total</h2>
-                                        <p>$20.00</p>
+                                        <p>${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</p>
                                     </div>
                                     <button className='checkout_btn' onClick={checkoutHandler}>Proceed to checkout</button>
                                 </div>

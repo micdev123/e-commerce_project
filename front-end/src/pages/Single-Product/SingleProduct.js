@@ -34,7 +34,6 @@ const SingleProduct = () => {
     const params = useParams();
     const { id } = params;
     const [{isLoading, error, product}, dispatch] = useReducer(reducer, initialState);
-    const [quantity, setQuantity] = useState(1);
     // const [message, setMessage] = useState(null);
     // finding matching product id and display
     useEffect(() => {
@@ -85,9 +84,9 @@ const SingleProduct = () => {
                     <div className='product-contents'>
                         <h2 className='name'>{product.title}</h2>
                         <p className='des'>{product.desc} </p>
-                        <p className='price'>Price: Le <span>{product.price}</span></p>
+                        <p className='price'>Price: $<span>{product.price}</span></p>
                         
-                        <p>Status: {product.countInStock > 0 && quantity <= product.countInStock ? 
+                        <p>Status: {product.countInStock > 0 ? 
                             <span className='success'>InStock</span> : 
                             <span className='danger'>OutOfStock</span>}
                         </p>

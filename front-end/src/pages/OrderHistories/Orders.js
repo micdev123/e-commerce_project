@@ -94,7 +94,7 @@ const Orders = () => {
                                         <div className='order_' key={order._id}>
                                             <p>{order._id}</p>
                                             <p>{order.createdAt.substring(0, 10)}</p>
-                                            <p>Le {order.totalPrice.toFixed(2)}</p>
+                                            <p>${order.totalPrice.toFixed(2)}</p>
                                             {order.isPaid ? (
                                                 <p className="_success_ _Info_">
                                                     Paid at {order.paidAt.substring(0, 10)}
@@ -133,7 +133,7 @@ const Orders = () => {
                                         <div className='order_' key={order._id}>
                                             <p>{order._id.length >= 10 ? `${order._id.substring(0, 15)}...` : order._id}</p>
                                             <p>{order.createdAt.substring(0, 10)}</p>
-                                            <p>Le {order.totalPrice.toFixed(2)}</p>
+                                            <p>${order.totalPrice.toFixed(2)}</p>
                                             
                                             <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
                                                 <BsFillEyeFill className='eye'/>

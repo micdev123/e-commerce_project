@@ -139,7 +139,7 @@ const OrderList = () => {
                                         <p className='Tablet_display'>{order.username}</p>
                                         <p>{order.createdAt.substring(0, 10)}</p>
                                         
-                                        <p className='big Mobile_display'>Le {order.totalPrice.toFixed(2)}</p>
+                                        <p className='big Mobile_display'>${order.totalPrice.toFixed(2)}</p>
                                         {order.isPaid ? (
                                             <p className="_success_ _Info_ Mobile_display">
                                                 Paid at {order.paidAt.substring(0, 10)}

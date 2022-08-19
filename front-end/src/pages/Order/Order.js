@@ -217,7 +217,7 @@ const Order = () => {
                                                 </div>
                                                 <div className='item_content'> 
                                                     <p>{item.name} *  <span> {item.quantity}</span></p>
-                                                    <p>Le {item.price}</p>
+                                                    <p>${item.price}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,19 +235,19 @@ const Order = () => {
                                 </div>
                                 <div className='info_'>
                                     <p>Cart Subtotal</p>
-                                    <p>Le {order.itemsPrice.toFixed(2)}</p>
+                                    <p>${order.itemsPrice.toFixed(2)}</p>
                                 </div>
                                 <div className='info_'>
                                     <p>Shipping</p>
-                                    <p>Le {order.shippingPrice.toFixed(2)}</p>
+                                    <p>${order.shippingPrice.toFixed(2)}</p>
                                 </div>
                                 <div className='info_'>
                                     <p>Tax</p>
-                                    <p>Le {order.taxPrice.toFixed(2)}</p>
+                                    <p>${order.taxPrice.toFixed(2)}</p>
                                 </div>
                                 <div className='total'>
                                     <p>Total</p>
-                                    <p>Le {order.totalPrice.toFixed(2)}</p>
+                                    <p>${order.totalPrice.toFixed(2)}</p>
                                 </div>
                             </div>
                             {!order.isPaid && (

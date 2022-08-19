@@ -71,7 +71,7 @@ export default function WidgetLg() {
                     <div className="widgetLgTr t_row" key={order._id}>
                         <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 7)}...` : order.userId}</p>
                         <p className="widgetLgDate td">{format(order.createdAt).length >= 5 ? `${format(order.createdAt).substring(0, 10)}... `: format(order.createdAt)}</p>
-                        <p className="widgetLgAmount td">Le {order.totalPrice}</p>
+                        <p className="widgetLgAmount td">${order.totalPrice}</p>
                         {order.isPaid ? (
                             <p className="success_ td">
                                 Paid at {order.paidAt.substring(0, 10)}
@@ -105,7 +105,7 @@ export default function WidgetLg() {
                     <div className="widgetLgTr t_row" key={order._id}>
                         <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 10)}...` : order.userId}</p>
                         <p className="widgetLgDate td">{format(order.createdAt).length >= 5 ? `${format(order.createdAt).substring(0, 8)}... `: format(order.createdAt)}</p>
-                        <p className="widgetLgAmount td">Le {order.totalPrice}</p>
+                        <p className="widgetLgAmount td">${order.totalPrice}</p>
                         {order.isPaid ? (
                             <p className="success_ td">
                                 Paid at {order.paidAt.substring(0, 10)}

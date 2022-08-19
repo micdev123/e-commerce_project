@@ -497,12 +497,13 @@
 
   .login_link p {
     /* color: black; */
-    font-size: 1.1rem;
+    font-size: 1.18rem;
+    line-height: 15px;
   }
 
   .login_link p:first-child {
     font-size: 0.8rem;
-    line-height: 1px;
+    line-height: 2px;
   }
 
   .cart .cart_icon {

@@ -37,7 +37,7 @@ const Product = ({ item }) => {
           </h2>
            
           <Rating name="half-rating-read" defaultValue={item.rating} precision={0.5} readOnly className='rating'/>
-          <p className='price'>Le <span>{item.price}</span></p>
+          <p className='price'>$<span>{item.price}</span></p>
         </div>
       </Link>
       {item.countInStock === 0 ? (

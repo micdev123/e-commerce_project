@@ -152,7 +152,7 @@ const ProductList = () => {
                                             <p>true</p>
                                             )
                                         }
-                                        <p>Le {item.price.toFixed(2)}</p>
+                                        <p>${item.price.toFixed(2)}</p>
                                         
                                         <div className='userAction'>
                                             <AiFillEdit onClick={() => navigate(`/admin/product/${item._id}`)} className='icon' />

@@ -130,7 +130,7 @@ const PlaceOrder = () => {
                                             </div>
                                             <div className='item_content'> 
                                                 <p>{item.title} *  <span> {item.quantity}</span></p>
-                                                <p>Le {item.price}</p>
+                                                <p>${item.price}</p>
                                             </div>
                                         </div>
                                         <div className='itemActions'>
@@ -153,19 +153,19 @@ const PlaceOrder = () => {
                         </div>
                         <div className='info_'>
                             <p>Cart Subtotal</p>
-                            <p>Le {cart.itemsPrice.toFixed(2)}</p>
+                            <p>${cart.itemsPrice.toFixed(2)}</p>
                         </div>
                         <div className='info_'>
                             <p>Shipping</p>
-                            <p>Le {cart.shippingPrice.toFixed(2)}</p>
+                            <p>${cart.shippingPrice.toFixed(2)}</p>
                         </div>
                         <div className='info_'>
                             <p>Tax</p>
-                            <p>Le {cart.taxPrice.toFixed(2)}</p>
+                            <p>${cart.taxPrice.toFixed(2)}</p>
                         </div>
                         <div className='total'>
                             <p>Total</p>
-                            <p>Le {cart.totalPrice.toFixed(2)}</p>
+                            <p>${cart.totalPrice.toFixed(2)}</p>
                         </div>
                         {loading ? (
                             <button className='Order_action_btn' onClick={placeOrderHandler}>Processing..</button>
