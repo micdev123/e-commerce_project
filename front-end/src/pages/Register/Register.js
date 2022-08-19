@@ -1,17 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { BsShop } from 'react-icons/bs';
+import { AiOutlineShop } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { publicRequest } from '../../requestController';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
 import '../Login/auth.css';
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/feather/eye'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 
 const Register = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get('redirect');
   const redirect = redirectInUrl ? redirectInUrl : '/';
+
+   const [type, setType]=useState('password');
+    const [icon, setIcon] = useState(eyeOff)
+    const handleToggle=()=>{    
+        if(type==='password'){
+            setIcon(eye);      
+            setType('text');
+        }
+        else{
+            setIcon(eyeOff);     
+            setType('password');
+        }
+    }
+
 
   const [msg, setmsg] = useState('');
 
@@ -57,7 +74,7 @@ const Register = () => {
           <title>Register</title>     
         </Helmet>
         <Link to='/' className='logo__'>
-          <BsShop className='shop_icon'/>
+          <AiOutlineShop className='shop_icon'/>
           <h2>E-Commerce</h2>
         </Link>
         
@@ -67,8 +84,11 @@ const Register = () => {
           <input type='text' name='name' placeholder='Enter name' required onChange={(e) => setUsername(e.target.value)} />
           <input type='email' name='email' placeholder='Enter email'
             required onChange={(e) => setEmail(e.target.value)} />
-          <input type='password' name='password' placeholder='Enter password'
-            required onChange={(e) => setPassword(e.target.value)} />
+          <div className='Password'>
+            <input type={type} name='password' placeholder='Enter password'
+              required onChange={(e) => setPassword(e.target.value)} />
+            <span onClick={handleToggle} className='ShowPassword'><Icon icon={icon} /></span>
+          </div>
           <input type='password' name='confirm_password' placeholder='confirm password'
             required onChange={(e) => setConfirmPassword(e.target.value)} />
           <button type='submit' id='signup' className='auth_btn'>Sign-Up</button>

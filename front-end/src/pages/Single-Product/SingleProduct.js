@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Footer from '../../components/Footer'
 
-import '../Product/product.css';
-import '../../components/css/product.css';
+import './single-product.css';
+
 import { publicRequest } from '../../requestController';
 import { Store } from '../../Store';
 import Skeleton from '../../components/Skeleton';
@@ -29,7 +29,7 @@ const reducer = (state, action) => {
 }
 
 
-const Product = () => {
+const SingleProduct = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { id } = params;
@@ -80,7 +80,7 @@ const Product = () => {
                             <title>{product.title}</title>     
                         </Helmet>
                         <div className='image_container'>
-                        <img src={product.img} className='product-img' alt={product.title} />
+                        <img src={product.img} className='product-img' alt='' />
                     </div>
                     <div className='product-contents'>
                         <h2 className='name'>{product.title}</h2>
@@ -109,4 +109,4 @@ const Product = () => {
     )
 }
 
-export default Product
+export default SingleProduct

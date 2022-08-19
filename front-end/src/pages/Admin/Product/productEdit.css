@@ -53,16 +53,16 @@
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .Product_Container h2 {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .product_edit_form {
-        width: 98%;
+        width: 100%;
     }
 
     .product_edit_form input {
-        font-size: 1.5rem;
-        border-bottom: 2px solid #545353;
+        font-size: 1.3rem;
+        border-bottom: 1px solid #545353;
     }
 
 }
@@ -75,7 +75,7 @@
     }
 
     .Product_Container h2 {
-        font-size: 1.8rem;
+        font-size: 1.1rem;
     }
 
     .product_edit_form {
@@ -83,7 +83,7 @@
     }
 
     .product_edit_form input {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         border-bottom: 2px solid #545353;
     }
 }

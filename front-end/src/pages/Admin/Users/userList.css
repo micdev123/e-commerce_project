@@ -62,7 +62,7 @@
 
     .Users_Container h2 {
         font-weight: 550;
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
 
@@ -79,25 +79,25 @@
         width: 100%;
         display: grid;
         grid-template-columns: 15.6rem 11rem 10rem 5rem;
-        border-bottom: 1px solid #d4d4d4;
+        border-bottom: 1.1px solid #d4d4d4;
         padding-bottom: 10px;
     }
 
     .tbody .tb_content {
         width: 100%;
         display: grid;
-        grid-template-columns: 14rem 9rem 7rem 6rem;
+        grid-template-columns: 14rem 9rem 7rem 5rem;
         gap: 2rem;
     }
 
     .tbody .tb_content p {
         font-weight: normal;
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
 
     .userAction .icon {
-        font-size: 1.8rem !important;
+        font-size: 1.45rem !important;
         cursor: pointer;
     }
 }
@@ -112,7 +112,7 @@
 
     .Users_Container h2 {
         font-weight: 550;
-        font-size: 1.7rem;
+        font-size: 1.35rem;
     }
 
 
@@ -132,30 +132,30 @@
     .mobile_view_ .head {
         width: 100%;
         display: grid;
-        grid-template-columns: 16rem 5rem;
+        grid-template-columns: 8rem 9rem 5rem;
         border-bottom: 1px solid #d4d4d4;
         padding-bottom: 10px;
     }
 
     .mobile_view_ .head p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .tbody .tb_content {
         width: 100%;
         display: grid;
-        grid-template-columns: 14rem  4rem;
+        grid-template-columns: 6rem 7rem 3rem;
         gap: 2rem;
     }
 
     .tbody .tb_content p {
         font-weight: normal;
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 
 
     .userAction .icon {
-        font-size: 1.4rem !important;
+        font-size: 1.15rem !important;
         cursor: pointer;
     }
 }

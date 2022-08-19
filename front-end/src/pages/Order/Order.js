@@ -226,32 +226,34 @@ const Order = () => {
                             </div>
                         </div>
 
-                        <div className='Order_action orderAction_container'>
+                        <div className='OrderAction'>
                             <h2>Order Summary</h2>
-                            <div className='info_'>
-                                <p>Products In Cart</p>
-                                <p>{order.orderItems.length} Items</p>
-                            </div>
-                            <div className='info_'>
-                                <p>Cart Subtotal</p>
-                                <p>Le {order.itemsPrice.toFixed(2)}</p>
-                            </div>
-                            <div className='info_'>
-                                <p>Shipping</p>
-                                <p>Le {order.shippingPrice.toFixed(2)}</p>
-                            </div>
-                            <div className='info_'>
-                                <p>Tax</p>
-                                <p>Le {order.taxPrice.toFixed(2)}</p>
-                            </div>
-                            <div className='total'>
-                                <p>Total</p>
-                                <p>Le {order.totalPrice.toFixed(2)}</p>
+                            <div className='OrderActionContainer'>
+                                <div className='info_'>
+                                    <p>Products In Cart</p>
+                                    <p>{order.orderItems.length} Items</p>
+                                </div>
+                                <div className='info_'>
+                                    <p>Cart Subtotal</p>
+                                    <p>Le {order.itemsPrice.toFixed(2)}</p>
+                                </div>
+                                <div className='info_'>
+                                    <p>Shipping</p>
+                                    <p>Le {order.shippingPrice.toFixed(2)}</p>
+                                </div>
+                                <div className='info_'>
+                                    <p>Tax</p>
+                                    <p>Le {order.taxPrice.toFixed(2)}</p>
+                                </div>
+                                <div className='total'>
+                                    <p>Total</p>
+                                    <p>Le {order.totalPrice.toFixed(2)}</p>
+                                </div>
                             </div>
                             {!order.isPaid && (
-                                <div>
+                                <>
                                     {isPending ? (
-                                    <div>Loading..</div>
+                                    <Skeleton type='circle'/>
                                     ) : (
                                     <div className='paypal_btn'>
                                         <PayPalButtons
@@ -261,18 +263,16 @@ const Order = () => {
                                         ></PayPalButtons>
                                     </div>
                                     )}
-                                    {loadingPay && <div>Loading..</div>}
-                                </div>
+                                    {loadingPay && <Skeleton type='circle'/>}
+                                </>
                             )}
                             {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                                <div>
-                                    {loadingDeliver && <div>Loading..</div>}
-                                    <div className="d-grid">
+                                <>
+                                    {loadingDeliver && <Skeleton type='circle'/>}
                                     <button type="button" className='Order_action_btn' onClick={deliverOrderHandler}>
                                         Deliver Order
                                     </button>
-                                    </div>
-                                </div>
+                                </>
                             )}
                             
                         </div>

@@ -99,7 +99,7 @@
 
 
 .deliver_btn button:hover {
-    background-color: #044c62;
+    background-color: #1d314a;
 }
 
 /* Tablet Devices :: Media Queries */
@@ -109,7 +109,7 @@
     }
 
     .deliver_form h2 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .form_group {
@@ -120,14 +120,14 @@
 
 
     .form_group input {
-        border: 2px solid #adadad;
+        border: 1px solid #adadad;
         border-radius: 5px;
         padding: 8px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .form_group label {
-        font-size: 1.7rem;
+        font-size: 1.45rem;
     }
 
     .payment_method {
@@ -137,13 +137,13 @@
     .payment {
         width: 15rem;
         /* background-color: red; */
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
 
     .radio_btn {
-        width: 20px;
-        height: 20px;
+        width: 19px;
+        height: 19px;
         padding: 3px;
     }
 
@@ -156,7 +156,7 @@
     }
 
     .deliver_btn button {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         padding: 10px 210px;
     }
 
@@ -170,30 +170,30 @@
     }
 
     .deliver_form h2 {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
 
 
     .form_group input {
-        padding: 7px;
-        font-size: 1.3rem;
+        padding: 5px;
+        font-size: 1.1rem;
     }
 
     .form_group label {
-        font-size: 1.4rem;
+        font-size: 1.15rem;
     }
 
 
     .payment {
         width: 14rem;
         /* background-color: red; */
-        font-size: 1.4rem;
+        font-size: 1.15rem;
     }
 
 
     .radio_btn {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
         padding: 3px;
     }
 
@@ -201,7 +201,7 @@
 
     .deliver_btn button {
         width: 100%;
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         padding: 8px 0;
     }
     

@@ -94,7 +94,7 @@
     }
 
     .Orders_container h2 {
-        font-size: 2rem;
+        font-size: 1.9rem;
         /* margin-bottom: 1rem; */
         border-bottom: 2px solid #eeeeee;
     }
@@ -118,8 +118,12 @@
     }
 
     .history .order_ p {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
         font-weight: normal;
+    }
+
+    .pagination_orderHistory .link {
+        font-size: 1.25rem;
     }
 
 }
@@ -135,9 +139,9 @@
     }
 
     .Orders_container h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         /* margin-bottom: 1rem; */
-        border-bottom: 2px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
     }
 
     .big_screen {
@@ -155,13 +159,17 @@
 
     .orderHead,
     .history .order_ {
-        grid-template-columns: 7.5rem 7rem 4rem;
-        border-bottom: 2px solid #eeeeee;
+        grid-template-columns: 10.5rem 6.5rem 4rem;
+        border-bottom: 1px solid #eeeeee;
         gap: 10px;
     }
 
     .history .order_ p {
-        font-size: 1.28rem;
+        font-size: 1.05rem;
         font-weight: normal;
     }
+
+    .pagination_orderHistory .link {
+        font-size: 1.1rem;
+    }   
 }

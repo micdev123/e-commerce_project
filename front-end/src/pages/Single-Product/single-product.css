@@ -80,7 +80,7 @@ p {
 }
 
 .cart_btn:hover {
-    background-color: #044c62;
+    background-color: #1d314a;
 }
 
 
@@ -97,7 +97,7 @@ p {
     
     .image_container {
         width: 100%;
-        /* height: 50%; */
+        height: 25rem;
         /* background-color: rebeccapurple; */
     }
     .product-img {
@@ -113,29 +113,21 @@ p {
     
     .name {
         width: 100%;
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     
     p {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
     .des {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
-    .product-contents .qty {
-        font-size: 1.7rem;
-    }
-    
-    .qty .icon {
-        font-size: 2rem;
-    }
-    
-    
+   
     .cart_btn {
-        padding: 14px;
-        font-size: 1.4rem;
+        padding: 10px;
+        font-size: 1.2rem;
     }
     
 
@@ -144,7 +136,7 @@ p {
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .product_container {
-        padding: 4rem 1rem 2rem 1.5rem;
+        padding: 2rem 1rem 2rem 1.5rem;
         width: 100%;
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -156,6 +148,9 @@ p {
         width: 100%;
         height: 20rem;
         /* background-color: rebeccapurple; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .product-img {
@@ -171,31 +166,31 @@ p {
 
     .name {
         width: 100%;
-        font-size: 1.8rem;
+        font-size: 1.45rem;
     }
 
     p {
-        font-size: 1.5rem;
+        width: 100%;
+        font-size: 1.1rem;
     }
 
     .des {
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 
-    .product-contents .qty {
-        font-size: 1.7rem;
+    .success,
+    .danger {
+        padding: 4px 15px;
+        border-radius: 3px;
+        font-size: 0.8rem;
     }
-
-    .qty .icon {
-        font-size: 2rem;
-    }
-
 
     .cart_btn,
     .product-contents .outOfStock {
-        padding: 10px 0;
-        font-size: 1.2rem;
+        width: 100%;
+        padding: 8px 0;
+        font-size: 1rem;
     }
     
 

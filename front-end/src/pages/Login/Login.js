@@ -1,17 +1,33 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { BsShop } from 'react-icons/bs';
+import { AiOutlineShop } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
 import '../Login/auth.css';
 import { getError } from '../../utils'
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/feather/eye'
+import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 
 const Login = () => {
     const navigate = useNavigate();
     const { search } = useLocation();
     const redirectInUrl = new URLSearchParams(search).get('redirect');
     const redirect = redirectInUrl ? redirectInUrl : '/';
+
+    const [type, setType]=useState('password');
+    const [icon, setIcon] = useState(eyeOff)
+    const handleToggle=()=>{    
+        if(type==='password'){
+            setIcon(eye);      
+            setType('text');
+        }
+        else{
+            setIcon(eyeOff);     
+            setType('password');
+        }
+    }
 
     const [msg, setmsg] = useState('');
 
@@ -49,7 +65,7 @@ const Login = () => {
                     <title>Login</title>     
                 </Helmet>
                 <Link to='/' className='logo__'>
-                    <BsShop className='shop_icon'/>
+                    <AiOutlineShop className='shop_icon'/>
                     <h2>E-Commerce</h2>
                 </Link>
                
@@ -57,7 +73,10 @@ const Login = () => {
                     {msg && (<p className='msg'>{msg}</p>)}
                     <h2 className='head'>Login To Your Account</h2>
                     <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} />
-                    <input type='password' name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} />
+                    <div className='Password'>
+                        <input type={type} name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} />
+                        <span onClick={handleToggle} className='ShowPassword'><Icon icon={icon} /></span>
+                    </div>
                     <button type='submit' id='signin' className='auth_btn'>Login</button>
                     <p className='caution'>By signing-in you agree to E-commerce conditions of use and sale. </p>
                     <button className='info'>

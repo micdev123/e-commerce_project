@@ -18,3 +18,10 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .ProductWrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

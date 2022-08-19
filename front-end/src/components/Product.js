@@ -32,11 +32,8 @@ const Product = ({ item }) => {
           <img src={item.img} alt='' />
         </div>
         <div className='content_'>
-            <h2 className='title_large'>
-              {item.title.length >= 20 ? `${item.title.substring(0, 20)}...` : item.title}
-            </h2>
-            <h2 className='title_small'>
-              {item.title.length >= 20 ? `${item.title.substring(0, 17)}...` : item.title}
+          <h2>
+            {item.title.length >= 20 ? `${item.title.substring(0, 25)}...` : item.title}
           </h2>
            
           <Rating name="half-rating-read" defaultValue={item.rating} precision={0.5} readOnly className='rating'/>

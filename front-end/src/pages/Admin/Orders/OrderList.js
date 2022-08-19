@@ -127,7 +127,7 @@ const OrderList = () => {
                                     <p>Order Id</p>
                                     <p className='Tablet_display'>User</p>
                                     <p>Date</p>
-                                    <p className='Mobile_display'>Total</p>
+                                    <p className='Tablet_display'>Total</p>
                                     <p className='Mobile_display'>Paid</p>
                                     <p className='Tablet_display'>Delivered</p>
                                     <p>Actions</p>
@@ -135,14 +135,11 @@ const OrderList = () => {
                                 <div className='tbody_'>
                                     {orders.length === 0 ? (<div className='msg'>No Order Yet!</div>) : orders.map((order) => (
                                     <div className='tb_content_' key={order._id}>
-                                        <p className='big'>{order._id.length >= 15 ? `${order._id.substring(0, 15)}...` : order._id}</p>
-                                        <p className='small'>{order._id.length >= 15 ? `${order._id.substring(0, 8)}...` : order._id}</p>
+                                        <p>{order._id.length >= 15 ? `${order._id.substring(0, 15)}...` : order._id}</p>
                                         <p className='Tablet_display'>{order.username}</p>
-                                        <p className='big'>{order.createdAt.substring(0, 10)}</p>
-                                        <p className='small'>{order.createdAt.substring(0, 7)}..</p>
-                                            
+                                        <p>{order.createdAt.substring(0, 10)}</p>
+                                        
                                         <p className='big Mobile_display'>Le {order.totalPrice.toFixed(2)}</p>
-                                        <p className='small Mobile_display'>Le {order.totalPrice.toFixed(2).length >= 5 ? `${order.totalPrice.toFixed(2).substring(0, 5)}...` : order.totalPrice.toFixed(2)}</p>
                                         {order.isPaid ? (
                                             <p className="_success_ _Info_ Mobile_display">
                                                 Paid at {order.paidAt.substring(0, 10)}

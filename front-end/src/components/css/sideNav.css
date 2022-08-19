@@ -103,7 +103,7 @@
     }
 
     .adminImg .admin_icon {
-        font-size: 2rem;
+        font-size: 1.85rem;
         /* height: 8rem; */
         border-radius: 50%;
         border: 1px solid #b6b6b6;
@@ -111,7 +111,7 @@
 
     .sidebarMenuBar {
         display: block;
-        font-size: 2rem;
+        font-size: 1.75rem;
         margin-bottom: 20px;
     }
 
@@ -129,7 +129,7 @@
 
     .sidebarIcon {
         margin-right: 5px;
-        font-size: 1.8rem !important;
+        font-size: 1.75rem !important;
     }
 }
 
@@ -137,9 +137,10 @@
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .sidebarMenuBar_mobile {
         display: block;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-bottom: 50px;
         position: absolute;
+        /* top: -2rem; */
         left: 10px;
         cursor: pointer;
     }
@@ -168,7 +169,7 @@
     }
 
     .small_screen_sidebar .adminImg .admin_icon {
-        font-size: 2.2rem;
+        font-size: 2rem;
         /* height: 8rem; */
         border-radius: 50%;
         border: 1px solid #b6b6b6;
@@ -177,7 +178,7 @@
 
     .small_screen_sidebar .sidebarTitle {
         display: block;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .small_screen_sidebar .sidebarListItem span {
@@ -185,11 +186,63 @@
     }
 
     .small_screen_sidebar .sidebarListItem {
-        font-size: 1.4rem;
+        font-size: 1.05rem;
     }
 
     .small_screen_sidebar .sidebarIcon {
         margin-right: 5px;
-        font-size: 1.35rem !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .small_screen_sidebar {
+        display: none;
+    }
+
+
+    .sidebar {
+        flex: 0.1;
+        padding: 0 0 1rem 5px;
+    }
+
+    .adminImg {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .adminImg .admin_icon {
+        font-size: 1.7rem;
+        /* height: 8rem; */
+        border-radius: 50%;
+        border: 1px solid #b6b6b6;
+    }
+
+    .sidebarMenuBar {
+        display: block;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .sidebarMenuBar_mobile {
+        display: none;
+    }
+
+    .sidebarTitle {
+        display: none;
+    }
+
+    .sidebarListItem span {
+        display: none;
+    }
+
+    .sidebarIcon {
+        margin-right: 5px;
+        font-size: 1.5rem !important;
     }
 }

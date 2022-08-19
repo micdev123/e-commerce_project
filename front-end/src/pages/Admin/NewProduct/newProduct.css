@@ -45,11 +45,11 @@
     }
 
     .product_create_form h2 {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
 
     .product_create_form input {
-        font-size: 1.2rem;;
-        border-bottom: 2px solid #545353;
+        font-size: 1.05rem;;
+        border-bottom: 1px solid #545353;
     }
 }

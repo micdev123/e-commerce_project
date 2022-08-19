@@ -80,27 +80,27 @@
     }
 
     .featuredTitle {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
         font-weight: 500;
-        border-bottom: 1.7px solid #e6e6e6;
+        border-bottom: 1.1px solid #e6e6e6;
     }
 
     .featuredTitle .icon {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     .featuredMoney {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
         font-weight: 550;
     }
 
     .chartTitle {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
         font-weight: 500;
     }
 
     .chartTitle .icon {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
     }
 }
 
@@ -120,21 +120,60 @@
 
     .featuredTitle {
         width: 100%;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         font-weight: 500;
-        border-bottom: 1.7px solid #e6e6e6;
+        border-bottom: 1px solid #e6e6e6;
     }
 
     .featuredTitle .icon {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     .featuredMoney {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
         font-weight: 550;
+    }
+
+    .featuredSub {
+        font-size: 0.9rem;
     }
 
     .chart {
         display: none;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .featured {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1rem 0 10px;
+        gap: 20px;
+    }
+
+    .featuredTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+        border-bottom: 1.1px solid #e6e6e6;
+    }
+
+    .featuredTitle .icon {
+        font-size: 1.7rem;
+    }
+
+    .featuredMoney {
+        font-size: 1.6rem;
+        font-weight: 550;
+    }
+
+    .chartTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+    .chartTitle .icon {
+        font-size: 1.6rem;
     }
 }

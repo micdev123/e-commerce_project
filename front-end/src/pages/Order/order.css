@@ -3,7 +3,7 @@
     color: white;
     padding: 5px;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
 }
 
@@ -24,6 +24,17 @@
     margin-top: 2rem;
 }
 
+.OrderAction {
+    width: 100%;
+}
+
+.OrderActionContainer div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 
 .paypal_btn {
@@ -36,8 +47,22 @@
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
-    .orderAction_container {
-        padding: 3rem 3.4rem 2rem 3.3rem;
+    .OrderAction {
+        padding: 2rem 1rem 2rem 1rem;
+        width: 100%;
+    }
+
+    .OrderActionContainer div {
+        /* background-color: red; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .OrderActionContainer div p:last-child {
+        text-align: right;
     }
 }
 
@@ -51,8 +76,27 @@
         /* justify-content: flex-start; */
         /* background-color: yellow; */
     }
-    .orderAction_container {
-        padding: 3rem 1.3rem 2rem 1.3rem;
+
+    .OrderAction {
+        padding: 2rem 1rem 2rem 1rem;
+        width: 100%;
+    }
+
+    .OrderActionContainer div {
+        /* background-color: red; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .OrderActionContainer div p:last-child {
+        text-align: right;
+    }
+
+    .Paypal_Btn {
+        width: 100%;
     }
 }
 

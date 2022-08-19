@@ -55,9 +55,9 @@
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .widgetSmTitle {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
         font-weight: 500;
-        border-bottom: 1.7px solid #cecece;
+        border-bottom: 1.1px solid #cecece;
     }
 
     .widgetSmList {
@@ -81,7 +81,7 @@
 
     .widgetSmUsername {
         font-weight: normal;
-        font-size: 1.6rem;
+        font-size: 1.45rem;
     }
 
     .widgetSmUserTitle {
@@ -94,7 +94,7 @@
     }
 
     .widgetSmIcon {
-        font-size: 1.9rem !important;
+        font-size: 1.45rem !important;
     }
 }
 
@@ -102,9 +102,9 @@
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .widgetSmTitle {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 500;
-        border-bottom: 1.7px solid #cecece;
+        border-bottom: 1px solid #cecece;
     }
 
     .widgetSmList {
@@ -128,7 +128,54 @@
 
     .widgetSmUsername {
         font-weight: normal;
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .widgetSmButton {
+        color: #262626;
+        cursor: pointer;
+    }
+
+    .widgetSmIcon {
+        font-size: 1.05rem !important;
+    }
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape){
+    .widgetSmTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+        border-bottom: 1.1px solid #cecece;
+    }
+
+    .widgetSmList {
+        margin: 10px 0 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .widgetSmListItem {
+        display: grid;
+        grid-template-columns: 3rem 2fr 1rem;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+
+    /* .widgetSmUser {
+    background-color: red;
+} */
+
+    .widgetSmUsername {
+        font-weight: normal;
+        font-size: 1.25rem;
+    }
+
+    .widgetSmUserTitle {
+        font-weight: 300;
     }
 
     .widgetSmButton {

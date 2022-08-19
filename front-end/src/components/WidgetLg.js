@@ -123,12 +123,11 @@ export default function WidgetLg() {
                 <div className="mobile_view">
                     <div className="widgetLgTr head">
                         <p className="widgetLgTh">Order Id</p>
-                        <p className="widgetLgTh">Action</p>
                     </div>
                     {orders.map((order) => (
                     <div className="widgetLgTr t_row" key={order._id}>
-                        <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 12)}...` : order.userId}</p>
-                        <Visibility />
+                        <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 23)}...` : order.userId}</p>
+                        <Visibility className="icon" />
                     </div>
                     ))}
                 </div>

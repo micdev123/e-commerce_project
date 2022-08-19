@@ -152,7 +152,7 @@ const Orders = () => {
                                 <div className='history'>
                                     {orders.map((order) => (
                                         <div className='order_' key={order._id}>
-                                            <p>{order._id.length >= 10 ? `${order._id.substring(0, 8)}...` : order._id}</p>
+                                            <p>{order._id.length >= 15 ? `${order._id.substring(0, 15)}...` : order._id}</p>
                                             <p>{order.createdAt.substring(0, 10)}</p>
                                             
                                             <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>

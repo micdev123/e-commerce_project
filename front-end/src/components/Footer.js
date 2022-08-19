@@ -1,6 +1,7 @@
 import React from 'react';
-import { BsShop, BsFillPhoneFill, BsFacebook, BsInstagram, BsGithub, BsTwitter } from 'react-icons/bs';
+import { BsFillPhoneFill } from 'react-icons/bs';
 import { MdMyLocation, MdEmail } from 'react-icons/md';
+import { AiOutlineShop } from 'react-icons/ai';
 import './css/footer.css';
 
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
             <div className='footer_container'>
                 <div className='logo'>
                     <a href='/'>
-                        <BsShop className='shop_icon' />
+                        <AiOutlineShop className='shop_icon' />
                         <h2>E-Commerce</h2>
                     </a>
                 </div>
@@ -30,19 +31,35 @@ const Footer = () => {
                         </div>
 
                     </div>
-                    <div className='content content2'>
-                        <h2><a href='/'>Store</a></h2>
-                        <p><a href='/'>Smart Phones</a></p>
-                        <p><a href='/'>Smart Watches</a></p>
-                        <p><a href='/'>Headphones</a></p>
-                        <p><a href='/'>Speakers</a></p>
+                    <div className='content content2 Big_Screen_Footer'>
+                        <h2>Store</h2>
+                        <p>Smart Phones</p>
+                        <p>Smart Watches</p>
+                        <p>Headphones</p>
+                        <p>Speakers</p>
 
                     </div>
-                    <div className='content content2'>
-                        <h2><a href='/'>Account</a></h2>
-                        <p><a href='/'>My Account</a></p>
-                        <p><a href='/'>Cart</a></p>
-                        <p><a href='/'>Wishlist</a></p>
+                    <div className='content content2 Big_Screen_Footer'>
+                        <h2>Account</h2>
+                        <p>My Account</p>
+                        <p>Cart</p>
+                        <p>Wishlist</p>
+                    </div>
+
+                    <div className='Footer_Mobile'>
+                        <div className='content content2'>
+                            <h2>Store</h2>
+                            <p>Smart Phones</p>
+                            <p>Smart Watches</p>
+                            <p>Headphones</p>
+                            <p>Speakers</p>
+                        </div>
+                        <div className='content content2'>
+                            <h2>Account</h2>
+                            <p>My Account</p>
+                            <p>Cart</p>
+                            <p>Wishlist</p>
+                        </div>
                     </div>
                 </div>
             </div>

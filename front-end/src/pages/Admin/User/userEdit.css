@@ -76,11 +76,11 @@
     }
 
     .edit_form {
-        width: 98%;
+        width: 100%;
     }
 
     .big_ {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .small_ {
@@ -89,12 +89,21 @@
 
     .edit_form input {
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         border-bottom: 2px solid #545353;
     }
 
     .isAdmin_ {
-        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        font-size: 1.35rem;
+        /* background-color: red; */
+    }
+
+    .isAdmin_ input {
+        width: 16px;
+        /* height: 0; */
+        background-color: yellow;
     }
 
     .isAdmin_ span {
@@ -103,7 +112,7 @@
 
     .update {
         padding: 8px 0;
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
 
 
@@ -124,10 +133,12 @@
         display: none;
     }
 
-    .small_ {
+    .edit_form h2 {
         display: block;
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        text-align: center;
+        font-weight: 550;
     }
 
     ._display__mobile {
@@ -135,12 +146,12 @@
     }
 
     .edit_form input {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         border-bottom: 2px solid #545353;
     }
 
     .isAdmin_ {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 
     .isAdmin_ span {
@@ -150,7 +161,7 @@
     .update {
         width: 100%;
         padding: 8px 0;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 
 }

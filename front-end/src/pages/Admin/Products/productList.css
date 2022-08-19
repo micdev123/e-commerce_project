@@ -58,7 +58,7 @@
 
 ._tbody_ ._tb_content_ {
     display: grid;
-    grid-template-columns: 13rem 22rem 6rem 8rem 4rem;
+    grid-template-columns: 13rem 22rem 6rem 8rem 4.5rem;
     gap: 20px;
     align-items: center;
     padding: 5px 0;
@@ -121,7 +121,7 @@
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .ProductContainer {
         width: 100%;
-        padding: 2rem 2rem 2rem 2rem;
+        padding: 1rem 2rem 2rem 2rem;
     }
 
     .ProductContainer .Head {
@@ -129,16 +129,17 @@
     }
 
     .Head h2 {
-        font-size: 2.2rem;
+        font-size: 1.75rem;
     }
 
     .Head h2 .icon {
-        font-size: 2.1rem;
+        font-size: 1.75rem;
     }
 
     .Head .create_product {
-        padding: 7px 10px;
-        font-size: 1.5rem;
+        padding: 9px 20px;
+        font-size: 1.3rem;
+        border-radius: 5px;
     }
 
     ._table {
@@ -163,7 +164,7 @@
     }
 
     .th {
-        font-size: 2rem;
+        font-size: 1.55rem;
         font-weight: 500;
         margin-bottom: 20px;
         padding-bottom: 10px;
@@ -174,7 +175,7 @@
     }
 
     .td {
-        font-size: 1.65rem;
+        font-size: 1.35rem;
         font-weight: normal;
         margin-top: 10px;
         /* width: 100%; */
@@ -193,20 +194,24 @@
     } 
 
     .item_block .itemImg {
-        width: 5rem;
-        height: 5rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
 
     .item_block p {
-        font-size: 1.65rem;
+        font-size: 1.3rem;
     }
 
     .itemActions {
         text-align: center;
     }
 
+    .itemActions .trash {
+        color: #a40707;
+    }
+
     .pagination .link {
-        font-size: 1.6rem;
+        font-size: 1.45rem;
     }
 
 }
@@ -216,7 +221,7 @@
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .ProductContainer {
         width: 100%;
-        padding: 2rem 1rem 2rem 1rem;
+        padding: 2rem 1rem 6rem 1rem;
     }
 
     .ProductContainer .Head {
@@ -228,17 +233,18 @@
     }
 
     .Head h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         margin-top: 2rem;
     }
 
     .Head h2 .icon {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
     .Head .create_product {
         padding: 7px 10px;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        border-radius: 5px;
     }
 
     ._table {
@@ -263,7 +269,7 @@
     }
 
     .th {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 500;
         margin-bottom: 20px;
         padding-bottom: 10px;
@@ -274,7 +280,7 @@
     }
 
     .td {
-        font-size: 1.7rem;
+        font-size: 1.1rem;
         font-weight: normal;
         margin-top: 10px;
         /* width: 100%; */
@@ -287,23 +293,28 @@
     .item_block {
         /* width: 100%; */
         display: grid;
-        grid-template-columns: 5rem 10.2rem;
+        grid-template-columns: 4rem 12rem;
         align-items: center;
         margin: 0;
         /* background-color: red; */
     }
 
     .item_block .itemImg {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     .item_block p {
-        font-size: 1.5rem;
+        font-size: 1.15rem;
     }
 
     .td_action {
         text-align: center;
+    }
+
+    .td_action .icon {
+        cursor: pointer;
+        font-size: 1.2rem;
     }
 
     .td_action .trash {
@@ -311,7 +322,11 @@
         margin-left: 15px;
     }
 
+    /* .pagination {
+        margin-bottom: 20rem;
+    } */
+
     .pagination .link {
-        font-size: 1.6rem;
+        font-size: 1.1rem;
     }
 }

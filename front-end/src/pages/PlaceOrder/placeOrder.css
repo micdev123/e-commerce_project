@@ -123,7 +123,7 @@
 
 
 
-.Order_action {
+.Order_action, .OrderAction {
     width: 100%;
     height: 100%;
     background-color: #ffffff;
@@ -133,14 +133,14 @@
     padding: 2rem 3.4rem 2rem 1rem;
 }
 
-.Order_action h2 {
+.Order_action h2, .OrderAction h2 {
     font-size: 1.3rem;
     font-weight: 550;
     border-bottom: 1px solid #f5f5f5;
     padding-bottom: 10px;
 }
 
-.Order_action .info_, .Order_action .total {
+.Order_action .info_, .Order_action .total, .OrderAction .info, .OrderAction .total {
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
@@ -149,12 +149,12 @@
     padding-bottom: 10px;
 }
 
-.Order_action .info_ p {
+.Order_action .info_ p, .OrderAction .info_ p {
     font-size: 1.05rem;
     font-weight: normal;
 }
 
-.Order_action .total p {
+.Order_action .total p, .OrderAction .total p {
     font-weight: 550;
     font-size: 1rem;
 }
@@ -196,32 +196,33 @@
     }
 
     .shipping_details .head {
-        border-bottom: 2px solid #f2f2f2;
+        border-bottom: 1.2px solid #f2f2f2;
     }
 
 
     .shipping_details .link .icon {
-        font-size: 2.5rem;
+        font-size: 1.9rem;
     }
 
     .order_info h2 {
-        font-size: 2.3rem;
+        font-size: 1.8rem;
         font-weight: 550;
     }
 
     .payment_ h2 {
         /* font-size: 1.8rem; */
-        border-bottom: 2px solid #f2f2f2;
+        border-bottom: 1.2px solid #f2f2f2;
         padding-bottom: 10px;
         font-weight: 550;
     }
 
     .order_info span {
         margin-right: 10px;
+        font-size: 1.55rem;
     }
 
     .order_info p {
-        font-size: 1.75rem;
+        font-size: 1.4rem;
     }
 
 
@@ -246,19 +247,13 @@
     }
 
     .item p {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
 
     .itemActions .icon {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
-
-    .itemActions .link {
-        font-size: 0.9rem;
-        text-decoration: none;
-    }
-
 
     .Order_action {
         width: 100%;
@@ -270,8 +265,9 @@
         padding: 2rem 3rem 2rem 2.1rem;
     }
 
-    .Order_action h2 {
-        font-size: 2.3rem;
+    .Order_action h2, 
+    .OrderAction h2 {
+        font-size: 1.8rem;
     }
 
     .Order_action .info_,
@@ -284,17 +280,19 @@
         padding-bottom: 10px;
     }
 
-    .Order_action .info_ p {
-        font-size: 1.75rem;
+    .Order_action .info_ p,
+    .OrderAction .info_ p {
+        font-size: 1.45rem;
     }
 
-    .Order_action .total p {
-        font-size: 1.75rem;
+    .Order_action .total p,
+    .OrderAction .total p {
+        font-size: 1.55rem;
     }
 
     .Order_action_btn {
         width: 100%;
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         padding: 10px 0;
     }
 
@@ -315,39 +313,34 @@
     }
 
     .shipping_details .head {
-        border-bottom: 2px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
     }
 
 
     .shipping_details .link .icon {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 
-    .order_info h2, .Order_action h2 {
-        font-size: 1.75rem;
+    .order_info h2, .Order_action h2, .payment_ h2 {
+        font-size: 1.3rem;
         font-weight: 550;
     }
 
-    .payment_ h2 {
-        /* font-size: 1.8rem; */
-        border-bottom: 2px solid #f2f2f2;
-        padding-bottom: 10px;
-        font-weight: 550;
-    }
+    
 
     .order_info p {
-        font-size: 1.45rem;
+        font-size: 1.15rem;
     }
 
     .yourOrder h2, .Order_action h2 {
-        border-bottom: 2px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
         padding-bottom: 10px;
     }
 
     .order_content {
         width: 100%;
         /* background-color: red; */
-        border-bottom: 2px solid #faf9f9;
+        border-bottom: 1px solid #faf9f9;
         position: relative;
     }
 
@@ -379,11 +372,11 @@
 
     .item p {
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.15rem;
     }
 
     .itemActions .icon {
-        font-size: 2rem;
+        font-size: 1.3rem;
         position: absolute;
         top: 10px;
         right: 0;
@@ -405,6 +398,15 @@
         padding: 2rem 1rem 2rem 1rem;
     }
 
+    .Order_action div {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    .Order_action div p:last-child {
+        text-align: right;
+    }
+
     .Order_action .info_,
     .Order_action .total {
         display: flex;
@@ -416,19 +418,19 @@
     }
 
     .Order_action .info_ p {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         font-weight: normal;
     }
 
     .Order_action .total p {
         font-weight: 550;
-        font-size: 1.4rem;
+        font-size: 1.15rem;
     }
 
     .Order_action_btn {
         width: 100%;
-        font-size: 1.5rem;
-        padding: 10px 0;
+        font-size: 1.1rem;
+        padding: 8px 0;
     }
 
 

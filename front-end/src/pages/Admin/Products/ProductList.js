@@ -174,7 +174,7 @@ const ProductList = () => {
                                 <tbody>
                                     {products.map((item) => (
                                     <tr className='tr' key={item._id}>
-                                        <td className='td titleID_'>{item._id.length >= 15 ? `${item._id.substring(0, 10)}...` : item._id}</td>
+                                        <td className='td titleID_'>{item._id.length >= 15 ? `${item._id.substring(0, 15)}...` : item._id}</td>
                                         <td className='item_block td'>
                                             <div className='itemImg'>    
                                                 <img src={item.img} alt={item.title} />  
@@ -206,7 +206,7 @@ const ProductList = () => {
                                             <div className='itemImg'>    
                                                 <img src={item.img} alt={item.title} />  
                                             </div>    
-                                            <p>{item.title.length >= 15 ? `${item.title.substring(0, 10)}...` : item.title}</p>
+                                            <p>{item.title.length >= 15 ? `${item.title.substring(0, 20)}...` : item.title}</p>
                                         </td>
                                         
                                         
