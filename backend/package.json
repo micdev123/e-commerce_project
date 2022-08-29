@@ -1,8 +1,8 @@
 {
-  "name": "e-commerce_project",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "data.js",
   "scripts": {
     "start": "nodemon backend/server.js"
   },

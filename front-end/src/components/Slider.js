@@ -45,10 +45,10 @@ const Slider = () => {
                             <p className='des'>
                             {content.desc}
                             </p>
-                            <p className='price'>Le <span>{content.price}</span>.00</p>
+                            <p className='price'>$<span>{content.price}</span>.00</p>
 
                             <div className='cta_btns'>
-                                <button className='buy'>Buy Now</button>
+                                <button className='buy'>Show Now</button>
                                 <button className='explore'>Explore</button>
                             </div>
                         </div>
