@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "data.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

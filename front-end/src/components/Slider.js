@@ -67,7 +67,7 @@ const Slider = () => {
             <div className='social'>
                 <ul>
                     <li>
-                        <a href='/'><BsGithub /></a>
+                        <a target="_blank" rel="noreferrer" href='https://github.com/micdev123/e-commerce_project'><BsGithub /></a>
                     </li>
                     <li>
                         <a href='/'><BsTwitter /></a>
