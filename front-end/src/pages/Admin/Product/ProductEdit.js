@@ -1,9 +1,8 @@
-import { Publish, Storefront } from '@material-ui/icons';
+import { AiOutlineDropbox } from 'react-icons/ai';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import SideNav from '../../../components/SideNav';
 import Skeleton from '../../../components/Skeleton';
 import app from '../../../firebase';
@@ -12,6 +11,7 @@ import { Store } from '../../../Store';
 import { getError } from '../../../utils';
 
 import './productEdit.css'
+import { MdPublish } from 'react-icons/md';
 
 
 const reducer = (state, action) => {
@@ -130,11 +130,9 @@ const ProductEdit = () => {
                 }
             );
             dispatch({ type: 'UPDATE_SUCCESS', });
-            toast.success('Product updated successfully');
             navigate('/admin/products');
         }
         catch (err) {
-            toast.error(getError(err));
             dispatch({ type: 'UPDATE_FAIL' });
         }
     }
@@ -151,11 +149,11 @@ const ProductEdit = () => {
                     <div className='container_contents'>
                         <div className='Product_Container'>
                             <h2 className='big_'>
-                                <Storefront className='icon' />
+                                <AiOutlineDropbox className='icon' />
                                 Product :_: {productId}
                             </h2>
                             <h2 className='small_'>
-                                <Storefront className='icon' />
+                                <AiOutlineDropbox className='icon' />
                                 Product :_: {productId.length >= 10 ? `${productId.substring(0, 8)}...` :  productId}
                             </h2>
                             <form className='product_edit_form' onSubmit={submitHandler}>
@@ -177,7 +175,7 @@ const ProductEdit = () => {
                                         <img src={inputs.img} alt="" />
                                     </div>
                                     <label htmlFor="file">
-                                        <Publish className='icon' />
+                                        <MdPublish className='icon' />
                                     </label>
                                     <input type="file" id="file" onChange={(e) => setImg(e.target.files[0])} style={{ display: "none" }} />
                                 </div>

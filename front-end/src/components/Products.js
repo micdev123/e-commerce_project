@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer } from 'react';
-import logger from 'use-reducer-logger';
 import Product from './Product';
 import { publicRequest } from '../requestController';
 import Skeleton from './Skeleton';

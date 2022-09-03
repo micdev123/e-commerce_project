@@ -1,5 +1,5 @@
 import { useContext, useEffect, useReducer} from "react";
-import { PermIdentity, Visibility } from "@material-ui/icons";
+import { AiFillEye, AiOutlineUser } from 'react-icons/ai';
 import { userRequest } from "../requestController";
 
 import './css/widgetSm.css'
@@ -60,12 +60,12 @@ export default function WidgetSm() {
                 <ul className="widgetSmList">
                     {users.map((user) => (
                     <li className="widgetSmListItem" key={user._id}>
-                        <PermIdentity className="widgetSmIcon" />
+                        <AiOutlineUser className="widgetSmIcon" />
                         <div className="widgetSmUser">
                             <span className="widgetSmUsername">{user.username}</span>
                         </div>
                         <Link to='/' className="widgetSmButton">
-                            <Visibility className="widgetSmIcon" />
+                            <AiFillEye className="widgetSmIcon" />
                         </Link>
                     </li>
                     ))}

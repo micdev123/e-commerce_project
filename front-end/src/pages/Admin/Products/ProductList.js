@@ -1,13 +1,11 @@
-import { Storefront } from '@material-ui/icons';
+import { AiOutlineDropbox } from 'react-icons/ai';
 import React, { useContext, useEffect, useReducer } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { MdDelete } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import SideNav from '../../../components/SideNav';
-import { publicRequest, userRequest } from '../../../requestController';
+import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
-import { getError } from '../../../utils';
 import { AiFillEdit } from 'react-icons/ai';
 
 import './productList.css'
@@ -93,11 +91,9 @@ const ProductList = () => {
                         token: `Bearer ${userInfo.accessToken}`
                     },
                 });
-                toast.success('product deleted successfully');
                 dispatch({ type: 'DELETE_SUCCESS' });
             }
             catch (err) {
-                toast.error(getError(error));
                 dispatch({ type: 'DELETE_FAIL', });
             }
         }
@@ -117,7 +113,7 @@ const ProductList = () => {
                         <div className='ProductContainer'>
                             <div className='Head'>
                                  <h2>
-                                    <Storefront className='icon' />
+                                    <AiOutlineDropbox className='icon' />
                                     Products List
                                 </h2>
                                 <div>

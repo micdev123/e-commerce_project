@@ -5,8 +5,6 @@ import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getError } from '../../../utils';
-import { toast } from 'react-toastify';
-import { AiFillEdit } from 'react-icons/ai';
 import { Helmet } from 'react-helmet-async';
 import Skeleton from '../../../components/Skeleton';
 
@@ -89,11 +87,9 @@ const UserEdit = () => {
                 }
             );
             dispatch({ type: 'UPDATE_SUCCESS',});
-            toast.success('User updated successfully');
             navigate('/admin/users');
         }
         catch (error) {
-            toast.error(getError(error));
             dispatch({ type: 'UPDATE_FAIL' });
         }
     };

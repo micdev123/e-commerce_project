@@ -1,6 +1,5 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
-import { toast } from 'react-toastify';
 import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
@@ -55,7 +54,6 @@ const Profile = () => {
             dispatch({ type: 'UPDATE_SUCCESS',});
             ctxDispatch({ type: 'USER_SIGNIN', payload: data });
             localStorage.setItem('userInfo', JSON.stringify(data));
-            toast.success('User updated successfully');
         }
         catch (err) {
             dispatch({ type: 'FETCH_FAIL',});

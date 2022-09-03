@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useReducer } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { MdDelete } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import SideNav from '../../../components/SideNav';
 import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { getError } from '../../../utils';
 
-import { Visibility } from "@material-ui/icons";
+import { AiFillEye } from 'react-icons/ai';
 import { SiEventstore } from 'react-icons/si';
 
 import './orderList.css'
@@ -96,11 +95,9 @@ const OrderList = () => {
                         token: `Bearer ${userInfo.accessToken}`
                     },
                 });
-                toast.success('order deleted successfully');
                 dispatch({ type: 'DELETE_SUCCESS' });
             }
             catch (err) {
-                toast.error(getError(error));
                 dispatch({ type: 'DELETE_FAIL', });
             }
         }
@@ -159,7 +156,7 @@ const OrderList = () => {
                                             )
                                         }
                                         <div className='userAction'>
-                                            <Visibility onClick={() => navigate(`/order/${order._id}`)} className='icon' />
+                                            <AiFillEye onClick={() => navigate(`/order/${order._id}`)} className='icon' />
                                             <MdDelete onClick={() => deleteHandler(order)} className=' icon trash' />
                                         </div>
                                     </div>

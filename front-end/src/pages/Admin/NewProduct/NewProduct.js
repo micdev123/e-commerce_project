@@ -3,11 +3,9 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import SideNav from '../../../components/SideNav'
 import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
-import { getError } from '../../../utils';
 
 import './newProduct.css'
 import app from '../../../firebase';
@@ -109,12 +107,10 @@ const NewProduct = () => {
                         },
                     }
                 );
-                toast.success('product created successfully');
                 dispatch({ type: 'CREATE_SUCCESS' });
                 navigate(`/admin/products`);
             }
             catch (err) {
-                toast.error(getError(error));
                 dispatch({ type: 'CREATE_FAIL',});
             }
         }

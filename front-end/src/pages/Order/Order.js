@@ -6,7 +6,6 @@ import Footer from '../../components/Footer';
 import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
-import { toast } from 'react-toastify';
 
 import '../Order/order.css'
 import Skeleton from '../../components/Skeleton';
@@ -89,7 +88,6 @@ const Order = () => {
                 }
                 );
                 dispatch({ type: 'PAY_SUCCESS', payload: data });
-                toast.success('Order is paid');
             }
             catch (err) {
                 dispatch({ type: 'PAY_FAIL', payload: getError(err) });
@@ -158,7 +156,6 @@ const Order = () => {
                 }
             );
             dispatch({ type: 'DELIVER_SUCCESS', payload: data });
-            toast.success('Order is delivered');
         }
         catch (err) {
             setMsg(getError(err));

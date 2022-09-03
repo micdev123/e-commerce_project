@@ -1,7 +1,7 @@
-import { Timeline, AttachMoney } from "@material-ui/icons";
 import { useContext, useEffect, useMemo, useReducer, useState } from "react";
 import { SiEventstore } from 'react-icons/si';
 import { AiOutlineDropbox } from 'react-icons/ai';
+import { MdOutlineAttachMoney, MdTimeline } from 'react-icons/md';
 
 
 import { Store } from "../Store";
@@ -75,7 +75,7 @@ export default function FeaturedInfo() {
                 <div className="featured">
                     <div className="featuredItem">
                         <span className="featuredTitle">
-                            <AttachMoney className="icon" />
+                            <MdOutlineAttachMoney className="icon" />
                             Revenue
                         </span>
                         <div className="featuredMoneyContainer">
@@ -125,7 +125,7 @@ export default function FeaturedInfo() {
                 
                 <div className="chart">
                     <h3 className="chartTitle">
-                        <Timeline className="icon" />
+                        <MdTimeline className="icon" />
                         Order Analytics
                     </h3>
                     <ResponsiveContainer width="100%" aspect={4 / 1}>

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useReducer } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import SideNav from '../../../components/SideNav';
 import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
@@ -85,11 +84,9 @@ const UserList = () => {
                         token: `Bearer ${userInfo.accessToken}`
                     },
                 });
-                toast.success('user deleted successfully');
                 dispatch({ type: 'DELETE_SUCCESS' });
             }
             catch (error) {
-                toast.error(getError(error));
                 dispatch({type: 'DELETE_FAIL',});
             }
         }

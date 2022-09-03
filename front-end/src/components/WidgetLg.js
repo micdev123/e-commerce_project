@@ -1,4 +1,4 @@
-import { Visibility } from "@material-ui/icons";
+import { AiFillEye } from 'react-icons/ai';
 import { useContext, useEffect, useReducer } from "react";
 import { format } from "timeago.js"
 import { userRequest } from "../requestController";
@@ -127,7 +127,7 @@ export default function WidgetLg() {
                     {orders.map((order) => (
                     <div className="widgetLgTr t_row" key={order._id}>
                         <p className="widgetLgUser td">{order.userId.length >= 10 ? `${order.userId.substring(0, 23)}...` : order.userId}</p>
-                        <Visibility className="icon" />
+                        <AiFillEye className="icon" />
                     </div>
                     ))}
                 </div>

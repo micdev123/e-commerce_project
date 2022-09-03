@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import { LineStyle, PermIdentity } from "@material-ui/icons";
 import { SiEventstore } from 'react-icons/si';
 
 import './css/sideNav.css'
-import { AiOutlineDropbox } from 'react-icons/ai';
+import { AiOutlineDropbox, AiOutlineUser } from 'react-icons/ai';
 import { HiUsers } from "react-icons/hi";
 
 import { FiMenu } from 'react-icons/fi'
 import { useState } from "react";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdSpaceDashboard } from "react-icons/md";
 
 
 export default function SideNav() {
@@ -27,13 +26,13 @@ export default function SideNav() {
                     <div className="sidebarMenu">
                         <div className="adminImg">
                             <FiMenu className="sidebarMenuBar"/>
-                            <PermIdentity className="admin_icon" /> 
+                            <AiOutlineUser className="admin_icon" /> 
                         </div>
                         <h3 className="sidebarTitle">Dashboard</h3>
                         <ul className="sidebarList">
                             <Link to="/admin/dashboard" className="link">
                                 <li className="sidebarListItem active">
-                                    <LineStyle className="sidebarIcon" />
+                                    <MdSpaceDashboard className="sidebarIcon" />
                                     <span>Home</span>
                                 </li>
                             </Link>
@@ -67,13 +66,13 @@ export default function SideNav() {
                     <div className="sidebarWrapper">
                         <div className="sidebarMenu">
                             <div className="adminImg">
-                                <PermIdentity className="admin_icon" />
+                                <AiOutlineUser className="admin_icon" />
                             </div>
                             <h3 className="sidebarTitle">Dashboard</h3>
                             <ul className="sidebarList">
                                 <Link to="/admin/dashboard" className="link">
                                     <li className="sidebarListItem active">
-                                        <LineStyle className="sidebarIcon" />
+                                        <MdSpaceDashboard className="sidebarIcon" />
                                         Home
                                     </li>
                                 </Link>
