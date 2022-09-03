@@ -47,9 +47,9 @@ app.get('*', (req, res) =>
   res.sendFile(path.resolve(__dirname, '../front-end/build/index.html'))
 );
 
-app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
-});
+// app.use((err, req, res, next) => {
+//   res.status(500).send({ message: err.message });
+// });
 
 
 app.use(errorHandler)
