@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import Footer from '../../components/Footer';
 import { userRequest } from '../../requestController';
 import { Store } from '../../Store';

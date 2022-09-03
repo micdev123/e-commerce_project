@@ -1,7 +1,8 @@
 const express = require('express');
-const colors = require('colors')
-const dotenv = require('dotenv').config();
+const path = require('path');
 const cors = require('cors');
+require('colors')
+require('dotenv').config();
 const { errorHandler } = require('./middleware/errorMiddleware')
 // Accessing database connection
 const connectDB = require('./config/db');
@@ -40,6 +41,15 @@ app.use('/api/carts', require('./routes/cartRoutes'))
 
 // Order Routes
 app.use('/api/orders', require('./routes/orderRoutes'))
+
+app.use(express.static(path.join(__dirname, '../front-end/build')));
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, '../front-end/build/index.html'))
+);
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 
 app.use(errorHandler)
