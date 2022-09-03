@@ -20,7 +20,6 @@
     "recharts": "^2.1.13",
     "styled-components": "^5.3.5",
     "timeago.js": "^4.0.2",
-    "use-reducer-logger": "^1.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
