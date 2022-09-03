@@ -7,8 +7,8 @@ import { AiFillEdit } from 'react-icons/ai';
 
 import "../PlaceOrder/placeOrder.css";
 import { Store } from '../../Store';
-import { userRequest } from '../../requestController';
 import { getError } from '../../utils';
+import axios from 'axios';
 
 
 // reducer is independent of the component
@@ -50,8 +50,8 @@ const PlaceOrder = () => {
         try {
             dispatch({ type: 'CREATE_REQUEST' });
 
-            const { data } = await userRequest.post(
-                '/orders',
+            const { data } = await axios.post(
+                '/api/orders',
                 {
                     userId: userInfo._id,
                     username: userInfo.username,

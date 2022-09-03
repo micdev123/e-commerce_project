@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react'
 import "./userEdit.css";
 import SideNav from '../../../components/SideNav';
-import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getError } from '../../../utils';
 import { Helmet } from 'react-helmet-async';
 import Skeleton from '../../../components/Skeleton';
+import axios from 'axios';
 
 
 
@@ -53,7 +53,7 @@ const UserEdit = () => {
         const fetchData = async () => {
         try {
             dispatch({ type: 'FETCH_REQUEST' });
-            const { data } = await userRequest.get(`/users/find/${userId}`, {
+            const { data } = await axios.get(`/api/users/find/${userId}`, {
                 headers: {
                     token: `Bearer ${userInfo.accessToken}`
                 },
@@ -74,7 +74,7 @@ const UserEdit = () => {
         e.preventDefault();
         try {
             dispatch({ type: 'UPDATE_REQUEST' });
-            await userRequest.put(`users/${userId}`,
+            await axios.put(`/api/users/${userId}`,
                 {   _id: userId, 
                     username,
                     email,

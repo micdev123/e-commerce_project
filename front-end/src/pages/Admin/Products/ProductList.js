@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet-async';
 import { MdDelete } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SideNav from '../../../components/SideNav';
-import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { AiFillEdit } from 'react-icons/ai';
 
 import './productList.css'
 import Skeleton from '../../../components/Skeleton';
+import axios from 'axios';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -62,7 +62,7 @@ const ProductList = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data } = await userRequest.get(`products/admin?page=${page}`, {
+                const { data } = await axios.get(`/api/products/admin?page=${page}`, {
                     headers: {
                         token: `Bearer ${userInfo.accessToken}`
                     },
@@ -86,7 +86,7 @@ const ProductList = () => {
     const deleteHandler = async (product) => {
         if (window.confirm('Are you sure to delete?')) {
             try {
-                await userRequest.delete(`products/${product._id}`, {
+                await axios.delete(`/api/products/${product._id}`, {
                     headers: {
                         token: `Bearer ${userInfo.accessToken}`
                     },

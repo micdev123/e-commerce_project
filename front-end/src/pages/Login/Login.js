@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { AiOutlineShop } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
 import '../Login/auth.css';
 import { getError } from '../../utils'
 import { Icon } from 'react-icons-kit'
 import {eye} from 'react-icons-kit/feather/eye'
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
+import axios from 'axios';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ const Login = () => {
     const submitHandler = async (e) => {
     e.preventDefault();
         try {
-            const { data } = await userRequest.post('/auth/login', {
+            const { data } = await axios.post('/api/auth/login', {
                 email,
                 password,
             });

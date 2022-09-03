@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from './Header/Header';
-// import Categories from './Categories/Categories';
 import Footer from '../../components/Footer';
 import Products from '../../components/Products';
 import styled from 'styled-components';

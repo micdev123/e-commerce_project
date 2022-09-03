@@ -5,9 +5,9 @@ import Footer from '../../components/Footer'
 
 import './single-product.css';
 
-import { publicRequest } from '../../requestController';
 import { Store } from '../../Store';
 import Skeleton from '../../components/Skeleton';
+import axios from 'axios';
 
 const initialState = {
     product: [],
@@ -40,7 +40,7 @@ const SingleProduct = () => {
         const fetchProduct = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const { data } = await publicRequest.get("/products/find/" + id);
+                const { data } = await axios.get("/api/products/find/" + id);
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
             }
             catch (error) {
@@ -56,7 +56,7 @@ const SingleProduct = () => {
         // check
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        const { data } = await publicRequest.get("/products/find/" + id);
+        const { data } = await axios.get("/api/products/find/" + id);
         if (data.countInStock < quantity) {
             window.alert('Sorry. Product is out of stock');
             return;

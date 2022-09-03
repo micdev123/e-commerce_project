@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer } from 'react';
 import Product from './Product';
-import { publicRequest } from '../requestController';
 import Skeleton from './Skeleton';
 
 import './css/products.css';
+import axios from 'axios';
 // import axios from 'axios';
 
 // import data from '../data'; // front-end data.js :: initial before getting product from backend
@@ -38,7 +38,7 @@ const Products = () => {
         const fetchProducts = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const { data } = await publicRequest.get("products");
+                const { data } = await axios.get("/api/products");
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
                 // setProduct(data);
             }

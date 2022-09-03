@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useReducer } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import SideNav from '../../../components/SideNav';
-import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { getError } from '../../../utils';
 
@@ -12,6 +11,7 @@ import { AiFillEdit } from 'react-icons/ai';
 import './userList.css'
 import { HiUsers } from 'react-icons/hi';
 import Skeleton from '../../../components/Skeleton';
+import axios from 'axios';
 
 
 const reducer = (state, action) => {
@@ -57,7 +57,7 @@ const UserList = () => {
         const fetchData = async () => {
         try {
             dispatch({ type: 'FETCH_REQUEST' });
-            const { data } = await userRequest.get(`/users`, {
+            const { data } = await axios.get(`/api/users`, {
                 headers: {
                     token: `Bearer ${userInfo.accessToken}`
                 },
@@ -79,7 +79,7 @@ const UserList = () => {
         if (window.confirm('Are you sure to delete?')) {
             try {
                 dispatch({ type: 'DELETE_REQUEST' });
-                await userRequest.delete(`/users/${user._id}`, {
+                await axios.delete(`/api/users/${user._id}`, {
                     headers: {
                         token: `Bearer ${userInfo.accessToken}`
                     },

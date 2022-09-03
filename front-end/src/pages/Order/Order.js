@@ -3,12 +3,12 @@ import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../../components/Footer';
-import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
 
 import '../Order/order.css'
 import Skeleton from '../../components/Skeleton';
+import axios from 'axios';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -82,7 +82,7 @@ const Order = () => {
             // updating the backend
             try {
                 dispatch({ type: 'PAY_REQUEST' });
-                const { data } = await userRequest.put(`/orders/${order._id}/pay`, details,
+                const { data } = await axios.put(`/api/orders/${order._id}/pay`, details,
                 {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
                 }
@@ -105,7 +105,7 @@ const Order = () => {
         const fetchOrder = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await userRequest.get(`/orders/${orderId}`, {
+                const { data } = await axios.get(`/api/orders/${orderId}`, {
                     headers: { token: `Bearer ${userInfo.accessToken}`},
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -130,7 +130,7 @@ const Order = () => {
         }
         else {
             const loadPaypalScript = async () => {
-                const { data: clientId } = await userRequest.get('/keys/paypal', {
+                const { data: clientId } = await axios.get('/api/keys/paypal', {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
                 });
                 paypalDispatch({
@@ -149,7 +149,7 @@ const Order = () => {
     async function deliverOrderHandler() {
         try {
             dispatch({ type: 'DELIVER_REQUEST' });
-            const { data } = await userRequest.put(`orders/${order._id}/deliver`,
+            const { data } = await axios.put(`/api/orders/${order._id}/deliver`,
                 {},
                 {
                     headers: { token: `Bearer ${userInfo.accessToken}` },

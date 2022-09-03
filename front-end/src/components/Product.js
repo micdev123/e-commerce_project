@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './css/product.css';
 import Rating from '@mui/material/Rating';
 import { Store } from '../Store';
-import { publicRequest } from '../requestController';
+import axios from 'axios';
 
 const Product = ({ item }) => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -12,7 +12,7 @@ const Product = ({ item }) => {
     // check
     const existItem = cart.cartItems.find((x) => x._id === item._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await publicRequest.get(`/products/find/${item._id}`);
+    const { data } = await axios.get(`/api/products/find/${item._id}`);
     if (data.countInStock < quantity) {
         window.alert('Sorry. Product is out of stock');
         return;

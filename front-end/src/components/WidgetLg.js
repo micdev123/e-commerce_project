@@ -1,12 +1,12 @@
 import { AiFillEye } from 'react-icons/ai';
 import { useContext, useEffect, useReducer } from "react";
 import { format } from "timeago.js"
-import { userRequest } from "../requestController";
 import { Store } from "../Store";
 import { getError } from "../utils";
 
 import "./css/widgetLg.css";
 import Skeleton from "./Skeleton";
+import axios from 'axios';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -38,7 +38,7 @@ export default function WidgetLg() {
     useEffect(() => {
         const getOrders = async () => {
             try {
-                const { data } = await userRequest.get('orders/limit5/?new=true', {
+                const { data } = await axios.get('/api/orders/limit5/?new=true', {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });

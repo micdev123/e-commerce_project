@@ -1,12 +1,12 @@
 import { useContext, useEffect, useReducer} from "react";
 import { AiFillEye, AiOutlineUser } from 'react-icons/ai';
-import { userRequest } from "../requestController";
 
 import './css/widgetSm.css'
 import { getError } from "../utils";
 import { Store } from "../Store";
 import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
+import axios from "axios";
 
 
 const reducer = (state, action) => {
@@ -38,7 +38,7 @@ export default function WidgetSm() {
     useEffect(() => {
         const getUsers = async () => {
             try {
-                const { data } = await userRequest.get("users/?new=true", {
+                const { data } = await axios.get("/api/users/?new=true", {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });

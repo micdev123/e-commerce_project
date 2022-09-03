@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { MdDelete } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SideNav from '../../../components/SideNav';
-import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { getError } from '../../../utils';
 
@@ -12,6 +11,7 @@ import { SiEventstore } from 'react-icons/si';
 
 import './orderList.css'
 import Skeleton from '../../../components/Skeleton';
+import axios from 'axios';
 
 
 
@@ -67,7 +67,7 @@ const OrderList = () => {
         const fetchData = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await userRequest.get(`orders/admin?page=${page}`, {
+                const { data } = await axios.get(`/api/orders/admin?page=${page}`, {
                     headers: {
                         token: `Bearer ${userInfo.accessToken}`
                     },
@@ -90,7 +90,7 @@ const OrderList = () => {
         if (window.confirm('Are you sure to delete?')) {
             try {
                 dispatch({ type: 'DELETE_REQUEST' });
-                await userRequest.delete(`orders/${order._id}`, {
+                await axios.delete(`/api/orders/${order._id}`, {
                     headers: {
                         token: `Bearer ${userInfo.accessToken}`
                     },

@@ -1,10 +1,10 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Product from '../../components/Product';
 import Skeleton from '../../components/Skeleton';
-import { publicRequest } from '../../requestController';
 import { getError } from '../../utils';
 import Header from '../Home/Header/Header';
 
@@ -45,7 +45,7 @@ const Search = () => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const { data } = await publicRequest.get('products');
+                const { data } = await axios.get('/api/products');
                 filterData(data, query);
                 setLoading(false)
             }

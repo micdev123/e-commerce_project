@@ -8,9 +8,9 @@ import '../OrderHistories/order_history.css'
 
 import { Store } from '../../Store'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { userRequest } from '../../requestController'
 import { getError } from '../../utils'
 import Skeleton from '../../components/Skeleton';
+import axios from 'axios';
 
 
 
@@ -53,7 +53,7 @@ const Orders = () => {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const { data } = await userRequest.get(`/orders/find/${userInfo._id}?page=${page}`, {
+                const { data } = await axios.get(`/api/orders/find/${userInfo._id}?page=${page}`, {
                     headers: { token: `Bearer ${userInfo.accessToken}` }
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });

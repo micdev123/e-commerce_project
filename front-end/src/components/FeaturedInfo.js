@@ -5,13 +5,13 @@ import { MdOutlineAttachMoney, MdTimeline } from 'react-icons/md';
 
 
 import { Store } from "../Store";
-import { userRequest } from "../requestController";
 import { getError } from "../utils";
 import './css/featuredInfo.css';
 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, YAxis, } from "recharts";
 import { HiUsers } from "react-icons/hi";
 import Skeleton from "./Skeleton";
+import axios from "axios";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -49,7 +49,7 @@ export default function FeaturedInfo() {
     useEffect(() => {
         const getSummary = async () => {
             try {
-                const { data } = await userRequest.get('orders/summary', {
+                const { data } = await axios.get('/api/orders/summary', {
                     headers: { token: `Bearer ${userInfo.accessToken}` },
                 });
                 data.income.map((item) =>

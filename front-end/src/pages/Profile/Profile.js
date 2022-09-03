@@ -1,12 +1,12 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
-import { userRequest } from '../../requestController';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
 
 import { ImProfile } from 'react-icons/im'
 
 import '../Profile/profile.css'
+import axios from 'axios';
 
 
 const reducer = (state, action) => {
@@ -41,7 +41,7 @@ const Profile = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await userRequest.put( `users/profile`,
+            const { data } = await axios.put(`/api/users/profile`,
                 {
                     username,
                     email,

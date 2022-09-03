@@ -11,7 +11,7 @@ import { AiFillMinusCircle } from 'react-icons/ai';
 import { Store } from '../../Store';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
-import { publicRequest } from '../../requestController';
+import axios from 'axios';
 
 const CartContainer = styled.div`
     display: grid;
@@ -39,7 +39,7 @@ const Cart = () => {
     } = state;
 
     const updateCartHandler = async (item, quantity) => {
-        const { data } = await publicRequest.get(`/products/find/${item._id}`);
+        const { data } = await axios.get(`/api/products/find/${item._id}`);
         if (data.countInStock < quantity) {
             window.alert('Sorry. Product is out of stock');
             return;

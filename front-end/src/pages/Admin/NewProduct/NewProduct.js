@@ -4,11 +4,11 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { Helmet } from 'react-helmet-async'
 import { useNavigate } from 'react-router-dom';
 import SideNav from '../../../components/SideNav'
-import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 
 import './newProduct.css'
 import app from '../../../firebase';
+import axios from 'axios';
 
 
 const reducer = (state, action) => {
@@ -100,7 +100,7 @@ const NewProduct = () => {
             // console.log(product);
             try {
                 dispatch({ type: 'CREATE_REQUEST' });
-                await userRequest.post('products', product,
+                await axios.post('/api/products', product,
                     {
                         headers: {
                             token: `Bearer ${userInfo.accessToken}`

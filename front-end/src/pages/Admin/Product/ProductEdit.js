@@ -6,12 +6,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import SideNav from '../../../components/SideNav';
 import Skeleton from '../../../components/Skeleton';
 import app from '../../../firebase';
-import { userRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { getError } from '../../../utils';
 
 import './productEdit.css'
 import { MdPublish } from 'react-icons/md';
+import axios from 'axios';
 
 
 const reducer = (state, action) => {
@@ -65,7 +65,7 @@ const ProductEdit = () => {
         const fetchData = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await userRequest.get(`products/find/${productId}`);
+                const { data } = await axios.get(`/api/products/find/${productId}`);
                 setProducts(data);
                 setInputs(data)
                 dispatch({ type: 'FETCH_SUCCESS', payload: data  });
@@ -122,7 +122,7 @@ const ProductEdit = () => {
         // console.log(updateProduct);
         try {
             dispatch({ type: 'UPDATE_REQUEST' });
-            await userRequest.put( `products/${productId}`, updateProduct,
+            await axios.put(`/api/products/${productId}`, updateProduct,
                 {
                     headers: {
                         token: `Bearer ${userInfo.accessToken}`
