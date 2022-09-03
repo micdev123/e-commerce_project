@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Axios from 'axios';
 import { Helmet } from 'react-helmet-async';
 import { AiOutlineShop } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -8,7 +9,7 @@ import '../Login/auth.css';
 import { Icon } from 'react-icons-kit'
 import {eye} from 'react-icons-kit/feather/eye'
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
-import axios from 'axios';
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const Register = () => {
       return;
     }
     try {
-      const { data } = await axios.post('/api/auth/register', {
+      const { data } = await Axios.post('/api/auth/register', {
           username,
           email,
           password,
