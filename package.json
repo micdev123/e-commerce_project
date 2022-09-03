@@ -4,7 +4,7 @@
   "description": "E-commerce is one of my portfolio project really. Is a full-flage FULL STACK application and it caters for both CUSTOMER and ADMIN.",
   "main": "index.js",
   "scripts": {
-    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "build": "cd backend && npm install  && cd ../front-end && npm install && npm run build",
     "start": "node backend/server.js"
   },
   "repository": {
