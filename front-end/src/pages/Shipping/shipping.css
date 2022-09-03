@@ -109,7 +109,7 @@
     }
 
     .deliver_form h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .form_group {
@@ -127,7 +127,7 @@
     }
 
     .form_group label {
-        font-size: 1.45rem;
+        font-size: 1.4rem;
     }
 
     .payment_method {
@@ -170,24 +170,24 @@
     }
 
     .deliver_form h2 {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
 
     .form_group input {
         padding: 5px;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .form_group label {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
 
     .payment {
         width: 14rem;
         /* background-color: red; */
-        font-size: 1.15rem;
+        font-size: 1.13rem;
     }
 
 

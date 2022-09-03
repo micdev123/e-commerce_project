@@ -57,7 +57,7 @@
     color: #2a2a2a;
 }
 
-.auth_form input {
+.auth_form .input {
     width: 100%;
     margin-bottom: 1.5rem;
     padding: 10px 0;
@@ -83,6 +83,7 @@
 .auth_form .auth_btn:hover {
     background-color: #030e21;
 }
+
 
 .caution {
     font-size: 1.05rem;

@@ -53,6 +53,7 @@
 
 
 .yourOrder {
+    width: 100%;
     margin-top: 3rem;
 }
 
@@ -201,11 +202,11 @@
 
 
     .shipping_details .link .icon {
-        font-size: 1.9rem;
+        font-size: 1.5rem;
     }
 
     .order_info h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 550;
     }
 
@@ -218,11 +219,11 @@
 
     .order_info span {
         margin-right: 10px;
-        font-size: 1.55rem;
+        font-size: 1.25rem;
     }
 
     .order_info p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
 
@@ -247,12 +248,12 @@
     }
 
     .item p {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
 
     .itemActions .icon {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
 
     .Order_action {
@@ -267,7 +268,7 @@
 
     .Order_action h2, 
     .OrderAction h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .Order_action .info_,
@@ -282,17 +283,17 @@
 
     .Order_action .info_ p,
     .OrderAction .info_ p {
-        font-size: 1.45rem;
+        font-size: 1.2rem;
     }
 
     .Order_action .total p,
     .OrderAction .total p {
-        font-size: 1.55rem;
+        font-size: 1.2rem;
     }
 
     .Order_action_btn {
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 10px 0;
     }
 
@@ -318,18 +319,18 @@
 
 
     .shipping_details .link .icon {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 
     .order_info h2, .Order_action h2, .payment_ h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 550;
     }
 
     
 
     .order_info p {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
     }
 
     .yourOrder h2, .Order_action h2 {
@@ -372,7 +373,7 @@
 
     .item p {
         width: 100%;
-        font-size: 1.15rem;
+        font-size: 1.05rem;
     }
 
     .itemActions .icon {
@@ -418,19 +419,19 @@
     }
 
     .Order_action .info_ p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: normal;
     }
 
     .Order_action .total p {
         font-weight: 550;
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .Order_action_btn {
         width: 100%;
-        font-size: 1.1rem;
-        padding: 8px 0;
+        font-size: 1rem;
+        padding: 7px 0;
     }
 
 

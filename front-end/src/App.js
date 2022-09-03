@@ -76,7 +76,7 @@ function App() {
                                             </p>
                                             {dropdown && (
                                                 <div className='dropdown_menu'>
-                                                    <Link to='/profile' className='link'>
+                                                    <Link to='/profile' className='link' onClick={(e) => setDropdown(false)}>
                                                         <ImProfile className='icon' />
                                                         Profile
                                                     </Link>
@@ -98,11 +98,11 @@ function App() {
                                             </p>
                                             {dropdown && (
                                                 <div className='dropdown_menu'>
-                                                    <Link to='/profile' className='link'>
+                                                    <Link to='/profile' className='link' onClick={(e) => setDropdown(false)}>
                                                         <ImProfile className='icon' />
                                                         Profile
                                                     </Link>
-                                                    <Link to='/admin/dashboard' className='link'>
+                                                    <Link to='/admin/dashboard' className='link' onClick={(e) => setDropdown(false)}>
                                                         <MdSpaceDashboard className='icon' />
                                                         Dashboard
                                                     </Link>
@@ -249,7 +249,7 @@ function App() {
                         <SearchBox />
                     </div>
                 </div>
-                <main>
+                <main onClick={(e) => setDropdown(false)}>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         <Route path="/product/:id" element={<SingleProduct />} />

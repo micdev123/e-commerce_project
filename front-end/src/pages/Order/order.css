@@ -24,6 +24,10 @@
     margin-top: 2rem;
 }
 
+.order__content {
+    display: flex;
+}
+
 .OrderAction {
     width: 100%;
 }

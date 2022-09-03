@@ -67,7 +67,7 @@ const Orders = () => {
 
     // console.log(orders);
     return (
-        loading ? <Skeleton type='circle'/> : error ? (<p className='msg'>{error} please login</p>) :
+        loading ? <Skeleton type='circle'/> : error ? (<p className='msg'>Nothing Yet</p>) :
         (
             <div>
                 <div className='main_container_'>
@@ -80,87 +80,99 @@ const Orders = () => {
                                 <AiOutlineDropbox className='icon' />
                                 Your Orders History
                             </h2>
-                            <div className='big_screen'>   
-                                <div className='orderHead'>
-                                    <p>Order ID</p>
-                                    <p>Date</p>
-                                    <p>Total</p>
-                                    <p>Paid</p>
-                                    <p>Delivered</p>
-                                    <p>Action</p>
-                                </div>
-                                <div className='history'>
-                                    {orders.map((order) => (
-                                        <div className='order_' key={order._id}>
-                                            <p>{order._id}</p>
-                                            <p>{order.createdAt.substring(0, 10)}</p>
-                                            <p>${order.totalPrice.toFixed(2)}</p>
-                                            {order.isPaid ? (
-                                                <p className="_success_ _Info_">
-                                                    Paid at {order.paidAt.substring(0, 10)}
-                                                </p>
-                                                ) : (
-                                                    <p className="_danger_ _Info_">Not Paid</p>
-                                                )
-                                            }
-                                            {order.isDelivered ? (
-                                                    <p className="_success_ _Info_">
-                                                        Delivered at {order.deliveredAt.substring(0, 10)}
-                                                    </p>
-                                                ) : order.isPaid ? (
-                                                    <p className="_pending_ _Info_">Pending</p>
-                                                ) : (
-                                                    <p className="_danger_ _Info_">Not Yet</p>
-                                                )
-                                            }
-                                            <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
-                                                <BsFillEyeFill className='eye'/>
-                                            </p>
+                                <div className='big_screen'>
+                                {orders?.length <= 0 ? (<p>Nothing Yet</p>) : (
+                                    <>
+                                        <div className='orderHead'>
+                                            <p>Order ID</p>
+                                            <p>Date</p>
+                                            <p>Total</p>
+                                            <p>Paid</p>
+                                            <p>Delivered</p>
+                                            <p>Action</p>
                                         </div>
-                                    ))}
-                                </div>   
+                                        <div className='history'>
+                                            {orders?.map((order) => (
+                                                <div className='order_' key={order._id}>
+                                                    <p>{order?._id}</p>
+                                                    <p>{order?.createdAt.substring(0, 10)}</p>
+                                                    <p>${order.totalPrice.toFixed(2)}</p>
+                                                    {order?.isPaid ? (
+                                                        <p className="_success_ _Info_">
+                                                            Paid at {order.paidAt.substring(0, 10)}
+                                                        </p>
+                                                        ) : (
+                                                            <p className="_danger_ _Info_">Not Paid</p>
+                                                        )
+                                                    }
+                                                    {order?.isDelivered ? (
+                                                            <p className="_success_ _Info_">
+                                                                Delivered at {order.deliveredAt.substring(0, 10)}
+                                                            </p>
+                                                        ) : order.isPaid ? (
+                                                            <p className="_pending_ _Info_">Pending</p>
+                                                        ) : (
+                                                            <p className="_danger_ _Info_">Not Yet</p>
+                                                        )
+                                                    }
+                                                    <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
+                                                        <BsFillEyeFill className='eye'/>
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>  
+                                    </>    
+                                )}
                             </div>  
                                 
-                            <div className='tablet_screen'>   
-                                <div className='orderHead'>
-                                    <p>Order ID</p>
-                                    <p>Date</p>
-                                    <p>Total</p>
-                                    <p>Action</p>
-                                </div>
-                                <div className='history'>
-                                    {orders.map((order) => (
-                                        <div className='order_' key={order._id}>
-                                            <p>{order._id.length >= 10 ? `${order._id.substring(0, 15)}...` : order._id}</p>
-                                            <p>{order.createdAt.substring(0, 10)}</p>
-                                            <p>${order.totalPrice.toFixed(2)}</p>
-                                            
-                                            <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
-                                                <BsFillEyeFill className='eye'/>
-                                            </p>
+                            <div className='tablet_screen'> 
+                                {orders?.length <= 0 ? (<p>Nothing Yet</p>) : (
+                                    <>
+                                        <div className='orderHead'>
+                                            <p>Order ID</p>
+                                            <p>Date</p>
+                                            <p>Total</p>
+                                            <p>Action</p>
                                         </div>
-                                    ))}
-                                </div>   
+                                        <div className='history'>
+                                            {orders?.map((order) => (
+                                                <div className='order_' key={order._id}>
+                                                    <p>{order._id.length >= 10 ? `${order._id.substring(0, 15)}...` : order._id}</p>
+                                                    <p>{order.createdAt.substring(0, 10)}</p>
+                                                    <p>${order.totalPrice.toFixed(2)}</p>
+                                                
+                                                    <p onClick={() => { navigate(`/order/${order._id}`); }} className='view'>
+                                                        <BsFillEyeFill className='eye' />
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}        
                             </div>
 
-                            <div className='mobile_screen'>   
-                                <div className='orderHead'>
-                                    <p>Order ID</p>
-                                    <p>Date</p>
-                                    <p>Action</p>
-                                </div>
-                                <div className='history'>
-                                    {orders.map((order) => (
-                                        <div className='order_' key={order._id}>
-                                            <p>{order._id.length >= 15 ? `${order._id.substring(0, 15)}...` : order._id}</p>
-                                            <p>{order.createdAt.substring(0, 10)}</p>
-                                            
-                                            <p onClick={() => {navigate(`/order/${order._id}`);}} className='view'>
-                                                <BsFillEyeFill className='eye'/>
-                                            </p>
+                            <div className='mobile_screen'>  
+                                {orders?.length <= 0 ? (<p>Nothing Yet</p>) : (
+                                    <>
+                                        <div className='orderHead'>
+                                            <p>Order ID</p>
+                                            <p>Date</p>
+                                            <p>Action</p>
                                         </div>
-                                    ))}
-                                </div>   
+                                        <div className='history'>
+                                            {orders.map((order) => (
+                                                <div className='order_' key={order._id}>
+                                                    <p>{order._id.length >= 15 ? `${order._id.substring(0, 15)}...` : order._id}</p>
+                                                    <p>{order.createdAt.substring(0, 10)}</p>
+                                                
+                                                    <p onClick={() => { navigate(`/order/${order._id}`); }} className='view'>
+                                                        <BsFillEyeFill className='eye' />
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}    
                             </div> 
 
                             <div className='pagination_orderHistory'>

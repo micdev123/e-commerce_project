@@ -33,7 +33,7 @@ const reducer = (state, action) => {
 const Products = () => {
     // React Hook State
     // const [products, setProducts] = useState([]);
-    const [{ isLoading, error, products }, dispatch] = useReducer(logger(reducer), initialState); // instead of useState()
+    const [{ isLoading, error, products }, dispatch] = useReducer(reducer, initialState); // instead of useState()
     useEffect(() => {
         // fetch products from backend :: Ajax request
         const fetchProducts = async () => {

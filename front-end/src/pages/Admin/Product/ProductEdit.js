@@ -51,7 +51,7 @@ const ProductEdit = () => {
     const { userInfo } = state;
 
     const [inputs, setInputs] = useState({});
-    const [img, setImg] = useState({});
+    const [img, setImg] = useState('');
     const [product_, setProducts] = useState({});
     
     const handleChange = (e) => {
@@ -77,40 +77,45 @@ const ProductEdit = () => {
         fetchData();
     }, [setProducts, productId]);
 
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
-        const img_name = new Date().getTime() + img.name;
-        const storage = getStorage(app);
-        const storageRef = ref(storage, img_name);
+        if(img) {
+            const img_name = new Date().getTime() + img.name;
+            const storage = getStorage(app);
+            const storageRef = ref(storage, img_name);
 
-        const uploadTask = uploadBytesResumable(storageRef, img);
+            const uploadTask = uploadBytesResumable(storageRef, img);
 
-        uploadTask.on('state_changed', (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploadTask.on('state_changed', (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-            console.log('Upload is ' + progress + '% done');
+                console.log('Upload is ' + progress + '% done');
 
-            switch (snapshot.state) {
-                case 'paused':
-                    console.log('Upload is paused');
-                    break;
-                case 'running':
-                    console.log('Upload is running');
-                    break;
-                default:
-                    
-            }
-            }, 
-            (error) => {
-                // Handle unsuccessful uploads
-            }, 
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    const updateProduct = { ...inputs, img: downloadURL };
-                    update(updateProduct);
-                });
-            }
-        )
+                switch (snapshot.state) {
+                    case 'paused':
+                        console.log('Upload is paused');
+                        break;
+                    case 'running':
+                        console.log('Upload is running');
+                        break;
+                    default:
+                        
+                }
+                }, 
+                (error) => {
+                    // Handle unsuccessful uploads
+                }, 
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        const updateProduct = { ...inputs, img: downloadURL };
+                        update(updateProduct);
+                    });
+                }
+            )
+        } else {
+            const updateProduct = { ...inputs };
+            update(updateProduct);
+        }
     };
 
     const update = async (updateProduct) => {
@@ -155,23 +160,23 @@ const ProductEdit = () => {
                             </h2>
                             <form className='product_edit_form' onSubmit={submitHandler}>
                                 {/* {msg && (<p className='msg'>{msg}</p>)} */}
-                                <input type='text' name='title' value={product_.title} required onChange={handleChange} />
+                                <input type='text' name='title' value={inputs.title} required onChange={handleChange} />
 
-                                <input type='text' name='desc' value={product_.desc} required onChange={handleChange} />
+                                <input type='text' name='desc' value={inputs.desc} required onChange={handleChange} />
 
-                                <input type='text' name='price' value={product_.price} required onChange={handleChange} />
+                                <input type='text' name='price' value={inputs.price} required onChange={handleChange} />
 
-                                <input type='text' name='category' value={product_.category} required onChange={handleChange} />
+                                <input type='text' name='category' value={inputs.category} required onChange={handleChange} />
 
-                                <input type='text' name='rating' value={product_.rating} required onChange={handleChange} />
+                                <input type='text' name='rating' value={inputs.rating} required onChange={handleChange} />
                                 
-                                <input type='text' name='countInStock' value={product_.countInStock} required onChange={handleChange} />
+                                <input type='text' name='countInStock' value={inputs.countInStock} required onChange={handleChange} />
 
                                 <div className="productUpload">
                                     <div className='uploadImg'>
-                                        <img src={product_.img} alt="" />
+                                        <img src={inputs.img} alt="" />
                                     </div>
-                                    <label for="file">
+                                    <label htmlFor="file">
                                         <Publish className='icon' />
                                     </label>
                                     <input type="file" id="file" onChange={(e) => setImg(e.target.files[0])} style={{ display: "none" }} />

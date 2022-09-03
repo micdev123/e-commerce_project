@@ -94,7 +94,7 @@
     }
 
     .Orders_container h2 {
-        font-size: 1.9rem;
+        font-size: 1.5rem;
         /* margin-bottom: 1rem; */
         border-bottom: 2px solid #eeeeee;
     }
@@ -118,12 +118,12 @@
     }
 
     .history .order_ p {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
         font-weight: normal;
     }
 
     .pagination_orderHistory .link {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
 }
@@ -139,7 +139,7 @@
     }
 
     .Orders_container h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         /* margin-bottom: 1rem; */
         border-bottom: 1px solid #eeeeee;
     }
@@ -165,11 +165,11 @@
     }
 
     .history .order_ p {
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: normal;
     }
 
     .pagination_orderHistory .link {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }   
 }

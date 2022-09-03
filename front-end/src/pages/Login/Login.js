@@ -72,9 +72,9 @@ const Login = () => {
                 <form onSubmit={submitHandler} className='auth_form'>
                     {msg && (<p className='msg'>{msg}</p>)}
                     <h2 className='head'>Login To Your Account</h2>
-                    <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} />
+                    <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} className='input' />
                     <div className='Password'>
-                        <input type={type} name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} />
+                        <input type={type} name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} className='input' />
                         <span onClick={handleToggle} className='ShowPassword'><Icon icon={icon} /></span>
                     </div>
                     <button type='submit' id='signin' className='auth_btn'>Login</button>

@@ -73,17 +73,17 @@
     }
 
     .update_form h2 {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .update_form input {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         border-bottom: 2px solid #545353;
     }
 
     .update_form #update {
-        padding: 8px 0;
-        font-size: 1.7rem;
+        padding: 7px 0;
+        font-size: 1.3rem;
     }
 
 }
@@ -100,17 +100,17 @@
     
 
     .update_form h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
     .update_form input {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         border-bottom: 2px solid #545353;
     }
 
     .update_form #update {
-        padding: 8px 0;
-        font-size: 1.4rem;
+        padding: 7px 0;
+        font-size: 1.1rem;
     }
 
 }

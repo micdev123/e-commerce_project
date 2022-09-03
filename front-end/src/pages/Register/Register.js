@@ -81,16 +81,16 @@ const Register = () => {
         <form className='auth_form' onSubmit={submitHandler}>
           {msg && (<p className='msg'>{msg}</p>)}
           <h2>Create An Account</h2>
-          <input type='text' name='name' placeholder='Enter name' required onChange={(e) => setUsername(e.target.value)} />
+          <input type='text' name='name' placeholder='Enter name' required onChange={(e) => setUsername(e.target.value)} className='input' />
           <input type='email' name='email' placeholder='Enter email'
-            required onChange={(e) => setEmail(e.target.value)} />
+            required onChange={(e) => setEmail(e.target.value)} className='input' />
           <div className='Password'>
             <input type={type} name='password' placeholder='Enter password'
-              required onChange={(e) => setPassword(e.target.value)} />
+              required onChange={(e) => setPassword(e.target.value)} className='input' />
             <span onClick={handleToggle} className='ShowPassword'><Icon icon={icon} /></span>
           </div>
           <input type='password' name='confirm_password' placeholder='confirm password'
-            required onChange={(e) => setConfirmPassword(e.target.value)} />
+            required onChange={(e) => setConfirmPassword(e.target.value)} className='input' />
           <button type='submit' id='signup' className='auth_btn'>Sign-Up</button>
           <p className='caution'>By creating an account you agree to E-commerce conditions of use and sale. </p>
           <button className='info'>
